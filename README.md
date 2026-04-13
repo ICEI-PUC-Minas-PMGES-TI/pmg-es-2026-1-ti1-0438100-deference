@@ -20,7 +20,7 @@ Além disso, o projeto pretende garantir maior confiabilidade no processo, permi
 
 ## Contexto
 
-# Problema
+### Problema
 
 A distribuição de auxílios em áreas de extrema pobreza apresenta falhas relacionadas à falta de transparência, organização e conexão entre os envolvidos, como doadores, organizações sociais e beneficiários. Essas dificuldades comprometem a efetividade das ações, fazendo com que recursos nem sempre cheguem a quem realmente necessita, além de favorecerem problemas como má gestão, fraudes e ausência de critérios claros. Soma-se a isso a desconfiança dos doadores e as limitações de acesso à tecnologia por parte dos beneficiários, configurando um cenário fragmentado, com baixa integração e alta complexidade na gestão dos recursos.
 
