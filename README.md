@@ -24,15 +24,15 @@ Além disso, o projeto pretende garantir maior confiabilidade no processo, permi
 
 A distribuição de auxílios em áreas de extrema pobreza apresenta falhas relacionadas à falta de transparência, organização e conexão entre os envolvidos, como doadores, organizações sociais e beneficiários. Essas dificuldades comprometem a efetividade das ações, fazendo com que recursos nem sempre cheguem a quem realmente necessita, além de favorecerem problemas como má gestão, fraudes e ausência de critérios claros. Soma-se a isso a desconfiança dos doadores e as limitações de acesso à tecnologia por parte dos beneficiários, configurando um cenário fragmentado, com baixa integração e alta complexidade na gestão dos recursos.
 
-Objetivo do Projeto
+### Objetivo do Projeto
 
 O objetivo geral deste trabalho é desenvolver um software voltado à melhoria do processo de distribuição de auxílios em áreas de extrema pobreza. Como objetivos específicos, busca-se analisar os desafios enfrentados pelos envolvidos no processo, investigar formas de organização e gerenciamento das informações, examinar alternativas para acompanhamento das ações e considerar aspectos de acessibilidade, levando em conta as limitações tecnológicas dos beneficiários.
 
-Justificativa
+### Justificativa
 
 A escolha do tema se justifica pela relevância social do problema e pelo impacto direto que falhas na distribuição de auxílios causam na efetividade das ações sociais. A falta de transparência, organização e comunicação entre os envolvidos contribui para a desconfiança dos doadores e para a ineficiência no uso dos recursos. Dessa forma, torna-se importante aprofundar a compreensão desses fatores, utilizando dados, pesquisas e análises, a fim de evidenciar as limitações existentes nesse contexto.
 
-Público-alvo
+### Público-alvo
 
 O público-alvo do projeto é composto por doadores, organizações sociais, promotores de ações solidárias e beneficiários. Os doadores, em geral, possuem maior familiaridade com tecnologia, enquanto as organizações apresentam níveis variados de conhecimento e estrutura hierárquica. Já os beneficiários podem ter acesso limitado a dispositivos e à internet, além de menor familiaridade com ferramentas digitais. Essa diversidade de perfis evidencia a complexidade das relações entre os envolvidos e as dificuldades presentes no processo de distribuição de auxílios.
 
