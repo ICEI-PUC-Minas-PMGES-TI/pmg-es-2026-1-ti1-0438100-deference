@@ -36,6 +36,34 @@ A escolha do tema se justifica pela relevância social do problema e pelo impact
 
 O público-alvo do projeto é composto por doadores, organizações sociais, promotores de ações solidárias e beneficiários. Os doadores, em geral, possuem maior familiaridade com tecnologia, enquanto as organizações apresentam níveis variados de conhecimento e estrutura hierárquica. Já os beneficiários podem ter acesso limitado a dispositivos e à internet, além de menor familiaridade com ferramentas digitais. Essa diversidade de perfis evidencia a complexidade das relações entre os envolvidos e as dificuldades presentes no processo de distribuição de auxílios.
 
+## Processo de Product Discovery
+
+### Matriz CSD e Mapa de Stakeholders
+
+![Matriz CSD e Mapa de Stakeholders](images/CSDeStakeholders.jpg)
+
+### Pesquisa e entendimento do problema
+
+A análise de dados e estudos sobre o contexto social brasileiro evidencia que, apesar da expressiva participação da população em ações solidárias, ainda existem limitações relevantes na efetividade da distribuição de auxílios.
+De acordo com pesquisas recentes, o Brasil apresenta um volume significativo de doações, com bilhões de reais movimentados anualmente e grande parte da população adulta envolvida em algum tipo de contribuição. Esse cenário demonstra que há disponibilidade de recursos e interesse social em apoiar pessoas em situação de vulnerabilidade.
+Por outro lado, o país também possui um número elevado de organizações da sociedade civil atuando na intermediação dessas doações. Embora isso amplie o alcance das ações sociais, também aumenta a complexidade na gestão, no controle e na verificação da destinação dos recursos.
+Outro aspecto identificado em estudos é a questão da confiança. Parte dos doadores demonstra preocupação com a transparência das organizações, buscando informações antes de contribuir e, em alguns casos, deixando de doar devido a percepções negativas ou falta de clareza sobre o uso dos recursos.
+Além disso, a existência de uma parcela significativa da população em situação de vulnerabilidade social mantém alta a demanda por auxílios, o que exige maior eficiência nos processos de distribuição. Paralelamente, fatores como limitações de acesso à tecnologia por parte de alguns beneficiários também influenciam a forma como esses auxílios são recebidos.
+Dessa forma, a pesquisa realizada reforça que o problema não está apenas na disponibilidade de recursos, mas principalmente na forma como esses recursos são organizados, gerenciados e distribuídos, evidenciando a complexidade do contexto analisado.
+
+### Personas e Propostas de Valor
+
+![Persona 1](images/Persona1.jpg)
+![Persona 2](images/Persona2.jpg)
+![Persona 3](images/Persona3.jpg)
+![Persona 4](images/Persona4.jpg)
+
+## Processo de Product Design
+
+### Histórias de usuários
+
+![Histórias de Usuário](images/HistoriasUsuarios.jpg)
+
 > **IMPORTANTE: APAGUE ESSA SEÇÃO DE INSTRUÇÕES ANTES DE ENTREGAR SEU TRABALHO**
 
 No desenvolvimento desse trabalho, o grupo deverá utilizar esse repositório como local para entrega de todos os artefatos a serem produzidos. Em especial, o grupo deverá providenciar a alteração dos seguintes arquivos:
