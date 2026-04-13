@@ -64,17 +64,64 @@ Dessa forma, a pesquisa realizada reforça que o problema não está apenas na d
 
 ![Histórias de Usuário](images/HistoriasUsuarios.jpg)
 
-> **IMPORTANTE: APAGUE ESSA SEÇÃO DE INSTRUÇÕES ANTES DE ENTREGAR SEU TRABALHO**
+## Projeto de Interface
 
-No desenvolvimento desse trabalho, o grupo deverá utilizar esse repositório como local para entrega de todos os artefatos a serem produzidos. Em especial, o grupo deverá providenciar a alteração dos seguintes arquivos:
+### Fluxo do usuário
 
-* **Capa do projeto** (Esse arquivo aqui): Informação básica sobre o projeto, alunos do grupo e professores responsáveis;
-* **Arquivo CITATION.cff**: descritor do projeto, utilizado para geração do certificado ao final da disciplina.
-* **Pasta código**: todos os arquivos resultantes da programação do software.
-* **Pasta docs --> arquivo README.md**: Documentação completa do projeto.
-* **Pasta video**: video de apresentação do projeto.
+![Fluxo do Usuário](images/fluxo.jpg)
 
-Toda a documentação do projeto é estruturada por meio da linguagem Markdown adotada pelo GitHub e por diversas outras plataformas. Aprenda Markdown e use para documentar o projeto:
+### Wireframes
 
-* [Sintaxe básica de gravação e formatação no GitHub - GitHub Docs](https://docs.github.com/pt/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
-* [Markdown® Básico: Sintaxe, Uso &amp; Exemplos [Passo a Passo]](https://markdown.net.br/sintaxe-basica/)
+![Wireframe](images/wireframe1.jpg)
+![Wireframe](images/wireframe2.jpg)
+![Wireframe](images/wireframe3.jpg)
+![Wireframe](images/wireframe4.jpg)
+![Wireframe](images/wireframe5.jpg)
+![Wireframe](images/wireframe6.jpg)
+![Wireframe](images/wireframe7.jpg)
+
+### Protótipo Interativo (Link)
+
+https://www.figma.com/make/fIm3AxWslWkKpT7ASw6uK3/Trabalho-Interdisciplinar
+
+## Metodologia
+
+### Ferramentas
+
+Visual Studio Code
+O Visual Studio Code foi utilizado como editor de código principal devido à sua leveza, alta performance e grande variedade de extensões. Essas extensões permitem suporte a diversas linguagens de programação, além de facilitar tarefas como depuração, versionamento e formatação de código. Outro ponto importante é sua integração nativa com o GitHub, o que otimiza o fluxo de desenvolvimento.
+
+WhatsApp e Discord
+As ferramentas de comunicação escolhidas foram o WhatsApp e o Discord.
+O WhatsApp foi utilizado para comunicações rápidas e alinhamentos do dia a dia, devido à sua praticidade e ampla utilização.
+Já o Discord foi utilizado para reuniões, discussões mais detalhadas e compartilhamento de tela, permitindo uma comunicação mais estruturada entre os membros da equipe.
+
+Miro
+O Miro foi utilizado como ferramenta de colaboração visual, especialmente nas etapas de Product Discovery e Product Design. Ele possibilita a criação de matriz CSD, mapa de stakeholders, fluxos de usuário e wireframes de forma intuitiva e colaborativa em tempo real, facilitando o alinhamento das ideias entre os integrantes do grupo.
+
+GitHub
+O GitHub foi utilizado como plataforma de versionamento de código e gerenciamento do projeto. Ele permite o controle de versões, colaboração entre os membros por meio de commits e pull requests, além de servir como repositório central do projeto.
+
+### Organização da equipe e divisão de papéis
+
+Product Owner (PO): Frederico Marques
+Scrum Master: Luiz Felipe
+Time de Desenvolvimento: Todos os integrantes da equipe
+
+## Referências Bibliográficas
+
+Instituto para o Desenvolvimento do Investimento Social (IDIS). Pesquisa Doação Brasil 2024. Disponível em: https://www.idis.org.br/publicacoesidis/pesquisa-doacao-brasil-2024/
+. Acesso em: abr. 2026.
+Instituto de Pesquisa Econômica Aplicada (IPEA). Mapa das Organizações da Sociedade Civil no Brasil. Disponível em: https://mapaosc.ipea.gov.br/
+. Acesso em: abr. 2026.
+Ministério do Desenvolvimento e Assistência Social. Dados sobre pobreza e programas sociais no Brasil. Disponível em: https://www.gov.br/mds/
+. Acesso em: abr. 2026.
+Banco Mundial. Poverty and Shared Prosperity Report. Disponível em: https://www.worldbank.org/
+. Acesso em: abr. 2026.
+Organização das Nações Unidas (ONU). Relatórios sobre pobreza e desigualdade social. Disponível em: https://www.un.org/
+. Acesso em: abr. 2026.
+DRUCKER, Peter F. Administração de Organizações Sem Fins Lucrativos: Princípios e Práticas. São Paulo: Pioneira, 1994.
+KOTLER, Philip; LEE, Nancy. Marketing no Setor Público. Porto Alegre: Bookman, 2008.
+LAUDON, Kenneth C.; LAUDON, Jane P. Sistemas de Informação Gerenciais. São Paulo: Pearson, 2014.
+PRESSMAN, Roger S. Engenharia de Software: Uma Abordagem Profissional. Porto Alegre: AMGH, 2016.
+SOMMERVILLE, Ian. Engenharia de Software. São Paulo: Pearson, 2019.
