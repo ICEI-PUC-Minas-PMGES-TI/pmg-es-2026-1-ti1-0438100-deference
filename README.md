@@ -1,22 +1,26 @@
 # Solidariza
 
-Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
+O objetivo deste projeto é desenvolver uma solução que torne a distribuição de auxílios em áreas de extrema pobreza mais eficiente, transparente e organizada. A proposta busca conectar doadores, promotores e beneficiários em uma única plataforma, facilitando a comunicação, o gerenciamento de recursos e o direcionamento das doações.
+Além disso, o projeto pretende garantir maior confiabilidade no processo, permitindo o acompanhamento das doações e assegurando que os recursos cheguem a quem realmente precisa, aumentando o impacto social das iniciativas.
 
 ## Alunos integrantes da equipe
 
 * Frederico Marcos de Paula Marques
+* Lucas Dutra Figueiredo
+* Luiz Felipe Gibim Borges
+* Pedro Henrique Rocha
 * Alissa Aguiar Fernandes
 * Eduardo Andrade Gimenes
-* Pedro Henrique Rocha
 
-## Professores responsáveis
+## Professore(s) responsável(is)
 
-* Nome completo do professor 1
-* Nome completo do professor 2
+* Diego
+* Lucca
+* Henrique
+
+## Contexto
 
 
-
-## Instruções de utilização 
 
 > **IMPORTANTE: APAGUE ESSA SEÇÃO DE INSTRUÇÕES ANTES DE ENTREGAR SEU TRABALHO**
 
