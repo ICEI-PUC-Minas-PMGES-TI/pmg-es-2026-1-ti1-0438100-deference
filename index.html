@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f8f9fa; margin: 0; padding: 40px; }
+        
+        #cabecalho-principal { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+        .grupo-titulo h1 { margin: 0; font-size: 28px; color: #333; }
+        .grupo-titulo p { color: #666; margin: 5px 0; }
+        .botao-criar { background-color: #2e7d32; color: white; padding: 10px 20px; border-radius: 6px; border: none; font-weight: bold; cursor: pointer; }
+
+        .barra-busca { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+
+        #container-filtros { display: flex; gap: 10px; margin-bottom: 30px; }
+        .botao-filtro { padding: 8px 20px; border-radius: 20px; border: 1px solid #ddd; background: white; cursor: pointer; }
+        .botao-filtro.ativo { background: #2e7d32; color: white; border-color: #2e7d32; }
+
+        /* O GRID controla o lado a lado */
+        #grade-campanhas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        
+        .cartao { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); padding: 20px; }
+        .imagem-cartao { background: #ddd; height: 180px; margin: -20px -20px 20px -20px; }
+        .etiqueta { background: white; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: bold; display: inline-block; margin-bottom: 10px; border: 1px solid #ddd; }
+        
+        .cartao h3 { margin: 10px 0; color: #333; }
+        .cartao p { color: #777; font-size: 14px; margin-bottom: 20px; }
+        
+        .cabecalho-estatisticas { display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 5px; }
+        .fundo-progresso { background: #eee; height: 8px; border-radius: 4px; margin-bottom: 5px; }
+        .preenchimento-progresso { background: #2e7d32; height: 100%; border-radius: 4px; }
+        .meta-valor { color: #888; font-size: 13px; margin-bottom: 15px; }
+        .beneficiarios { border-top: 1px solid #eee; padding-top: 15px; color: #555; font-size: 13px; }
+    </style>
+</head>
+<body>
+
+    <header id="cabecalho-principal">
+        <div id="grupo-titulo" class="grupo-titulo">
+            <h1>Todas as campanhas</h1>
+            <p>Encontre a causa que mais combina com você</p>
+        </div>
+        <button id="botao-criar" class="botao-criar">+ Criar Campanha</button>
+    </header>
+
+    <input type="text" id="campo-busca" class="barra-busca" placeholder="🔍 Buscar por nome ou descrição...">
+
+    <div id="container-filtros">
+        <button id="btn-todas" class="botao-filtro ativo">Todas</button>
+        <button id="btn-alimentacao" class="botao-filtro">Alimentação</button>
+        <button id="btn-saude" class="botao-filtro">Saúde</button>
+    </div>
+
+    <main id="grade-campanhas">
+        
+        <div class="cartao">
+            <div class="imagem-cartao"></div>
+            <span class="etiqueta">Saúde</span>
+            <h3>Fundo de Ajuda Médica</h3>
+            <p>Apoio médico e medicamentos para pessoas sem recursos</p>
+            <div class="cabecalho-estatisticas"><span>R$ 5 000</span> <span>33%</span></div>
+            <div class="fundo-progresso"><div class="preenchimento-progresso" style="width: 33%;"></div></div>
+            <div class="meta-valor">Meta: R$ 15 000</div>
+            <div class="beneficiarios">👤 75 beneficiários</div>
+        </div>
+
+        <div class="cartao">
+            <div class="imagem-cartao"></div>
+            <span class="etiqueta">saude</span>
+            <h3>Projeto Água Limpa</h3>
+            <p>Acesso a água potavel para comunidade rurais</p>
+            <div class="cabecalho-estatisticas"><span>R$ 15 000</span> <span>75%</span></div>
+            <div class="fundo-progresso"><div class="preenchimento-progresso" style="width: 50%;"></div></div>
+            <div class="meta-valor">Meta: R$ 20 000</div>
+            <div class="beneficiarios">👤 200 beneficiários</div>
+        </div>
+ <div class="cartao">
+            <div class="imagem-cartao"></div>
+            <span class="etiqueta">Alimentação</span>
+            <h3>Cestas Basicas de Emergência</h3>
+            <p>Distribuição de alimento essenciais para a familia em situação de vulnerabilidade</p>
+            <div class="cabecalho-estatisticas"><span>R$ 7 500</span> <span>75%</span></div>
+            <div class="fundo-progresso"><div class="preenchimento-progresso" style="width: 50%;"></div></div>
+            <div class="meta-valor">Meta: R$ 10 000</div>
+            <div class="beneficiarios">👤 200 beneficiários</div>
+        </div>
+
+    </main>
+
+</body>
+</html>
