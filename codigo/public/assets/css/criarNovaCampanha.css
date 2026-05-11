@@ -1,3 +1,83 @@
+/* reset básico */
 * {
     box-sizing: border-box;
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* estilos gerais do body */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.9375rem;
+    color: #1a1a1a;
+    background-color: #f3f4f6;
+}
+
+/* NAVBAR */
+
+.navbar {
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* ícone verde da marca */
+.icone-marca {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    background-color: #2e7d32;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.icone-marca i {
+    font-size: 0.9rem;
+}
+
+/* versão menor do ícone pra usar no rodapé */
+.icone-marca-pequeno {
+    width: 30px;
+    height: 30px;
+}
+
+.icone-marca-pequeno i {
+    font-size: 0.8rem;
+}
+
+.nome-marca {
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    letter-spacing: -0.01em;
+}
+
+/* links do menu */
+.texto-nav {
+    color: #374151 !important;
+    font-size: 0.9375rem;
+    font-weight: 400;
+}
+
+.texto-nav:hover {
+    color: #2e7d32 !important;
+}
+
+/* botão de sair laranja */
+.botao-sair {
+    background-color: #e8652a;
+    color: #fff !important;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.botao-sair:hover {
+    background-color: #d4561f;
+    color: #fff !important;
 }
