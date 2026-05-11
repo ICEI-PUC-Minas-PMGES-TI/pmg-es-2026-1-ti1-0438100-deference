@@ -297,3 +297,33 @@ body {
     border-top: 1px solid #e9ecef;
     padding-top: 1rem;
 }
+
+/* RESPONSIVIDADE */
+
+/* tablet */
+@media (max-width: 767.98px) {
+    .titulo-formulario {
+        font-size: 1.35rem;
+    }
+
+    .slogan-rodape {
+        max-width: 100%;
+    }
+}
+
+/* celular */
+@media (max-width: 575.98px) {
+    .cartao-formulario {
+        border-radius: 8px;
+    }
+
+    .botao-enviar,
+    .botao-cancelar {
+        width: 100%;
+    }
+
+    .navbar .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
