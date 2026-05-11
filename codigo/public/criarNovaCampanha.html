@@ -60,6 +60,137 @@
             </div>
         </nav>
     </header>
+
+    <!-- MAIN -->
+    <main class="fundo-principal py-4 py-lg-5">
+        <div class="container">
+
+            <!-- link voltar -->
+            <a href="#" class="link-voltar d-inline-flex align-items-center gap-1 mb-4">
+                <i class="bi bi-arrow-left"></i>
+                <span>Voltar para Campanhas</span>
+            </a>
+
+            <!-- card do formulário -->
+            <section class="cartao-formulario">
+                <article>
+
+                    <!-- cabeçalho do card -->
+                    <div class="mb-4">
+                        <h1 class="titulo-formulario mb-1">Criar Nova Campanha</h1>
+                        <p class="subtitulo-formulario mb-0">Preencha os detalhes para iniciar sua campanha de ajuda</p>
+                    </div>
+
+                    <!-- FORMULÁRIO -->
+                    <div>
+
+                        <!-- Título da Campanha -->
+                        <div class="mb-4">
+                            <label class="label-campo" for="campanhaTitulo">Título da Campanha</label>
+                            <input type="text" id="campanhaTitulo" class="form-control campo-input"
+                                placeholder="Ex: Cestas Básicas de Emergência" />
+                        </div>
+
+                        <!-- Categoria -->
+                        <div class="mb-4">
+                            <label class="label-campo" for="campanhaCategoria">Categoria</label>
+                            <select id="campanhaCategoria" class="form-select campo-input">
+                                <option value="" disabled selected>Selecione uma categoria...</option>
+                                <option>Alimentação</option>
+                                <option>Saúde</option>
+                                <option>Educação</option>
+                                <option>Moradia</option>
+                                <option>Meio Ambiente</option>
+                            </select>
+                        </div>
+
+                        <!-- Descrição -->
+                        <div class="mb-4">
+                            <label class="label-campo" for="campanhaDescricao">Descrição</label>
+                            <textarea id="campanhaDescricao" class="form-control campo-input area-texto"
+                                placeholder="Descreva o objetivo da sua campanha e como os recursos serão utilizados..."></textarea>
+                        </div>
+
+                        <!-- Meta + Beneficiários -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-12 col-md-6">
+                                <label class="label-campo" for="campanhaMeta">Meta de Arrecadação (R$)</label>
+                                <input type="number" id="campanhaMeta" class="form-control campo-input"
+                                    placeholder="10000" />
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="label-campo" for="campanhaBeneficiarios">Beneficiários Esperados</label>
+                                <input type="number" id="campanhaBeneficiarios" class="form-control campo-input"
+                                    placeholder="150" />
+                            </div>
+                        </div>
+
+                        <!-- Local/Região -->
+                        <div class="mb-4">
+                            <label class="label-campo" for="campanhaLocal">Local/Região</label>
+                            <input type="text" id="campanhaLocal" class="form-control campo-input"
+                                placeholder="Ex: Distrito Rural, Região A" />
+                        </div>
+
+                        <!-- Datas -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-12 col-md-6">
+                                <label class="label-campo" for="campanhaInicio">Data de Início</label>
+                                <input type="text" id="campanhaInicio" class="form-control campo-input"
+                                    placeholder="dd/mm/aaaa" />
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="label-campo" for="campanhaFim">Data de Término</label>
+                                <input type="text" id="campanhaFim" class="form-control campo-input"
+                                    placeholder="dd/mm/aaaa" />
+                            </div>
+                        </div>
+
+                        <!-- Nome da Organização -->
+                        <div class="mb-4">
+                            <label class="label-campo" for="campanhaOrg">Nome da Organização</label>
+                            <input type="text" id="campanhaOrg" class="form-control campo-input"
+                                placeholder="Nome da sua organização" />
+                        </div>
+
+                        <!-- E-mail -->
+                        <div class="mb-4">
+                            <label class="label-campo" for="campanhaEmail">E-mail para Contato</label>
+                            <input type="email" id="campanhaEmail" class="form-control campo-input"
+                                placeholder="contato@organizacao.org" />
+                        </div>
+
+                        <!-- Telefone -->
+                        <div class="mb-4">
+                            <label class="label-campo" for="campanhaTel">Telefone para Contato</label>
+                            <input type="tel" id="campanhaTel" class="form-control campo-input"
+                                placeholder="+55 11 98765-4321" />
+                        </div>
+
+                        <!-- Diretrizes -->
+                        <div class="caixa-diretrizes mb-4">
+                            <h6 class="titulo-diretrizes mb-2">Diretrizes da Campanha</h6>
+                            <ul class="lista-diretrizes mb-0">
+                                <li>Todas as campanhas devem ser verificadas antes de entrar no ar</li>
+                                <li>Forneça informações precisas e verdadeiras</li>
+                                <li>Os recursos devem ser usados apenas para os fins declarados</li>
+                                <li>Atualizações regulares de progresso são necessárias</li>
+                                <li>A revisão da campanha leva de 2 a 3 dias úteis</li>
+                            </ul>
+                        </div>
+
+                        <!-- Botões -->
+                        <div class="d-flex flex-column flex-sm-row gap-3">
+                            <button type="submit" class="btn botao-enviar flex-fill">Enviar Campanha</button>
+                            <button type="button" class="btn botao-cancelar flex-fill">Cancelar</button>
+                        </div>
+
+                    </div>
+
+                </article>
+            </section>
+        </div>
+    </main>
 </body>
 
 </html>
