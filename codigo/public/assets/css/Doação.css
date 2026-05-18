@@ -343,3 +343,7 @@ footer{
 
     color: #999;
 }
+
+#valorPersonalizado::-webkit-inner-spin-button{
+    display: none;
+}

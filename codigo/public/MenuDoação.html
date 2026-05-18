@@ -53,27 +53,26 @@
 </div>
 
       <label>Ou insira um valor personalizado</label>
-      <input type="text" placeholder="R$ 0,00">
+      <input type="number" id="valorPersonalizado" placeholder="R$ 0,00" min="0" step="0.01">
 
       <h3>Informações de Pagamento</h3>
 
       <label>Número do Cartão</label>
-      <input type="text" placeholder="0000 0000 0000 0000">
-
+      <input type="text" id="numeroCartao" placeholder="0000 0000 0000 0000">
       <div class="linha">
         <div>
           <label>Validade</label>
-          <input type="text" placeholder="MM/AA">
+          <input type="text" id="validadeCartao" placeholder="MM/AA">
         </div>
 
         <div>
           <label>CVV</label>
-          <input type="text" placeholder="123">
+          <input type="text" id="cvvCartao" placeholder="123">
         </div>
       </div>
 
       <label>Nome no Cartão</label>
-      <input type="text" placeholder="Maria Silva">
+      <input type="text" id="nomeCartao" placeholder="Maria Silva">
 
       <p class="seguro">
         🔒 Pagamento 100% seguro e criptografado
@@ -158,7 +157,7 @@
     </p>
 
   </footer>
-  
+
   <script src="script.js"></script>
 
 </body>
