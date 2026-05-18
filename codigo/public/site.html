@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/site.css">
+    <title>Plataforma de Campanhas</title>
+</head>
+<body>
+
+    <nav id="menu-superior">
+        <div class="container-nav">
+            <div class="logo">
+                <span class="icone-coracao">♥</span>
+                <strong>Solidariza</strong>
+            </div>
+            <div class="links-navegacao">
+                <a href="#" class="ativo">Início</a>
+                <a href="#">Campanhas</a>
+                <a href="#">👤 Meu Perfil</a>
+                <button class="btn-sair">↪ Sair</button>
+            </div>
+        </div>
+    </nav>
+
+    <header id="cabecalho-principal">
+        <div class="grupo-titulo">
+            <h1>Todas as campanhas</h1>
+            <p>Encontre a causa que mais combina com você</p>
+        </div>
+        <button class="botao-criar" id="btnAbrirCriar">+ Criar Campanha</button>
+    </header>
+
+    <section id="painel-estatisticas">
+        <div class="card-estatistica">
+            <div class="icone-estatistica verde">📈</div>
+            <div class="info-estatistica">
+                <h2>R$ 48.500</h2>
+                <p>Total arrecadado</p>
+            </div>
+        </div>
+        <div class="card-estatistica">
+            <div class="icone-estatistica azul">👥</div>
+            <div class="info-estatistica">
+                <h2>945</h2>
+                <p>Pessoas ajudadas</p>
+            </div>
+        </div>
+        <div class="card-estatistica">
+            <div class="icone-estatistica laranja">♥</div>
+            <div class="info-estatistica">
+                <h2>6</h2>
+                <p>Campanhas ativas</p>
+            </div>
+        </div>
+    </section>
+
+    <input type="text" id="inputBusca" class="barra-busca" placeholder="🔍 Buscar por nome ou descrição...">
+
+    <div id="container-filtros">
+        <button class="botao-filtro ativo" data-filtro="todos">Todas</button>
+        <button class="botao-filtro" data-filtro="alimentacao">Alimentação</button>
+        <button class="botao-filtro" data-filtro="saude">Saúde</button>
+        <button class="botao-filtro" data-filtro="educacao">Educação</button>
+        <button class="botao-filtro" data-filtro="moradia">Moradia</button>
+        <button class="botao-filtro" data-filtro="vestuario">Vestuário</button>
+    </div>
+
+    <main id="grade-campanhas">
+        <div class="cartao" data-categoria="saude">
+            <div class="imagem-cartao"><img src="./assets/images/photo-1758691462321-9b6c98c40f7e.jpg" alt=""></div>
+            <span class="etiqueta">Saúde</span>
+            <h3>Fundo de Ajuda Médica</h3>
+            <p>Apoio médico e medicamentos para pessoas sem recursos</p>
+            <div class="cabecalho-estatisticas">
+                <span class="valor-arrecadado" data-valor="5000"></span> 
+                <span class="porcentagem-texto">0%</span>
+            </div>
+            <div class="fundo-progresso"><div class="preenchimento-progresso"></div></div>
+            <div class="meta-valor" data-meta="15000"></div>
+            <div class="beneficiarios">👤 75 beneficiários</div>
+        </div>
+
+        <div class="cartao" data-categoria="saude">
+            <div class="imagem-cartao"><img src="./assets/images/photo-1758691462321-9b6c98c40f7e.jpg" alt=""></div>
+            <span class="etiqueta">Saúde</span>
+            <h3>Projeto Água Limpa</h3>
+            <p>Acesso a água potável para comunidades rurais</p>
+            <div class="cabecalho-estatisticas">
+                <span class="valor-arrecadado" data-valor="15000"></span> 
+                <span class="porcentagem-texto">0%</span>
+            </div>
+            <div class="fundo-progresso"><div class="preenchimento-progresso"></div></div>
+            <div class="meta-valor" data-meta="20000"></div>
+            <div class="beneficiarios">👤 200 beneficiários</div>
+        </div>
+
+        <div class="cartao" data-categoria="alimentacao">
+            <div class="imagem-cartao"><img src="./assets/images/photo-1593113630400-ea4288922497.jpg" alt=""></div>
+            <span class="etiqueta">Alimentação</span>
+            <h3>Cestas Básicas de Emergência</h3>
+            <p>Distribuição de alimentos essenciais para famílias</p>
+            <div class="cabecalho-estatisticas">
+                <span class="valor-arrecadado" data-valor="7500"></span> 
+                <span class="porcentagem-texto">0%</span>
+            </div>
+            <div class="fundo-progresso"><div class="preenchimento-progresso"></div></div>
+            <div class="meta-valor" data-meta="10000"></div>
+            <div class="beneficiarios">👤 200 beneficiários</div>
+        </div>
+
+        <div class="cartao" data-categoria="educacao">
+            <div class="imagem-cartao"><img src="./assets/images/photo-1581929207722-a3ac7efe8930.jpg" alt=""></div>
+            <span class="etiqueta">Educação</span>
+            <h3>Material Escolar</h3>
+            <p>Kits escolares completos para estudantes de baixa renda</p>
+            <div class="cabecalho-estatisticas">
+                <span class="valor-arrecadado" data-valor="3000"></span> 
+                <span class="porcentagem-texto">0%</span>
+            </div>
+            <div class="fundo-progresso"><div class="preenchimento-progresso"></div></div>
+            <div class="meta-valor" data-meta="8000"></div>
+            <div class="beneficiarios">👤 200 beneficiários</div>
+        </div>
+
+        <div class="cartao" data-categoria="moradia">
+            <div class="imagem-cartao"><img src="./assets/images/photo-1769028885299-c5c3503d6778.jpg" alt=""></div>
+            <span class="etiqueta">Moradia</span>
+            <h3>Reforma de Moradias</h3>
+            <p>Reformas emergenciais em casas de famílias carentes</p>
+            <div class="cabecalho-estatisticas">
+                <span class="valor-arrecadado" data-valor="12000"></span> 
+                <span class="porcentagem-texto">0%</span>
+            </div>
+            <div class="fundo-progresso"><div class="preenchimento-progresso"></div></div>
+            <div class="meta-valor" data-meta="25000"></div>
+            <div class="beneficiarios">👤 40 beneficiários</div>
+        </div>
+
+        <div class="cartao" data-categoria="vestuario">
+            <div class="imagem-cartao"><img src=".//assets/images/photo-1593113598332-cd288d649433.jpg" alt=""></div>
+            <span class="etiqueta">Vestuário</span>
+            <h3>Agasalhos de Inverno</h3>
+            <p>Roupas quentes para pessoas em situação de rua</p>
+            <div class="cabecalho-estatisticas">
+                <span class="valor-arrecadado" data-valor="6000"></span> 
+                <span class="porcentagem-texto">0%</span>
+            </div>
+            <div class="fundo-progresso"><div class="preenchimento-progresso"></div></div>
+            <div class="meta-valor" data-meta="10000"></div>
+            <div class="beneficiarios">👤 180 beneficiários</div>
+        </div>
+    </main>
+
+    <div class="modal-overlay" id="modalCriarCampanha">
+        <div class="modal-conteudo">
+            <h2>Criar Nova Campanha</h2>
+            <p class="subtitulo">Preencha os detalhes para iniciar sua campanha de ajuda</p>
+            
+            <form id="formNovaCampanha">
+                <div class="campo-formulario">
+                    <label for="titulo">Título da Campanha</label>
+                    <input type="text" id="titulo" placeholder="Ex: Cestas Básicas de Emergência" required>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="categoria">Categoria</label>
+                    <select id="categoria" required>
+                        <option value="" disabled selected>Selecione uma categoria...</option>
+                        <option value="alimentacao">Alimentação</option>
+                        <option value="saude">Saúde</option>
+                        <option value="educacao">Educação</option>
+                        <option value="moradia">Moradia</option>
+                        <option value="vestuario">Vestuário</option>
+                    </select>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="descricao">Descrição</label>
+                    <textarea id="descricao" placeholder="Descreva o objetivo da sua campanha..." required></textarea>
+                </div>
+
+                <div class="linha-dupla">
+                    <div class="campo-formulario">
+                        <label for="meta">Meta de Arrecadação (R$)</label>
+                        <input type="number" id="meta" placeholder="10000" min="1" required>
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="beneficiarios">Beneficiários Esperados</label>
+                        <input type="number" id="beneficiarios" placeholder="150" min="1" required>
+                    </div>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="local">Local/Região</label>
+                    <input type="text" id="local" placeholder="Ex: Bairro Centro, São Paulo - SP" required>
+                </div>
+
+                <div class="linha-dupla">
+                    <div class="campo-formulario">
+                        <label for="dataInicio">Data de Início</label>
+                        <input type="date" id="dataInicio" required>
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="dataTermino">Data de Término</label>
+                        <input type="date" id="dataTermino" required>
+                    </div>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="organizacao">Nome da Organização</label>
+                    <input type="text" id="organizacao" placeholder="Ex: Instituto Ajuda Próxima" required>
+                </div>
+
+                <div class="linha-dupla">
+                    <div class="campo-formulario">
+                        <label for="email">Email de Contato</label>
+                        <input type="email" id="email" placeholder="contato@ong.org" required>
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="telefone">Telefone de Contato</label>
+                        <input type="text" id="telefone" placeholder="(11) 99999-9999" required>
+                    </div>
+                </div>
+
+                <div class="diretrizes-container">
+                    <h3>Diretrizes da Campanha</h3>
+                    <ul>
+                        <li>Todas as campanhas devem ser verificadas antes de entrar no ar</li>
+                        <li>Forneça informações precisas e verdadeiras</li>
+                        <li>Os recursos devem ser usados apenas para os fins declarados</li>
+                        <li>Atualizações regulares de progresso são necessárias</li>
+                        <li>A revisão da campanha leva de 2 a 3 dias úteis</li>
+                    </ul>
+                </div>
+
+                <div class="botoes-acao">
+                    <button type="submit" class="btn-enviar">Enviar Campanha</button>
+                    <button type="button" class="btn-cancelar" id="btnCancelar">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
