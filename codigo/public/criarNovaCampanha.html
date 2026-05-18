@@ -82,7 +82,7 @@
                     </div>
 
                     <!-- FORMULÁRIO -->
-                    <div>
+                    <form id="formCriarCampanha" novalidate>
 
                         <!-- Título da Campanha -->
                         <div class="mb-4">
@@ -115,8 +115,8 @@
                         <div class="row g-3 mb-4">
                             <div class="col-12 col-md-6">
                                 <label class="label-campo" for="campanhaMeta">Meta de Arrecadação (R$)</label>
-                                <input type="number" id="campanhaMeta" class="form-control campo-input"
-                                    placeholder="10000" />
+                                <input type="text" id="campanhaMeta" class="form-control campo-input"
+                                    placeholder="1.000,00" />
                             </div>
                             <div class="col-12 col-md-6">
                                 <label class="label-campo" for="campanhaBeneficiarios">Beneficiários Esperados</label>
@@ -136,13 +136,11 @@
                         <div class="row g-3 mb-4">
                             <div class="col-12 col-md-6">
                                 <label class="label-campo" for="campanhaInicio">Data de Início</label>
-                                <input type="text" id="campanhaInicio" class="form-control campo-input"
-                                    placeholder="dd/mm/aaaa" />
+                                <input type="date" id="campanhaInicio" class="form-control campo-input" />
                             </div>
                             <div class="col-12 col-md-6">
                                 <label class="label-campo" for="campanhaFim">Data de Término</label>
-                                <input type="text" id="campanhaFim" class="form-control campo-input"
-                                    placeholder="dd/mm/aaaa" />
+                                <input type="date" id="campanhaFim" class="form-control campo-input" />
                             </div>
                         </div>
 
@@ -163,8 +161,8 @@
                         <!-- Telefone -->
                         <div class="mb-4">
                             <label class="label-campo" for="campanhaTel">Telefone para Contato</label>
-                            <input type="tel" id="campanhaTel" class="form-control campo-input"
-                                placeholder="+55 11 98765-4321" />
+                            <input type="text" id="campanhaTel" class="form-control campo-input"
+                                placeholder="(00) 99999-9999" />
                         </div>
 
                         <!-- Diretrizes -->
@@ -182,10 +180,10 @@
                         <!-- Botões -->
                         <div class="d-flex flex-column flex-sm-row gap-3">
                             <button type="submit" class="btn botao-enviar flex-fill">Enviar Campanha</button>
-                            <button type="button" class="btn botao-cancelar flex-fill">Cancelar</button>
+                            <button type="button" class="btn botao-cancelar flex-fill" id="btnCancelar">Cancelar</button>
                         </div>
 
-                    </div>
+                    </form>
 
                 </article>
             </section>
@@ -246,6 +244,7 @@
 
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/criarNovaCampanha.js"></script>
 </body>
 
 </html>
