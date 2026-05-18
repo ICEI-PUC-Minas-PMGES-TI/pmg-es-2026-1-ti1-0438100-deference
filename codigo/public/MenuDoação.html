@@ -41,13 +41,16 @@
       <h3>Escolha o valor da sua doação</h3>
 
       <div class="valores">
-        <button>R$ 10</button>
-        <button>R$ 25</button>
-        <button>R$ 50</button>
-        <button>R$ 100</button>
-        <button>R$ 250</button>
-        <button>R$ 500</button>
-      </div>
+
+    <button class="valor-btn">R$ 10</button>
+    <button class="valor-btn">R$ 25</button>
+    <button class="valor-btn">R$ 50</button>
+
+    <button class="valor-btn">R$ 100</button>
+    <button class="valor-btn">R$ 250</button>
+    <button class="valor-btn">R$ 500</button>
+
+</div>
 
       <label>Ou insira um valor personalizado</label>
       <input type="text" placeholder="R$ 0,00">
@@ -76,7 +79,7 @@
         🔒 Pagamento 100% seguro e criptografado
       </p>
 
-      <button class="confirmar">
+      <button class="confirmar" id="confirmarBtn">
         Confirmar Doação
       </button>
 
@@ -93,7 +96,7 @@
 
       <div class="info">
         <p>Valor da Doação:</p>
-        <span>R$ 0,00</span>
+        <span id="valorDoacao">R$ 0,00</span>
       </div>
 
       <div class="info">
@@ -105,7 +108,7 @@
 
       <div class="total">
         <h4>Total:</h4>
-        <span>R$ 0,00</span>
+        <span id="valorTotal">R$ 0,00</span>
       </div>
 
       <div class="caixa-verde">
@@ -155,6 +158,8 @@
     </p>
 
   </footer>
+  
+  <script src="script.js"></script>
 
 </body>
 </html>
