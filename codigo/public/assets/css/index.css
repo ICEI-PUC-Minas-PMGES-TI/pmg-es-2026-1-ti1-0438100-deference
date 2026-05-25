@@ -81,3 +81,47 @@ body {
     background-color: #256428;
     color: #fff !important;
 }
+
+/* BODY */
+
+/* FOOTER */
+
+.rodape-site {
+    background-color: #ffffff;
+    border-top: 1px solid #e9ecef;
+}
+
+.slogan-rodape {
+    font-size: 0.85rem;
+    color: #6b7280;
+    line-height: 1.6;
+    max-width: 320px;
+}
+
+.titulo-rodape {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.links-rodape li {
+    margin-bottom: 0.45rem;
+}
+
+.links-rodape a {
+    font-size: 0.875rem;
+    color: #6b7280;
+    text-decoration: none;
+    transition: color 0.15s;
+}
+
+.links-rodape a:hover {
+    color: #2e7d32;
+}
+
+.copyright-rodape {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    border-top: 1px solid #e9ecef;
+    padding-top: 1rem;
+}
