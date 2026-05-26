@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Meu Perfil</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/usuario.css">
+
+  <!-- Fonte -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Ícones -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+
+    <div class="logo">
+      <div class="logo-icon">
+        <i class="fa-solid fa-heart"></i>
+      </div>
+
+      Solidiriza
+    </div>
+
+    <nav class="nav-links">
+      <a href="#">Início</a>
+      <a href="#">Campanhas</a>
+      <a href="#">Meu Perfil</a>
+
+      <button class="logout-btn">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        Sair
+      </button>
+    </nav>
+
+  </header>
+
+  <!-- CONTAINER -->
+  <div class="container">
+
+    <h1 class="page-title">Meu Perfil</h1>
+
+    <div class="layout">
+
+      <!-- ESQUERDA -->
+      <div class="left">
+
+        <!-- PERFIL -->
+        <div class="card profile">
+
+          <div class="avatar">
+            <i class="fa-regular fa-user"></i>
+          </div>
+
+          <h2>Maria Silva</h2>
+
+          <div class="badge">Doador</div>
+
+          <div class="info">
+
+            <div class="info-item">
+              <i class="fa-regular fa-envelope"></i>
+              maria.silva@email.com
+            </div>
+
+            <div class="info-item">
+              <i class="fa-solid fa-phone"></i>
+              +55 11 98765-4321
+            </div>
+
+            <div class="info-item">
+              <i class="fa-solid fa-location-dot"></i>
+              Centro da Cidade, Região B
+            </div>
+
+            <div class="info-item">
+              <i class="fa-regular fa-calendar"></i>
+              Entrou em 15 de janeiro de 2026
+            </div>
+
+          </div>
+
+          <button class="btn btn-primary">
+            Editar Perfil
+          </button>
+
+          <button class="btn btn-outline">
+            Alterar Senha
+          </button>
+
+        </div>
+
+        <!-- RESUMO -->
+        <div class="card impact-card">
+
+          <div class="summary-title">
+            <i class="fa-regular fa-heart"></i>
+            Resumo de Impacto
+          </div>
+
+          <div class="summary-box">
+            <h3>5</h3>
+            <span>Campanhas Apoiadas</span>
+          </div>
+
+          <div class="summary-box">
+            <h3>R$ 875</h3>
+            <span>Total Doado</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- DIREITA -->
+      <div class="right">
+
+        <!-- ATIVIDADE -->
+        <div class="card">
+
+          <h2 class="section-title">Atividade Recente</h2>
+
+          <div class="activity-item">
+
+            <div class="activity-left">
+
+              <div class="activity-top">
+                <div class="mini-badge">DOAÇÃO</div>
+                <div class="date">30 de março de 2026</div>
+              </div>
+
+              <div class="project">
+                Cestas Básicas de Emergência
+              </div>
+
+            </div>
+
+            <div class="value">R$ 100</div>
+
+          </div>
+
+          <div class="activity-item">
+
+            <div class="activity-left">
+
+              <div class="activity-top">
+                <div class="mini-badge">DOAÇÃO</div>
+                <div class="date">20 de março de 2026</div>
+              </div>
+
+              <div class="project">
+                Projeto Água Limpa
+              </div>
+
+            </div>
+
+            <div class="value">R$ 250</div>
+
+          </div>
+
+          <div class="activity-item">
+
+            <div class="activity-left">
+
+              <div class="activity-top">
+                <div class="mini-badge">DOAÇÃO</div>
+                <div class="date">10 de março de 2026</div>
+              </div>
+
+              <div class="project">
+                Fundo de Ajuda Médica
+              </div>
+
+            </div>
+
+            <div class="value">R$ 150</div>
+
+          </div>
+
+        </div>
+
+        <!-- CONFIGURAÇÕES -->
+        <div class="card">
+
+          <h2 class="section-title">
+            Configurações da Conta
+          </h2>
+
+          <div class="config-section">
+
+            <h3>Preferências de Notificação</h3>
+
+            <div class="checkbox-group">
+
+              <label>
+                <input type="checkbox" checked>
+                Notificações por e-mail sobre novas campanhas
+              </label>
+
+              <label>
+                <input type="checkbox" checked>
+                Atualizações e marcos de campanhas
+              </label>
+
+              <label>
+                <input type="checkbox">
+                Relatórios mensais de impacto
+              </label>
+
+            </div>
+
+          </div>
+
+          <div class="config-section">
+
+            <h3>Configurações de Privacidade</h3>
+
+            <div class="checkbox-group">
+
+              <label>
+                <input type="checkbox" checked>
+                Mostrar minhas doações publicamente
+              </label>
+
+              <label>
+                <input type="checkbox">
+                Permitir que organizadores entrem em contato comigo
+              </label>
+
+            </div>
+
+          </div>
+
+          <button class="save-btn">
+            Salvar Configurações
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
