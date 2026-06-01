@@ -107,8 +107,10 @@ function inicializarSidebarMobile() {
     const sidebarLinks = document.querySelectorAll('.sidebar-link');
     sidebarLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
+            // Remover classe active de todos os links
             sidebarLinks.forEach(l => l.classList.remove('active'));
+            
+            // Adicionar classe active ao link clicado
             link.classList.add('active');
 
             // Fechar sidebar em mobile
@@ -116,6 +118,8 @@ function inicializarSidebarMobile() {
                 document.querySelector('.sidebar-wrapper').classList.remove('show');
                 overlay.classList.remove('show');
             }
+            
+            // Permitir navegação natural do link (não bloqueia com preventDefault)
         });
     });
 }
