@@ -9,11 +9,13 @@ function iniciarApp() {
     const formNovaCampanha = document.getElementById('formNovaCampanha');
     const inputBusca = document.getElementById('inputBusca');
 
-
     const telaListagem = document.getElementById('tela-listagem');
     const telaDetalhes = document.getElementById('tela-detalhes');
     const linkInicio = document.getElementById('link-inicio');
     const linkCampanhas = document.getElementById('link-campanhas');
+    
+    const btnFazerDoacao = document.getElementById('btnFazerDoacao');
+    let cartaoAtivo = null;
 
     function atualizarValores() {
         cartoes.forEach(cartao => {
@@ -35,6 +37,7 @@ function iniciarApp() {
    
     cartoes.forEach(cartao => {
         cartao.addEventListener('click', () => {
+            cartaoAtivo = cartao;
            
             const titulo = cartao.querySelector('h3').innerText;
             const categoria = cartao.querySelector('.etiqueta').innerText;
@@ -48,12 +51,10 @@ function iniciarApp() {
             const local = cartao.getAttribute('data-local') || "Brasil";
             const dataInicio = cartao.getAttribute('data-inicio') || "01/01/2026";
             const dataFim = cartao.getAttribute('data-fim') || "31/12/2026";
-            const totalDoadores = cartao.getAttribute('data-doadores') || "0";
+            const totalDoadores = parseInt(cartao.getAttribute('data-doadores')) || 0;
 
-            const porcentagem = Math.min((valorArrecadado / valorMeta) * 100, 100).toFixed(0);
-            const restante = Math.max(valorMeta - valorArrecadado, 0);
+            atualizarPainelDetalhes(valorArrecadado, valorMeta, totalDoadores);
 
-          
             document.getElementById('detalhe-titulo').innerText = titulo;
             document.getElementById('detalhe-categoria').innerText = categoria;
             document.getElementById('detalhe-autor').innerText = "por " + organizador;
@@ -66,16 +67,7 @@ function iniciarApp() {
             document.getElementById('detalhe-tech-fim').innerText = dataFim;
 
             document.getElementById('detalhe-impacto-beneficiarios').innerText = beneficiariosTexto.split(' ')[0];
-            document.getElementById('detalhe-impacto-doadores').innerText = totalDoadores;
 
-            document.getElementById('detalhe-painel-arrecadado').innerText = formatador.format(valorArrecadado);
-            document.getElementById('detalhe-painel-meta').innerText = "de " + formatador.format(valorMeta) + " meta";
-            document.getElementById('detalhe-painel-barra').style.width = porcentagem + "%";
-            document.getElementById('detalhe-painel-porcentagem').innerText = porcentagem + "% concluído";
-            document.getElementById('detalhe-painel-restante').innerText = formatador.format(restante) + " restante";
-            document.getElementById('detalhe-painel-pessoas-doaram').innerText = `👤 ${totalDoadores} pessoas já doaram`;
-
-           
             telaListagem.style.display = 'none';
             telaDetalhes.style.display = 'block';
             
@@ -84,6 +76,50 @@ function iniciarApp() {
             window.scrollTo(0, 0);
         });
     });
+
+    function atualizarPainelDetalhes(arrecadado, meta, doadores) {
+        const porcentagem = Math.min((arrecadado / meta) * 100, 100).toFixed(0);
+        const restante = Math.max(meta - arrecadado, 0);
+
+        document.getElementById('detalhe-impacto-doadores').innerText = doadores;
+        document.getElementById('detalhe-painel-arrecadado').innerText = formatador.format(arrecadado);
+        document.getElementById('detalhe-painel-meta').innerText = "de " + formatador.format(meta) + " meta";
+        document.getElementById('detalhe-painel-barra').style.width = porcentagem + "%";
+        document.getElementById('detalhe-painel-porcentagem').innerText = porcentagem + "% concluído";
+        document.getElementById('detalhe-painel-restante').innerText = formatador.format(restante) + " restante";
+        document.getElementById('detalhe-painel-pessoas-doaram').innerText = `👤 ${doadores} pessoas já doaram`;
+    }
+
+    if (btnFazerDoacao) {
+        btnFazerDoacao.addEventListener('click', () => {
+            if (!cartaoAtivo) return;
+
+            const quantiaDigitada = prompt("Digite o valor que deseja doar (R$):", "500");
+            const valorDoacao = parseFloat(quantiaDigitada);
+
+            if (!isNaN(valorDoacao) && valorDoacao > 0) {
+                const elValorCartao = cartaoAtivo.querySelector('.valor-arrecadado');
+                const elMetaCartao = cartaoAtivo.querySelector('.meta-valor');
+
+                let atual = parseFloat(elValorCartao.getAttribute('data-valor')) || 0;
+                const meta = parseFloat(elMetaCartao.getAttribute('data-meta')) || 1;
+                let doadores = parseInt(cartaoAtivo.getAttribute('data-doadores')) || 0;
+
+                atual += valorDoacao;
+                doadores += 1;
+
+                elValorCartao.setAttribute('data-valor', atual);
+                cartaoAtivo.setAttribute('data-doadores', doadores);
+
+                atualizarValores();
+                atualizarPainelDetalhes(atual, meta, doadores);
+
+                alert(`Obrigado! Sua doação de ${formatador.format(valorDoacao)} foi contabilizada.`);
+            } else if (quantiaDigitada !== null) {
+                alert("Por favor, digite um valor numérico válido.");
+            }
+        });
+    }
 
     function voltarParaHome() {
         telaDetalhes.style.display = 'none';
@@ -94,6 +130,13 @@ function iniciarApp() {
 
     if(linkInicio) linkInicio.addEventListener('click', (e) => { e.preventDefault(); voltarParaHome(); });
     if(linkCampanhas) linkCampanhas.addEventListener('click', (e) => { e.preventDefault(); voltarParaHome(); });
+
+    const btnVoltarDetalhes = document.getElementById('btn-voltar-detalhes');
+    if (btnVoltarDetalhes) {
+        btnVoltarDetalhes.addEventListener('click', () => {
+            voltarParaHome();
+        });
+    }
 
     if (btnAbrirCriar && modal) btnAbrirCriar.addEventListener('click', () => modal.style.display = 'flex');
     if (btnCancelar && modal) btnCancelar.addEventListener('click', () => modal.style.display = 'none');
@@ -108,7 +151,6 @@ function iniciarApp() {
         });
     }
 
-   
     if (inputBusca) {
         inputBusca.addEventListener('input', () => {
             const termoBusca = inputBusca.value.toLowerCase().trim();
@@ -134,18 +176,6 @@ function iniciarApp() {
     });
 
     atualizarValores();
-  
-
-const btnVoltarDetalhes = document.getElementById('btn-voltar-detalhes');
-
-if (btnVoltarDetalhes) {
-    btnVoltarDetalhes.addEventListener('click', () => {
-      
-        irParaHome(); 
-    });
-}
-
-
 }
 
 window.addEventListener('DOMContentLoaded', iniciarApp);
