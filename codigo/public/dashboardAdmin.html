@@ -66,31 +66,31 @@
             <nav class="sidebar-nav">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link sidebar-link active" href="#" data-page="dashboard">
+                        <a class="nav-link sidebar-link active" href="./dashboardAdmin.html" data-page="dashboard">
                             <i class="bi bi-graph-up"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link sidebar-link" href="#" data-page="solicitacoes">
+                        <a class="nav-link sidebar-link" href="./solicitacoes.html" data-page="solicitacoes">
                             <i class="bi bi-inbox"></i>
                             <span>Solicitações</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link sidebar-link" href="#" data-page="campanhas">
+                        <a class="nav-link sidebar-link" href="./campanhas.html" data-page="campanhas">
                             <i class="bi bi-megaphone"></i>
                             <span>Campanhas</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link sidebar-link" href="#" data-page="usuarios">
+                        <a class="nav-link sidebar-link" href="./usuarios.html" data-page="usuarios">
                             <i class="bi bi-people"></i>
                             <span>Usuários</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link sidebar-link" href="#" data-page="avisos">
+                        <a class="nav-link sidebar-link" href="./avisos.html" data-page="avisos">
                             <i class="bi bi-bell"></i>
                             <span>Avisos</span>
                         </a>
@@ -112,24 +112,10 @@
                 <p class="dashboard-subtitle">Bem-vindo ao painel administrativo. Acompanhe os indicadores da plataforma</p>
             </div>
 
-            <!-- Filtros de Período -->
-            <div class="filtro-periodo mb-4">
-                <div class="btn-group btn-group-toggle" role="group">
-                    <input type="radio" class="btn-check" name="periodo" id="periodo-dia" value="dia" checked>
-                    <label class="btn btn-outline-primary" for="periodo-dia">Hoje</label>
-
-                    <input type="radio" class="btn-check" name="periodo" id="periodo-mes" value="mes">
-                    <label class="btn btn-outline-primary" for="periodo-mes">Este Mês</label>
-
-                    <input type="radio" class="btn-check" name="periodo" id="periodo-ano" value="ano">
-                    <label class="btn btn-outline-primary" for="periodo-ano">Este Ano</label>
-                </div>
-            </div>
-
-            <!-- Grid de KPIs -->
+            <!-- Grid de KPIs Fixos -->
             <div class="row g-3 mb-4">
                 <!-- Card: Campanhas Ativas -->
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-4">
                     <div class="card kpi-card">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-start">
@@ -146,26 +132,8 @@
                     </div>
                 </div>
 
-                <!-- Card: Contribuições Totais -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="card kpi-card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <div>
-                                    <p class="kpi-label">Contribuições</p>
-                                    <p class="kpi-valor" id="kpiContribuicoes">R$ 12.450</p>
-                                </div>
-                                <div class="kpi-icon bg-success">
-                                    <i class="bi bi-cash-coin"></i>
-                                </div>
-                            </div>
-                            <small class="text-muted" id="kpiContribuicoesVariacao">+5% vs período anterior</small>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Card: Solicitações Pendentes -->
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-4">
                     <div class="card kpi-card">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-start">
@@ -182,26 +150,8 @@
                     </div>
                 </div>
 
-                <!-- Card: Beneficiados -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="card kpi-card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <div>
-                                    <p class="kpi-label">Beneficiados</p>
-                                    <p class="kpi-valor" id="kpiBeneficiados">342</p>
-                                </div>
-                                <div class="kpi-icon bg-info">
-                                    <i class="bi bi-people"></i>
-                                </div>
-                            </div>
-                            <small class="text-muted" id="kpiBeneficiadosVariacao">+15 nesta semana</small>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Card: Taxa de Sucesso -->
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-4">
                     <div class="card kpi-card">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-start">
@@ -217,21 +167,58 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Card: Usuários Ativos -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="card kpi-card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <div>
-                                    <p class="kpi-label">Usuários Ativos</p>
-                                    <p class="kpi-valor" id="kpiUsuarios">156</p>
+            <!-- Seção de Indicadores por Período -->
+            <div class="periodo-section mb-4">
+                <div class="periodo-header d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0">Indicadores por Período</h5>
+                    <div class="btn-group btn-group-toggle" role="group">
+                        <input type="radio" class="btn-check" name="periodo" id="periodo-dia" value="dia" checked>
+                        <label class="btn btn-outline-period" for="periodo-dia">Hoje</label>
+
+                        <input type="radio" class="btn-check" name="periodo" id="periodo-mes" value="mes">
+                        <label class="btn btn-outline-period" for="periodo-mes">Este Mês</label>
+
+                        <input type="radio" class="btn-check" name="periodo" id="periodo-ano" value="ano">
+                        <label class="btn btn-outline-period" for="periodo-ano">Este Ano</label>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <!-- Card: Contribuições Totais -->
+                    <div class="col-md-6">
+                        <div class="card kpi-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <p class="kpi-label">Contribuições</p>
+                                        <p class="kpi-valor" id="kpiContribuicoes">R$ 12.450</p>
+                                    </div>
+                                    <div class="kpi-icon bg-success">
+                                        <i class="bi bi-cash-coin"></i>
+                                    </div>
                                 </div>
-                                <div class="kpi-icon bg-secondary">
-                                    <i class="bi bi-person-check"></i>
-                                </div>
+                                <small class="text-muted" id="kpiContribuicoesVariacao">+5% vs período anterior</small>
                             </div>
-                            <small class="text-muted" id="kpiUsuariosVariacao">+8 este mês</small>
+                        </div>
+                    </div>
+
+                    <!-- Card: Beneficiados -->
+                    <div class="col-md-6">
+                        <div class="card kpi-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <p class="kpi-label">Beneficiados</p>
+                                        <p class="kpi-valor" id="kpiBeneficiados">342</p>
+                                    </div>
+                                    <div class="kpi-icon bg-info">
+                                        <i class="bi bi-people"></i>
+                                    </div>
+                                </div>
+                                <small class="text-muted" id="kpiBeneficiadosVariacao">+15 nesta semana</small>
+                            </div>
                         </div>
                     </div>
                 </div>

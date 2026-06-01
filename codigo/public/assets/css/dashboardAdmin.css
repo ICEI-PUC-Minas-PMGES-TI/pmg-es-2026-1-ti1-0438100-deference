@@ -17,6 +17,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 /* LAYOUT COM SIDEBAR */
@@ -25,26 +27,26 @@ body {
     height: 100%;
 }
 
-body {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
-}
-
 header {
-    grid-column: 1 / -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    z-index: 1000;
 }
 
 .main-dashboard {
-    grid-column: 1 / -1;
     margin-left: 260px;
+    margin-top: 64px;
     background-color: #f3f4f6;
-    min-height: calc(100vh - 64px - 200px);
+    flex: 1;
     padding: 2rem 1rem;
 }
 
 .rodape-site {
-    grid-column: 1 / -1;
+    margin-left: 260px;
+    margin-top: auto;
 }
 
 /* NAVBAR */
@@ -54,8 +56,10 @@ header {
 }
 
 .navbar-dashboard {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
 }
 
@@ -270,12 +274,33 @@ header {
     margin-bottom: 2rem;
 }
 
+.periodo-section {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.periodo-header {
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 1.5rem;
+}
+
+.periodo-header h5 {
+    font-weight: 600;
+    color: #111827;
+    font-size: 1rem;
+}
+
 .btn-group-toggle .btn {
     border-color: #d1d5db;
     color: #374151;
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s ease;
 }
 
 .btn-group-toggle .btn:hover {
@@ -293,6 +318,21 @@ header {
     background-color: #2e7d32;
     border-color: #2e7d32;
     color: #fff;
+}
+
+.btn-outline-period {
+    border-color: #d1d5db;
+    color: #374151;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-period:hover {
+    border-color: #2e7d32;
+    color: #2e7d32;
 }
 
 /* KPI CARDS */
@@ -584,6 +624,10 @@ header {
 /* RESPONSIVE FOOTER */
 @media (max-width: 991.98px) {
     .rodape-site {
+        margin-left: 0;
+    }
+
+    .main-dashboard {
         margin-left: 0;
     }
 }

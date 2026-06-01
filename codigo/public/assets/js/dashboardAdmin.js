@@ -142,7 +142,6 @@ function atualizarDashboard(periodo) {
     animarValor('kpiSolicitacoes', dados.solicitacoes);
     animarValor('kpiBeneficiados', dados.beneficiados);
     animarValor('kpiTaxaSucesso', dados.taxaSucesso + '%');
-    animarValor('kpiUsuarios', dados.usuariosAtivos);
 
     // Atualizar variações
     atualizarVariacoes(periodo);
@@ -250,45 +249,83 @@ function desenharGraficoStatusCampanhas() {
     const ctx = canvas.getContext('2d');
     const dados = dadosGraficos.statusCampanhas;
 
-    // Configurar tamanho do canvas
-    canvas.width = canvas.offsetWidth;
-    canvas.height = 300;
+    // Configurar tamanho do canvas com DPI
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width * dpr;
+    canvas.height = 300 * dpr;
+    ctx.scale(dpr, dpr);
+
+    const width = rect.width;
+    const height = 300;
 
     // Dimensões
-    const padding = 40;
-    const espaco = (canvas.width - 2 * padding) / dados.labels.length;
-    const alturaMaxima = canvas.height - 2 * padding;
+    const padding = 50;
+    const espaco = (width - 2 * padding) / dados.labels.length;
+    const alturaMaxima = height - 2 * padding;
     const maxValor = Math.max(...dados.valores);
 
-    // Desenhar barras
+    // Fundo suave
+    ctx.fillStyle = '#fafbfc';
+    ctx.fillRect(0, 0, width, height);
+
+    // Grid horizontal
+    ctx.strokeStyle = '#e5e7eb';
+    ctx.lineWidth = 1;
+    ctx.font = 'normal 12px Arial';
+    ctx.fillStyle = '#9ca3af';
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'middle';
+
+    for (let i = 0; i <= 4; i++) {
+        const y = padding + (i * alturaMaxima / 4);
+        const value = Math.round((maxValor * (4 - i)) / 4);
+        ctx.beginPath();
+        ctx.moveTo(padding - 5, y);
+        ctx.lineTo(width - padding, y);
+        ctx.stroke();
+        ctx.fillText(value, padding - 10, y);
+    }
+
+    // Desenhar barras com gradiente
     dados.valores.forEach((valor, index) => {
         const x = padding + index * espaco + espaco / 4;
         const altura = (valor / maxValor) * alturaMaxima;
-        const y = canvas.height - padding - altura;
+        const y = height - padding - altura;
 
-        // Barra
-        ctx.fillStyle = dados.cores[index];
+        // Gradiente
+        const gradient = ctx.createLinearGradient(0, y, 0, height - padding);
+        gradient.addColorStop(0, dados.cores[index]);
+        gradient.addColorStop(1, dados.cores[index] + '80');
+
+        ctx.fillStyle = gradient;
         ctx.fillRect(x, y, espaco / 2, altura);
+
+        // Sombra
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.fillRect(x, height - padding, espaco / 2, 2);
 
         // Valor no topo
         ctx.fillStyle = '#1a1a1a';
-        ctx.font = 'bold 12px Arial';
+        ctx.font = 'bold 13px Arial';
         ctx.textAlign = 'center';
-        ctx.fillText(valor, x + espaco / 4, y - 5);
+        ctx.textBaseline = 'bottom';
+        ctx.fillText(valor, x + espaco / 4, y - 8);
 
         // Label
         ctx.fillStyle = '#6b7280';
-        ctx.font = '12px Arial';
+        ctx.font = 'normal 12px Arial';
         ctx.textAlign = 'center';
-        ctx.fillText(dados.labels[index], x + espaco / 4, canvas.height - padding + 20);
+        ctx.textBaseline = 'top';
+        ctx.fillText(dados.labels[index], x + espaco / 4, height - padding + 10);
     });
 
     // Linha base
-    ctx.strokeStyle = '#e5e7eb';
-    ctx.lineWidth = 1;
+    ctx.strokeStyle = '#9ca3af';
+    ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.moveTo(padding, canvas.height - padding);
-    ctx.lineTo(canvas.width - padding, canvas.height - padding);
+    ctx.moveTo(padding, height - padding);
+    ctx.lineTo(width - padding, height - padding);
     ctx.stroke();
 }
 
@@ -299,33 +336,74 @@ function desenharGraficoContribuicoes() {
     const ctx = canvas.getContext('2d');
     const dados = dadosGraficos.contribuicoes;
 
-    // Configurar tamanho do canvas
-    canvas.width = canvas.offsetWidth;
-    canvas.height = 300;
+    // Configurar tamanho do canvas com DPI
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width * dpr;
+    canvas.height = 300 * dpr;
+    ctx.scale(dpr, dpr);
+
+    const width = rect.width;
+    const height = 300;
 
     // Dimensões
-    const padding = 40;
-    const espaco = (canvas.width - 2 * padding) / (dados.dias.length - 1);
-    const alturaMaxima = canvas.height - 2 * padding;
+    const padding = 50;
+    const espaco = (width - 2 * padding) / (dados.dias.length - 1);
+    const alturaMaxima = height - 2 * padding;
     const maxValor = Math.max(...dados.valores);
+
+    // Fundo suave
+    ctx.fillStyle = '#fafbfc';
+    ctx.fillRect(0, 0, width, height);
+
+    // Grid horizontal
+    ctx.strokeStyle = '#e5e7eb';
+    ctx.lineWidth = 1;
+    ctx.font = 'normal 12px Arial';
+    ctx.fillStyle = '#9ca3af';
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'middle';
+
+    for (let i = 0; i <= 4; i++) {
+        const y = padding + (i * alturaMaxima / 4);
+        const value = Math.round((maxValor * (4 - i)) / 4);
+        ctx.beginPath();
+        ctx.moveTo(padding - 5, y);
+        ctx.lineTo(width - padding, y);
+        ctx.stroke();
+        ctx.fillText('R$ ' + (value / 100).toFixed(0), padding - 10, y);
+    }
 
     // Calcular pontos
     const pontos = dados.valores.map((valor, index) => {
         const x = padding + index * espaco;
         const altura = (valor / maxValor) * alturaMaxima;
-        const y = canvas.height - padding - altura;
+        const y = height - padding - altura;
         return { x, y, valor };
     });
 
-    // Desenhar área preenchida
-    ctx.fillStyle = 'rgba(46, 125, 50, 0.1)';
+    // Desenhar área preenchida com gradiente
+    const gradient = ctx.createLinearGradient(0, padding, 0, height - padding);
+    gradient.addColorStop(0, 'rgba(46, 125, 50, 0.3)');
+    gradient.addColorStop(1, 'rgba(46, 125, 50, 0.01)');
+
+    ctx.fillStyle = gradient;
     ctx.beginPath();
-    ctx.moveTo(pontos[0].x, canvas.height - padding);
+    ctx.moveTo(pontos[0].x, height - padding);
     pontos.forEach(p => ctx.lineTo(p.x, p.y));
-    ctx.lineTo(pontos[pontos.length - 1].x, canvas.height - padding);
+    ctx.lineTo(pontos[pontos.length - 1].x, height - padding);
     ctx.fill();
 
-    // Desenhar linha
+    // Desenhar linha com sombra
+    ctx.strokeStyle = 'rgba(46, 125, 50, 0.2)';
+    ctx.lineWidth = 8;
+    ctx.beginPath();
+    pontos.forEach((p, index) => {
+        if (index === 0) ctx.moveTo(p.x, p.y);
+        else ctx.lineTo(p.x, p.y);
+    });
+    ctx.stroke();
+
     ctx.strokeStyle = dados.cor;
     ctx.lineWidth = 3;
     ctx.beginPath();
@@ -335,42 +413,60 @@ function desenharGraficoContribuicoes() {
     });
     ctx.stroke();
 
-    // Desenhar pontos
-    pontos.forEach(p => {
+    // Desenhar pontos com sombra
+    pontos.forEach((p, index) => {
+        // Sombra do ponto
+        ctx.fillStyle = 'rgba(46, 125, 50, 0.15)';
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 7, 0, 2 * Math.PI);
+        ctx.fill();
+
+        // Ponto principal
         ctx.fillStyle = dados.cor;
         ctx.beginPath();
         ctx.arc(p.x, p.y, 5, 0, 2 * Math.PI);
         ctx.fill();
 
-        // Valor
+        // Anel branco
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 5, 0, 2 * Math.PI);
+        ctx.stroke();
+
+        // Valor acima do ponto
         ctx.fillStyle = '#1a1a1a';
-        ctx.font = 'bold 11px Arial';
+        ctx.font = 'bold 12px Arial';
         ctx.textAlign = 'center';
-        ctx.fillText('R$ ' + (p.valor / 100).toFixed(0), p.x, p.y - 15);
+        ctx.textBaseline = 'bottom';
+        ctx.fillText('R$ ' + (p.valor / 100).toFixed(0), p.x, p.y - 12);
     });
 
     // Labels dos dias
+    ctx.fillStyle = '#6b7280';
+    ctx.font = 'normal 12px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'top';
     dados.dias.forEach((dia, index) => {
-        ctx.fillStyle = '#6b7280';
-        ctx.font = '12px Arial';
-        ctx.textAlign = 'center';
-        ctx.fillText(dia, pontos[index].x, canvas.height - padding + 20);
+        ctx.fillText(dia, pontos[index].x, height - padding + 10);
     });
 
     // Linha base
-    ctx.strokeStyle = '#e5e7eb';
-    ctx.lineWidth = 1;
+    ctx.strokeStyle = '#9ca3af';
+    ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.moveTo(padding, canvas.height - padding);
-    ctx.lineTo(canvas.width - padding, canvas.height - padding);
+    ctx.moveTo(padding, height - padding);
+    ctx.lineTo(width - padding, height - padding);
     ctx.stroke();
 }
 
 // ==================== RESPONSIVIDADE DOS GRÁFICOS ====================
 
+let timeoutResize;
 window.addEventListener('resize', () => {
-    const delay = setTimeout(() => {
+    clearTimeout(timeoutResize);
+    timeoutResize = setTimeout(() => {
         desenharGraficoStatusCampanhas();
         desenharGraficoContribuicoes();
-    }, 250);
+    }, 300);
 });
