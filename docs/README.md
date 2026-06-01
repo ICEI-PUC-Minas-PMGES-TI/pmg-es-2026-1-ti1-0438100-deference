@@ -2,13 +2,14 @@
 
 Informações básicas do projeto.
 
-* **Projeto:** [NOME DO PROJETO]
-* **Repositório GitHub:** [LINK PARA O REPOSITÓRIO NO GITHUB]
+* **Projeto:** Solidariza
+* **Repositório GitHub:** https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti1-0438100-deference/
 * **Membros da equipe:**
 
-  * [Fulano](https://github.com/fulano) ⚠️ EXEMPLO ⚠️
-  * [Beltrano](https://github.com/beltrano) ⚠️ EXEMPLO ⚠️
-  * [Cicrano](https://github.com/cicrano) ⚠️ EXEMPLO ⚠️
+  * [Frederico Marques](https://github.com/fredmarques916)
+  * [Pedro Rocha](https://github.com/pedro976)
+  * [Lucas Dutra](https://github.com/LucasDutraFig)
+  * [Luiz Gibim](https://github.com/LuizGibim7)
 
 A documentação do projeto é estruturada da seguinte forma:
 
@@ -20,7 +21,7 @@ A documentação do projeto é estruturada da seguinte forma:
 6. Solução
 7. Referências Bibliográficas
 
-✅ [Documentação de Design Thinking (MIRO)](files/processo-dt.pdf)
+✅ [Documentação de Design Thinking (MIRO)](files/Processo Design Thinking.pdf)
 
 # Contexto
 
@@ -28,71 +29,33 @@ Detalhes sobre o espaço de problema, os objetivos do projeto, sua justificativa
 
 ## Problema
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Nesse momento você deve apresentar o problema que a sua aplicação deve resolver. No entanto, não é a hora de comentar sobre a aplicação. Descreva também o contexto em que essa aplicação será usada, se houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de fato existir, pois ainda não é a hora de apresentar requisitos detalhados ou projetos.
->
-> **Orientações**:
->
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+A distribuição de auxílio em áreas de extrema pobreza é prejudicada pela falta de transparência, organização e conexão entre doadores, promotores e beneficiários. Muitas doações não chegam de forma eficiente a quem precisa, enquanto iniciativas sociais enfrentam dificuldades para captar e gerenciar recursos. Isso evidencia a necessidade de uma solução que integre esses atores de forma confiável e eficiente.
 
 ## Objetivos
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
+Desenvolver um software capaz de otimizar a distribuição de auxílios em áreas de extrema pobreza, promovendo maior transparência, organização e eficiência na conexão entre doadores, promotores sociais e beneficiários, garantindo que os recursos sejam destinados de forma adequada e cheguem às pessoas que realmente necessitam.
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
->
-> **Orientações**:
->
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+- Desenvolver uma plataforma digital que centralize o cadastro de doadores, beneficiários e instituições responsáveis pela distribuição dos auxílios.
+- Desenvolver uma interface simples e acessível, possibilitando o uso da plataforma por pessoas com diferentes níveis de familiaridade tecnológica.
+- Investigar formas de reduzir fraudes e inconsistências no processo de distribuição, utilizando validação de dados e monitoramento contínuo das solicitações.
 
 ## Justificativa
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
+A escolha desta aplicação se justifica pela necessidade de tornar a distribuição de auxílios mais organizada, transparente e eficiente, reduzindo falhas e garantindo que os recursos cheguem às pessoas que realmente necessitam. Atualmente, a falta de organização e controle pode comprometer a eficácia desse processo, dificultando a conexão entre doadores, promotores sociais e beneficiários.
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
->
-> O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
->
-> **Orientações**:
->
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+O desenvolvimento deste software busca oferecer uma solução tecnológica capaz de melhorar esse sistema, proporcionando mais confiabilidade e praticidade. Além disso, o projeto permite aplicar conhecimentos técnicos na criação de uma ferramenta com impacto social positivo, baseada nas necessidades reais dos usuários e voltada para a melhoria da gestão e distribuição dos auxílios.
 
 ## Público-Alvo
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
+O público-alvo da solução é formado por doadores, promotores sociais e beneficiários de auxílios. Os administradores e promotores utilizarão o sistema para organizar e acompanhar a distribuição dos recursos, possuindo conhecimento básico ou intermediário em tecnologia.
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Descreva o mercado para o qual a solução está sendo desenvolvida, detalhando um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações hierárquicas, etc. Adicione informações sobre o público-alvo por meio de uma descrição textual ou por meio do mapa de stakeholders, ou como o grupo achar mais conveniente.
->
-> **Orientações**:
->
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+Os doadores utilizarão a plataforma para realizar e acompanhar suas contribuições, enquanto os beneficiários terão acesso às informações sobre os auxílios recebidos. Como parte do público pode ter pouca familiaridade com tecnologia, o sistema será simples, acessível e intuitivo.
 
 # Product Discovery
 
 ## Etapa de Entendimento
 
-**✳️✳️✳️ APRESENTE OS ARTEFATOS DA ETAPA  ✳️✳️✳️**
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Nessa etapa, vamos trabalhar com a metdologia de Design Thinking para compreender com maior profundidade o problema a ser tratado. Nesse processo, vamos elaborar:
->
-> * **Matriz CSD**: também conhecida por Matriz de Alinhamento, é uma ferramenta utilizada no Design Thinking para organizar informações e facilitar o processo de tomada de decisão e solução de problemas;
-> * **Mapa de stakeholders**: ferramenta que nos permite compreender o grupo de pessoas e entidades que devemos estudar e conversar para entender mais sobre o problema
-> * **Entrevistas qualitativas**: série de entrevistas qualitativas para validar suposições e solucionar as dúvidas com as principais pessoas envolvidas;
-> * **Highlights de pesquisa**: um compilado do levantamento realizado por meio das entrevistas.
+![Matriz CSD e Mapa de Stakeholders](files/Matriz%20CSD%20e%20Mapa%20de%20Stakeholders.jpg)
 
 ## Etapa de Definição
 
