@@ -1,6 +1,9 @@
 // Script dashboard admin
 
-// ==================== DADOS FICTÍCIOS ====================
+// ==================== CONFIGURAÇÃO DA API ====================
+const API_URL = 'http://localhost:3000';
+
+// ==================== DADOS FICTÍCIOS (FALLBACK) ====================
 const dadosOriginais = {
     dia: {
         campanhasAtivas: 24,
@@ -28,42 +31,39 @@ const dadosOriginais = {
     }
 };
 
-// Dados para gráficos
-const dadosGraficos = {
+// ==================== DADOS GLOBAIS ====================
+let dadosAPI = {
+    campanhas: [],
+    contribuicoes: [],
+    usuarios: [],
+    beneficiados: [],
+    solicitacoes: []
+};
+
+let dadosGraficos = {
     statusCampanhas: {
         labels: ['Ativas', 'Pausadas', 'Concluídas', 'Canceladas'],
-        valores: [24, 8, 12, 3],
+        valores: [0, 0, 0, 0],
         cores: ['#10b981', '#f59e0b', '#3b82f6', '#ef4444']
     },
     contribuicoes: {
         dias: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
-        valores: [1800, 2100, 1950, 2400, 2200, 1600, 800],
+        valores: [0, 0, 0, 0, 0, 0, 0],
         cor: '#2e7d32'
     }
 };
 
-// Campanhas recentes
-const campanhasRecentes = [
-    { nome: 'Cestas Básicas de Emergência', status: 'ativo', progresso: 85 },
-    { nome: 'Doações para Educação', status: 'ativo', progresso: 62 },
-    { nome: 'Campanha de Saúde', status: 'concluido', progresso: 100 },
-    { nome: 'Ajuda Habitacional', status: 'pendente', progresso: 45 }
-];
-
-// Atividades recentes
-const atividadesRecentes = [
-    { tipo: 'criacao', titulo: 'Nova campanha criada', descricao: 'Cestas Básicas de Emergência', hora: '2 horas atrás' },
-    { tipo: 'contribuicao', titulo: 'Contribuição recebida', descricao: 'R$ 500 - João Silva', hora: '4 horas atrás' },
-    { tipo: 'usuario', titulo: 'Novo usuário registrado', descricao: 'Maria Santos', hora: '1 dia atrás' },
-    { tipo: 'notificacao', titulo: 'Solicitação pendente', descricao: 'Aguarda análise', hora: '2 dias atrás' },
-    { tipo: 'contribuicao', titulo: 'Contribuição recebida', descricao: 'R$ 250 - Pedro Costa', hora: '3 dias atrás' }
-];
-
 // ==================== INICIALIZAÇÃO ====================
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     // Inicializar sidebar mobile
     inicializarSidebarMobile();
+
+    // Carregar dados da API
+    await carregarDadosAPI();
+
+    // Processar dados para gráficos
+    processarDadosGraficos();
 
     // Inicializar filtros de período
     inicializarFiltrosPeriodo();
@@ -138,7 +138,8 @@ function inicializarFiltrosPeriodo() {
 }
 
 function atualizarDashboard(periodo) {
-    const dados = dadosOriginais[periodo];
+    const kpis = calcularKPIs();
+    const dados = kpis[periodo] || kpis.dia;
 
     // Atualizar KPIs com animação
     animarValor('kpiCampanhasAtivas', dados.campanhasAtivas);
@@ -149,6 +150,10 @@ function atualizarDashboard(periodo) {
 
     // Atualizar variações
     atualizarVariacoes(periodo);
+
+    // Redesenhar gráficos
+    desenharGraficoStatusCampanhas();
+    desenharGraficoContribuicoes();
 }
 
 function animarValor(elementId, novoValor) {
@@ -189,22 +194,57 @@ function formatarProgresso(valor) {
     return Math.round(valor * 100 / 100);
 }
 
+function formatarData(dataStr) {
+    const data = new Date(dataStr);
+    const hoje = new Date();
+    const ontem = new Date(hoje);
+    ontem.setDate(ontem.getDate() - 1);
+
+    if (data.toDateString() === hoje.toDateString()) {
+        return 'Hoje';
+    } else if (data.toDateString() === ontem.toDateString()) {
+        return 'Ontem';
+    } else {
+        const diff = Math.floor((hoje - data) / (1000 * 60 * 60 * 24));
+        if (diff === 1) return '1 dia atrás';
+        if (diff < 7) return `${diff} dias atrás`;
+        if (diff < 30) return `${Math.floor(diff / 7)} semanas atrás`;
+        return data.toLocaleDateString('pt-BR');
+    }
+}
+
 // ==================== TABELAS ====================
 
 function preencherTabelaCampanhasRecentes() {
     const tbody = document.getElementById('tabelaCampanhasRecentes');
+    tbody.innerHTML = ''; // Limpar tabela
+
+    // Usar apenas as últimas 4 campanhas
+    const campanhasRecentes = dadosAPI.campanhas.slice(-4).reverse();
 
     campanhasRecentes.forEach(campanha => {
-        const badgeClasse = `badge-status ${campanha.status}`;
-        const badgeTexto = {
-            ativo: 'Ativa',
-            concluido: 'Concluída',
+        const statusMap = {
+            ativa: 'Ativa',
+            pausada: 'Pausada',
+            concluida: 'Concluída',
+            cancelada: 'Cancelada',
             pendente: 'Pendente'
-        }[campanha.status];
+        };
+
+        const badgeStatusMap = {
+            ativa: 'ativo',
+            pausada: 'pendente',
+            concluida: 'concluido',
+            cancelada: 'cancelado',
+            pendente: 'pendente'
+        };
+
+        const badgeClasse = `badge-status ${badgeStatusMap[campanha.status] || 'pendente'}`;
+        const badgeTexto = statusMap[campanha.status] || 'Pendente';
 
         const linha = document.createElement('tr');
         linha.innerHTML = `
-            <td><strong>${campanha.nome}</strong></td>
+            <td><strong>${campanha.titulo}</strong></td>
             <td><span class="${badgeClasse}">${badgeTexto}</span></td>
             <td>
                 <div class="progress" style="height: 24px;">
@@ -220,8 +260,59 @@ function preencherTabelaCampanhasRecentes() {
 
 function preencherAtividadesRecentes() {
     const container = document.getElementById('atividadesRecentes');
+    container.innerHTML = ''; // Limpar container
 
-    atividadesRecentes.forEach(atividade => {
+    // Criar atividades a partir dos dados da API
+    const atividades = [];
+
+    // Últimas campanhas criadas
+    if (dadosAPI.campanhas && dadosAPI.campanhas.length > 0) {
+        const ultimaCampanha = dadosAPI.campanhas[dadosAPI.campanhas.length - 1];
+        atividades.push({
+            tipo: 'criacao',
+            titulo: 'Nova campanha criada',
+            descricao: ultimaCampanha.titulo,
+            hora: 'Recentemente'
+        });
+    }
+
+    // Últimas contribuições
+    if (dadosAPI.contribuicoes && dadosAPI.contribuicoes.length > 0) {
+        const ultimasContribuicoes = dadosAPI.contribuicoes.slice(-3);
+        ultimasContribuicoes.forEach(contrib => {
+            atividades.push({
+                tipo: 'contribuicao',
+                titulo: 'Contribuição recebida',
+                descricao: `R$ ${contrib.valor} - ${contrib.doador}`,
+                hora: formatarData(contrib.data)
+            });
+        });
+    }
+
+    // Últimos usuários
+    if (dadosAPI.usuarios && dadosAPI.usuarios.length > 0) {
+        const ultimoUsuario = dadosAPI.usuarios[dadosAPI.usuarios.length - 1];
+        atividades.push({
+            tipo: 'usuario',
+            titulo: 'Novo usuário registrado',
+            descricao: ultimoUsuario.nome,
+            hora: formatarData(ultimoUsuario.dataCriacao)
+        });
+    }
+
+    // Solicitações pendentes
+    const solicitacoesPendentes = dadosAPI.solicitacoes.filter(s => s.status === 'pendente').length;
+    if (solicitacoesPendentes > 0) {
+        atividades.push({
+            tipo: 'notificacao',
+            titulo: 'Solicitações pendentes',
+            descricao: `${solicitacoesPendentes} aguardando análise`,
+            hora: 'Em andamento'
+        });
+    }
+
+    // Renderizar atividades
+    atividades.slice(0, 5).forEach(atividade => {
         const iconeClasse = `atividade-icone ${atividade.tipo}`;
         const icone = {
             criacao: '<i class="bi bi-plus-circle"></i>',
@@ -242,6 +333,133 @@ function preencherAtividadesRecentes() {
         `;
         container.appendChild(div);
     });
+}
+
+// ==================== API - BUSCAR DADOS ====================
+
+async function carregarDadosAPI() {
+    try {
+        // Buscar campanhas
+        const campanhasRes = await fetch(`${API_URL}/campanhas`);
+        if (campanhasRes.ok) {
+            dadosAPI.campanhas = await campanhasRes.json();
+        }
+
+        // Buscar contribuições
+        const contribuicoesRes = await fetch(`${API_URL}/contribuicoes`);
+        if (contribuicoesRes.ok) {
+            dadosAPI.contribuicoes = await contribuicoesRes.json();
+        }
+
+        // Buscar usuários
+        const usuariosRes = await fetch(`${API_URL}/usuarios`);
+        if (usuariosRes.ok) {
+            dadosAPI.usuarios = await usuariosRes.json();
+        }
+
+        // Buscar beneficiados
+        const beneficiadosRes = await fetch(`${API_URL}/beneficiados`);
+        if (beneficiadosRes.ok) {
+            dadosAPI.beneficiados = await beneficiadosRes.json();
+        }
+
+        // Buscar solicitações
+        const solicitacoesRes = await fetch(`${API_URL}/solicitacoes`);
+        if (solicitacoesRes.ok) {
+            dadosAPI.solicitacoes = await solicitacoesRes.json();
+        }
+
+        console.log('Dados carregados da API:', dadosAPI);
+    } catch (error) {
+        console.error('Erro ao carregar dados da API:', error);
+        console.log('Usando dados fictícios como fallback');
+    }
+}
+
+// ==================== API - PROCESSAR DADOS ====================
+
+function processarDadosGraficos() {
+    // Status das campanhas
+    const statusCount = {
+        ativas: dadosAPI.campanhas.filter(c => c.status === 'ativa').length,
+        pausadas: dadosAPI.campanhas.filter(c => c.status === 'pausada').length,
+        concluidas: dadosAPI.campanhas.filter(c => c.status === 'concluida').length,
+        canceladas: dadosAPI.campanhas.filter(c => c.status === 'cancelada').length
+    };
+
+    dadosGraficos.statusCampanhas.valores = [
+        statusCount.ativas,
+        statusCount.pausadas,
+        statusCount.concluidas,
+        statusCount.canceladas
+    ];
+
+    // Contribuições por dia (últimos 7 dias)
+    const hoje = new Date();
+    const contribuicoesPorDia = [0, 0, 0, 0, 0, 0, 0];
+
+    dadosAPI.contribuicoes.forEach(contrib => {
+        const dataContrib = new Date(contrib.data);
+        const diffTime = hoje - dataContrib;
+        const diffDias = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+        if (diffDias >= 0 && diffDias < 7) {
+            const indice = 6 - diffDias; // Índice invertido para mostrar ordem crescente
+            if (indice >= 0) {
+                contribuicoesPorDia[indice] += contrib.valor;
+            }
+        }
+    });
+
+    dadosGraficos.contribuicoes.valores = contribuicoesPorDia;
+}
+
+// ==================== CÁLCULOS DINÂMICOS ====================
+
+function calcularKPIs() {
+    // Campanhas ativas
+    const campanhasAtivas = dadosAPI.campanhas.filter(c => c.status === 'ativa').length;
+
+    // Solicitações pendentes
+    const solicitacoesPendentes = dadosAPI.solicitacoes.filter(s => s.status === 'pendente').length;
+
+    // Taxa de sucesso
+    const campanhassConcluidas = dadosAPI.campanhas.filter(c => c.status === 'concluida').length;
+    const total = dadosAPI.campanhas.length;
+    const taxaSucesso = total > 0 ? Math.round((campanhassConcluidas / total) * 100) : 0;
+
+    // Usuários ativos
+    const usuariosAtivos = dadosAPI.usuarios.filter(u => u.ativo).length;
+
+    // Total de beneficiados
+    const totalBeneficiados = dadosAPI.beneficiados.length;
+
+    return {
+        dia: {
+            campanhasAtivas: campanhasAtivas,
+            contribuicoes: dadosAPI.contribuicoes.reduce((sum, c) => sum + c.valor, 0),
+            solicitacoes: solicitacoesPendentes,
+            beneficiados: totalBeneficiados,
+            taxaSucesso: taxaSucesso,
+            usuariosAtivos: usuariosAtivos
+        },
+        mes: {
+            campanhasAtivas: campanhasAtivas,
+            contribuicoes: dadosAPI.contribuicoes.reduce((sum, c) => sum + c.valor, 0),
+            solicitacoes: solicitacoesPendentes,
+            beneficiados: totalBeneficiados,
+            taxaSucesso: taxaSucesso,
+            usuariosAtivos: usuariosAtivos
+        },
+        ano: {
+            campanhasAtivas: campanhasAtivas,
+            contribuicoes: dadosAPI.contribuicoes.reduce((sum, c) => sum + c.valor, 0),
+            solicitacoes: solicitacoesPendentes,
+            beneficiados: totalBeneficiados,
+            taxaSucesso: taxaSucesso,
+            usuariosAtivos: usuariosAtivos
+        }
+    };
 }
 
 // ==================== GRÁFICOS ====================
