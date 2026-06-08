@@ -1,20 +1,81 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minhas Solicitações</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/MinhasSolicitacoes.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solidariza – Minhas Solicitações</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/MinhasSolicitacoes.css">
 </head>
 <body>
 
-<div class="page-wrapper">
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-brand">
+    <div class="nav-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+      </svg>
+    </div>
+    <span class="nav-name">Solidariza</span>
+  </div>
+  <div class="nav-links">
+    <a href="#" class="nav-link">Início</a>
+    <a href="#" class="nav-link">Campanhas</a>
+    <a href="#" class="nav-link nav-link-profile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+      </svg>
+      Meu Perfil
+    </a>
+    <button class="btn-sair">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px">
+        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>
+      </svg>
+      Sair
+    </button>
+  </div>
+</nav>
 
-  <div class="page-header">
-    <div class="page-title-group">
-      <h1>Minhas Solicitações</h1>
-      <p>Acompanhe o status dos seus pedidos de assistência</p>
+<!-- Hero Banner -->
+<div class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+      </svg>
+    </div>
+    <h1 class="hero-title">Minhas Solicitações</h1>
+    <p class="hero-sub">Acompanhe o status das suas solicitações</p>
+  </div>
+</div>
+
+<!-- Conteúdo principal -->
+<div class="main-content">
+
+  <!-- Barra de ações: botão + filtros -->
+  <div class="actions-bar">
+    <div class="filter-bar">
+      <button class="filter-btn active" data-status="todos" onclick="filtrar('todos')">Todos</button>
+      <button class="filter-btn filter-aprovado" data-status="aprovado" onclick="filtrar('aprovado')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+        Aprovado
+      </button>
+      <button class="filter-btn filter-analise" data-status="analise" onclick="filtrar('analise')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+        Em análise
+      </button>
+      <button class="filter-btn filter-negado" data-status="negado" onclick="filtrar('negado')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
+        </svg>
+        Negado
+      </button>
     </div>
     <button class="btn-nova" onclick="abrirModal()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -24,8 +85,10 @@
     </button>
   </div>
 
+  <!-- Cards -->
   <div class="cards-list" id="cardsList">
 
+    <!-- Card 1: Aprovado -->
     <div class="card">
       <div class="card-header">
         <span class="card-title">Cestas Básicas de Emergência</span>
@@ -50,7 +113,6 @@
           4 pessoas
         </span>
       </div>
-      <hr class="card-divider">
       <div class="panel-aprovado">
         <div class="panel-label">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -62,6 +124,7 @@
       </div>
     </div>
 
+    <!-- Card 2: Em análise -->
     <div class="card">
       <div class="card-header">
         <span class="card-title">Fundo de Ajuda Médica</span>
@@ -86,12 +149,12 @@
           3 pessoas
         </span>
       </div>
-      <hr class="card-divider">
       <div class="panel-analise">
         <strong>Status:</strong> Sua solicitação está sendo analisada pela equipe. Você será notificado em 3–5 dias úteis.
       </div>
     </div>
 
+    <!-- Card 3: Negado -->
     <div class="card">
       <div class="card-header">
         <span class="card-title">Material Escolar</span>
@@ -116,15 +179,24 @@
           2 pessoas
         </span>
       </div>
-      <hr class="card-divider">
       <div class="panel-negado">
         Infelizmente, sua solicitação não pôde ser aprovada neste momento. Entre em contato conosco para mais informações.
       </div>
     </div>
 
   </div>
+
+  <!-- Estado vazio -->
+  <div class="empty-state" id="emptyState" style="display:none">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    <p>Nenhuma solicitação encontrada para este filtro.</p>
+  </div>
+
 </div>
 
+<!-- Modal -->
 <div class="modal-overlay" id="modalOverlay" onclick="fecharModalFora(event)">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-header">
@@ -135,7 +207,6 @@
         </svg>
       </button>
     </div>
-
     <div class="form-group">
       <label>Tipo de Assistência</label>
       <select id="tipoAssistencia">
@@ -147,7 +218,6 @@
         <option>Outro</option>
       </select>
     </div>
-
     <div class="form-row">
       <div class="form-group">
         <label>Data da Solicitação</label>
@@ -158,12 +228,10 @@
         <input type="number" id="numBeneficiarios" min="1" placeholder="Ex: 3">
       </div>
     </div>
-
     <div class="form-group">
       <label>Descrição</label>
       <textarea id="descricao" placeholder="Descreva brevemente sua necessidade..."></textarea>
     </div>
-
     <button class="btn-submit" onclick="enviarSolicitacao()">Enviar Solicitação</button>
   </div>
 </div>

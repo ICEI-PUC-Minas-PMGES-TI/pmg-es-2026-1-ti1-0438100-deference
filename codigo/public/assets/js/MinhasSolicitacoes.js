@@ -1,4 +1,4 @@
-// Define data padrão como hoje na inicialização
+// Define data padrão como hoje
 document.getElementById('dataSolicitacao').valueAsDate = new Date();
 
 function abrirModal() {
@@ -15,16 +15,35 @@ function fecharModalFora(e) {
   if (e.target === document.getElementById('modalOverlay')) fecharModal();
 }
 
-// Fechar com a tecla ESC
-document.addEventListener('keydown', e => { 
-  if (e.key === 'Escape') fecharModal(); 
-});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') fecharModal(); });
 
 function mostrarToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 3200);
+}
+
+function filtrar(status) {
+  // Atualiza botões ativos
+  document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelector(`.filter-btn[data-status="${status}"]`).classList.add('active');
+
+  // Mostra/oculta cards
+  document.querySelectorAll('.card').forEach(card => {
+    if (status === 'todos') {
+      card.style.display = '';
+    } else {
+      const badge = card.querySelector('.badge');
+      const temStatus = badge && badge.classList.contains('badge-' + status);
+      card.style.display = temStatus ? '' : 'none';
+    }
+  });
+
+  // Mensagem de vazio
+  const visiveis = [...document.querySelectorAll('.card')].filter(c => c.style.display !== 'none');
+  const empty = document.getElementById('emptyState');
+  empty.style.display = visiveis.length === 0 ? 'block' : 'none';
 }
 
 function enviarSolicitacao() {
@@ -37,12 +56,10 @@ function enviarSolicitacao() {
     return;
   }
 
-  // Formata data pt-BR
   const [y, m, d] = data.split('-');
   const meses = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
   const dataFormatada = `${parseInt(d)} de ${meses[parseInt(m)-1]} de ${y}`;
 
-  // Cria novo card
   const card = document.createElement('div');
   card.className = 'card';
   card.innerHTML = `
@@ -77,7 +94,9 @@ function enviarSolicitacao() {
 
   document.getElementById('cardsList').prepend(card);
 
-  // Limpa formulário
+  // Reseta filtro para "todos" para o novo card aparecer
+  filtrar('todos');
+
   document.getElementById('tipoAssistencia').value = '';
   document.getElementById('numBeneficiarios').value = '';
   document.getElementById('descricao').value = '';
