@@ -21,5 +21,28 @@
       "email": "rommel@gmail.com",
       "id": 3
     }
+  ],
+  "solicitacoes": [
+    {
+      "id": 1,
+      "titulo": "Cestas Básicas de Emergência",
+      "data": "2026-03-15",
+      "pessoas": 4,
+      "status": "aprovado"
+    },
+    {
+      "id": 2,
+      "titulo": "Fundo de Ajuda Médica",
+      "data": "2026-03-28",
+      "pessoas": 3,
+      "status": "analise"
+    },
+    {
+      "id": 3,
+      "titulo": "Material Escolar",
+      "data": "2026-02-10",
+      "pessoas": 2,
+      "status": "negado"
+    }
   ]
 }
