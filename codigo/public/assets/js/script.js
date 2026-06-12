@@ -1,3 +1,19 @@
+
+
+const mapaImagens = {
+    alimentacao: './assets/images/photo-1593113630400-ea4288922497.jpg',
+    saude: './assets/images/photo-1758691462321-9b6c98c40f7e.jpg',
+    educacao: './assets/images/photo-1581929207722-a3ac7efe8930.jpg',
+    moradia: './assets/images/photo-1769028885299-c5c3503d6778.jpg',
+    vestuario: './assets/images/photo-1593113598332-cd288d649433.jpg'
+};
+
+function acheImagem(categoria) {
+    const chave = String(categoria || '').trim().toLowerCase();
+    return mapaImagens[chave] || mapaImagens.alimentacao;
+}
+
+const gradeCampanhas = document.getElementById('grade-campanhas');
 function iniciarApp() {
     const cartoes = document.querySelectorAll('.cartao');
     const botoesFiltro = document.querySelectorAll('.botao-filtro');
@@ -35,7 +51,7 @@ function iniciarApp() {
         });
     }
    
-    cartoes.forEach(cartao => {
+    function registrarCartao(cartao) {
         cartao.addEventListener('click', () => {
             cartaoAtivo = cartao;
            
@@ -75,7 +91,9 @@ function iniciarApp() {
             linkCampanhas.classList.add('ativo');
             window.scrollTo(0, 0);
         });
-    });
+    }
+
+    cartoes.forEach(registrarCartao);
 
     function atualizarPainelDetalhes(arrecadado, meta, doadores) {
         const porcentagem = Math.min((arrecadado / meta) * 100, 100).toFixed(0);
@@ -142,15 +160,36 @@ function iniciarApp() {
     if (btnCancelar && modal) btnCancelar.addEventListener('click', () => modal.style.display = 'none');
     if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
 
-    if (formNovaCampanha) {
-        formNovaCampanha.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Campanha enviada com sucesso para análise!');
-            formNovaCampanha.reset();
-            modal.style.display = 'none';
-        });
-    }
+    formNovaCampanha.addEventListener('submit', (e) => {
+    e.preventDefault();
 
+    const categoria = document.getElementById('categoria').value;
+    const campanha = {
+        titulo: document.getElementById('titulo').value,
+        categoria,
+        descricao: document.getElementById('descricao').value,
+        meta: document.getElementById('meta').value,
+        beneficiarios: document.getElementById('beneficiarios').value,
+        local: document.getElementById('local').value,
+        organizacao: document.getElementById('organizacao').value,
+        imagem: acheImagem(categoria)
+    };
+
+    let campanhas = JSON.parse(localStorage.getItem('campanhas')) || [];
+    campanhas.push(campanha);
+    localStorage.setItem('campanhas', JSON.stringify(campanhas));
+
+    adicionarCampanhaNaTela(campanha);
+
+    const novoCartao = gradeCampanhas.lastElementChild;
+    if (novoCartao) registrarCartao(novoCartao);
+    atualizarValores();
+
+    alert('Campanha criada com sucesso!');
+
+    formNovaCampanha.reset();
+    modal.style.display = 'none';
+});
     if (inputBusca) {
         inputBusca.addEventListener('input', () => {
             const termoBusca = inputBusca.value.toLowerCase().trim();
@@ -176,6 +215,58 @@ function iniciarApp() {
     });
 
     atualizarValores();
+
+}
+function adicionarCampanhaNaTela(campanha) {
+    const grade = document.getElementById('grade-campanhas');
+
+    const cartao = document.createElement('div');
+
+    cartao.className = 'cartao';
+    cartao.setAttribute('data-categoria', campanha.categoria);
+    cartao.setAttribute('data-organizador', campanha.organizacao || 'ONG Parceira');
+    cartao.setAttribute('data-local', campanha.local || 'Brasil');
+    cartao.setAttribute('data-inicio', campanha.inicio || new Date().toLocaleDateString('pt-BR'));
+    cartao.setAttribute('data-fim', campanha.fim || '');
+    cartao.setAttribute('data-doadores', campanha.doadores || 0);
+
+    cartao.innerHTML = `
+        <div class="imagem-cartao">
+            <img src="${campanha.imagem}" alt="">
+        </div>
+
+        <span class="etiqueta">${campanha.categoria}</span>
+
+        <h3>${campanha.titulo}</h3>
+
+        <p>${campanha.descricao}</p>
+
+        <div class="cabecalho-estatisticas">
+            <span class="valor-arrecadado" data-valor="0">R$ 0,00</span>
+            <span class="porcentagem-texto">0%</span>
+        </div>
+
+        <div class="fundo-progresso">
+            <div class="preenchimento-progresso"></div>
+        </div>
+
+        <div class="meta-valor" data-meta="${campanha.meta}">
+            Meta: R$ ${campanha.meta}
+        </div>
+
+        <div class="beneficiarios">
+            👤 ${campanha.beneficiarios} beneficiários
+        </div>
+    `;
+
+    grade.appendChild(cartao);
 }
 
-window.addEventListener('DOMContentLoaded', iniciarApp);
+window.addEventListener('DOMContentLoaded', () => {
+  const campanhas = JSON.parse(localStorage.getItem('campanhas')) || [];
+
+campanhas.forEach(campanha => {
+    adicionarCampanhaNaTela(campanha);
+});
+    iniciarApp();
+});
