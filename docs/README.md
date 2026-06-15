@@ -91,33 +91,48 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 ### Requisitos Funcionais
 
-| ID     | Descrição do Requisito                                   | Prioridade |
-| ------ | ---------------------------------------------------------- | ---------- |
-| RF-001 | Permitir que o usuário cadastre tarefas ⚠️ EXEMPLO ⚠️ | ALTA       |
-| RF-002 | Emitir um relatório de tarefas no mês ⚠️ EXEMPLO ⚠️ | MÉDIA     |
+| ID     | Descrição do Requisito                                                                              | Prioridade |
+| ------ | --------------------------------------------------------------------------------------------------- | ---------- |
+| RF-001 | Permitir o cadastro de usuários nos perfis de Doador, Beneficiário e Organizador.                   | ALTA       |
+| RF-002 | Permitir a autenticação (login) dos usuários cadastrados.                                           | ALTA       |
+| RF-003 | Permitir a recuperação de senha.                                                                    | MÉDIA      |
+| RF-004 | Permitir que organizadores criem campanhas de auxílio.                                              | ALTA       |
+| RF-005 | Permitir que organizadores editem e gerenciem campanhas existentes.                                 | ALTA       |
+| RF-006 | Exibir uma lista de campanhas ativas.                                                               | ALTA       |
+| RF-007 | Permitir pesquisar campanhas por nome.                                                              | MÉDIA      |
+| RF-008 | Permitir filtrar campanhas por categoria.                                                           | MÉDIA      |
+| RF-009 | Exibir informações detalhadas de cada campanha.                                                     | ALTA       |
+| RF-010 | Exibir o progresso de arrecadação de cada campanha.                                                 | ALTA       |
+| RF-011 | Permitir que doadores realizem doações para campanhas.                                              | ALTA       |
+| RF-012 | Registrar o histórico de doações realizadas pelos usuários.                                         | ALTA       |
+| RF-013 | Apresentar indicadores de impacto, como número de beneficiários atendidos e quantidade de doadores. | ALTA       |
+| RF-014 | Permitir compartilhar campanhas.                                                                    | MÉDIA      |
+| RF-015 | Disponibilizar uma área de perfil para consulta dos dados do usuário.                               | ALTA       |
+| RF-016 | Permitir a edição das informações do perfil.                                                        | MÉDIA      |
+| RF-017 | Permitir a alteração de senha do usuário.                                                           | MÉDIA      |
+| RF-018 | Exibir atividades recentes relacionadas às doações realizadas.                                      | MÉDIA      |
+| RF-019 | Permitir configurar preferências de notificação.                                                    | BAIXA      |
+| RF-020 | Permitir configurar opções de privacidade da conta.                                                 | BAIXA      |
 
 ### Requisitos não Funcionais
 
-| ID      | Descrição do Requisito                                                              | Prioridade |
-| ------- | ------------------------------------------------------------------------------------- | ---------- |
-| RNF-001 | O sistema deve ser responsivo para rodar em um dispositivos móvel ⚠️ EXEMPLO ⚠️ | MÉDIA     |
-| RNF-002 | Deve processar requisições do usuário em no máximo 3s ⚠️ EXEMPLO ⚠️          | BAIXA      |
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Os requisitos de um projeto são classificados em dois grupos:
->
-> - [Requisitos Funcionais (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
->   correspondem a uma funcionalidade que deve estar presente na plataforma (ex: cadastro de usuário).
-> - [Requisitos Não Funcionais (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
->   correspondem a uma característica técnica, seja de usabilidade, desempenho, confiabilidade, segurança ou outro (ex: suporte a dispositivos iOS e Android).
->
-> Lembre-se que cada requisito deve corresponder à uma e somente uma característica alvo da sua solução. Além disso, certifique-se de que todos os aspectos capturados nas Histórias de Usuário foram cobertos.
->
-> **Orientações**:
->
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+| ID      | Descrição do Requisito                                                                                                            | Prioridade |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| RNF-001 | O sistema deve possuir interface intuitiva e de fácil utilização para usuários com diferentes níveis de conhecimento tecnológico. | ALTA       |
+| RNF-002 | O sistema deve ser acessível em navegadores web modernos.                                                                         | ALTA       |
+| RNF-003 | O sistema deve garantir a segurança das informações pessoais dos usuários.                                                        | ALTA       |
+| RNF-004 | O sistema deve armazenar senhas utilizando mecanismos seguros de criptografia ou hash.                                            | ALTA       |
+| RNF-005 | O sistema deve garantir a integridade dos registros de doações e campanhas.                                                       | ALTA       |
+| RNF-006 | O sistema deve disponibilizar informações de arrecadação de forma transparente e atualizada.                                      | ALTA       |
+| RNF-007 | O sistema deve apresentar tempo de resposta adequado para consultas e navegação entre páginas.                                    | MÉDIA      |
+| RNF-008 | O sistema deve permitir escalabilidade para suportar crescimento do número de usuários e campanhas.                               | MÉDIA      |
+| RNF-009 | O sistema deve manter disponibilidade contínua para acesso às campanhas e doações.                                                | MÉDIA      |
+| RNF-010 | O sistema deve possuir design responsivo para utilização em computadores, tablets e smartphones.                                  | MÉDIA      |
+| RNF-011 | O sistema deve seguir a legislação vigente relacionada à proteção de dados pessoais (LGPD).                                       | ALTA       |
+| RNF-012 | O sistema deve registrar logs das operações relevantes para auditoria e rastreabilidade.                                          | MÉDIA      |
+| RNF-013 | O sistema deve permitir manutenção e evolução do código de forma modular.                                                         | BAIXA      |
+| RNF-014 | O sistema deve garantir confiabilidade na comunicação entre doadores, organizadores e beneficiários.                              | ALTA       |
+| RNF-015 | O sistema deve oferecer mecanismos que favoreçam a transparência e a confiança no processo de distribuição de auxílios.           | ALTA       |
 
 ## Projeto de Interface
 
