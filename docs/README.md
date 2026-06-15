@@ -6,10 +6,10 @@ Informações básicas do projeto.
 * **Repositório GitHub:** https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti1-0438100-deference/
 * **Membros da equipe:**
 
-  * [Frederico Marques](https://github.com/fredmarques916)
-  * [Pedro Rocha](https://github.com/pedro976)
-  * [Lucas Dutra](https://github.com/LucasDutraFig)
-  * [Luiz Gibim](https://github.com/LuizGibim7)
+  * [Frederico Marcos de Paula Marques](https://github.com/fredmarques916)
+  * [Lucas Dutra Figueiredo](https://github.com/LucasDutraFig)
+  * [Pedro Henrique Rocha de Souza](https://github.com/pedro976)
+  * [Luiz Felipe Gibim Borges](https://github.com/LuizGibim7)
 
 A documentação do projeto é estruturada da seguinte forma:
 
