@@ -9,8 +9,6 @@ Além disso, o projeto pretende garantir maior confiabilidade no processo, permi
 * Lucas Dutra Figueiredo
 * Luiz Felipe Gibim Borges
 * Pedro Henrique Rocha
-* Alissa Aguiar Fernandes
-* Eduardo Andrade Gimenes
 
 ## Professore(s) responsável(is)
 

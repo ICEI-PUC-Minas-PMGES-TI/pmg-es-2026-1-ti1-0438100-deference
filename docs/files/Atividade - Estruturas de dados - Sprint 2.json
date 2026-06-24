@@ -1,0 +1,84 @@
+{
+    "campanhas": [
+        {
+            "id": 1,
+            "titulo": "Cestas Básicas de Emergência",
+            "organizacao": "Instituto Solidariedade em Ação",
+            "localizacao": "Zona Rural de São Paulo, SP",
+            "descricao": "Distribuição de alimentos essenciais para famílias em extrema pobreza",
+            "meta": 10000,
+            "valorArrecadado": 7500,
+            "porcentagem": 75,
+            "beneficiarios": 150
+        }
+    ],
+    
+    "usuarios": [
+        {
+            "id": 1,
+            "nome": "Maria Silva",
+            "tipo": "Doador",
+            "email": "maria.silva@email.com",
+            "telefone": "+55 11 98765-4321",
+            "localizacao": "Centro da Cidade, Região B",
+            "dataCadastro": "2026-01-15"
+        }
+    ],
+
+    "resumosImpacto": [
+        {
+            "campanhasApoiadas": 5,
+            "totalDoado": 875
+        }
+    ],
+
+    "atividadesRecentes": [
+        {
+            "id": 101,
+            "campanha": "Cestas Básicas de Emergência",
+            "data": "2026-03-20",
+            "valor": 100
+        },
+        {
+            "id": 102,
+            "campanha": "Projeto Água Limpa",
+            "data": "2026-03-20",
+            "valor": 250
+        },
+        {
+            "id": 103,
+            "campanha": "Fundo de Ajuda Médica",
+            "data": "2026-03-10",
+            "valor": 150
+        },
+        {
+            "id": 104,
+            "campanha": "Material Escolar",
+            "data": "2026-02-28",
+            "valor": 75
+        },
+        {
+            "id": 105,
+            "campanha": "Roupas de Inverno",
+            "data": "2026-02-15",
+            "valor": 300
+        }
+    ],
+
+    "notificacoes": [
+        {
+            "id": 1,
+            "emailNovasCampanhas": true,
+            "atualizacoesMarcos": true,
+            "relatoriosMensais": false
+        }
+    ],
+
+    "privacidade": [
+        {
+            "id": 1,
+            "mostrarDoacoesPublicamente": true,
+            "permitirContatoOrganizacoes": false
+        }
+    ]
+}
