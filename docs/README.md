@@ -2,13 +2,14 @@
 
 Informações básicas do projeto.
 
-* **Projeto:** [NOME DO PROJETO]
-* **Repositório GitHub:** [LINK PARA O REPOSITÓRIO NO GITHUB]
+* **Projeto:** Solidariza
+* **Repositório GitHub:** https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti1-0438100-deference/
 * **Membros da equipe:**
 
-  * [Fulano](https://github.com/fulano) ⚠️ EXEMPLO ⚠️
-  * [Beltrano](https://github.com/beltrano) ⚠️ EXEMPLO ⚠️
-  * [Cicrano](https://github.com/cicrano) ⚠️ EXEMPLO ⚠️
+  * [Frederico Marcos de Paula Marques](https://github.com/fredmarques916)
+  * [Lucas Dutra Figueiredo](https://github.com/LucasDutraFig)
+  * [Pedro Henrique Rocha de Souza](https://github.com/pedro976)
+  * [Luiz Felipe Gibim Borges](https://github.com/LuizGibim7)
 
 A documentação do projeto é estruturada da seguinte forma:
 
@@ -20,7 +21,7 @@ A documentação do projeto é estruturada da seguinte forma:
 6. Solução
 7. Referências Bibliográficas
 
-✅ [Documentação de Design Thinking (MIRO)](files/processo-dt.pdf)
+✅ [Documentação de Design Thinking (MIRO)](files/Processo%20Design%20Thinking.pdf)
 
 # Contexto
 
@@ -28,90 +29,43 @@ Detalhes sobre o espaço de problema, os objetivos do projeto, sua justificativa
 
 ## Problema
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Nesse momento você deve apresentar o problema que a sua aplicação deve resolver. No entanto, não é a hora de comentar sobre a aplicação. Descreva também o contexto em que essa aplicação será usada, se houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de fato existir, pois ainda não é a hora de apresentar requisitos detalhados ou projetos.
->
-> **Orientações**:
->
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+A distribuição de auxílio em áreas de extrema pobreza é prejudicada pela falta de transparência, organização e conexão entre doadores, promotores e beneficiários. Muitas doações não chegam de forma eficiente a quem precisa, enquanto iniciativas sociais enfrentam dificuldades para captar e gerenciar recursos. Isso evidencia a necessidade de uma solução que integre esses atores de forma confiável e eficiente.
 
 ## Objetivos
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
+Desenvolver um software capaz de otimizar a distribuição de auxílios em áreas de extrema pobreza, promovendo maior transparência, organização e eficiência na conexão entre doadores, promotores sociais e beneficiários, garantindo que os recursos sejam destinados de forma adequada e cheguem às pessoas que realmente necessitam.
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
->
-> **Orientações**:
->
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+- Desenvolver uma plataforma digital que centralize o cadastro de doadores, beneficiários e instituições responsáveis pela distribuição dos auxílios.
+- Desenvolver uma interface simples e acessível, possibilitando o uso da plataforma por pessoas com diferentes níveis de familiaridade tecnológica.
+- Investigar formas de reduzir fraudes e inconsistências no processo de distribuição, utilizando validação de dados e monitoramento contínuo das solicitações.
 
 ## Justificativa
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
+A escolha desta aplicação se justifica pela necessidade de tornar a distribuição de auxílios mais organizada, transparente e eficiente, reduzindo falhas e garantindo que os recursos cheguem às pessoas que realmente necessitam. Atualmente, a falta de organização e controle pode comprometer a eficácia desse processo, dificultando a conexão entre doadores, promotores sociais e beneficiários.
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
->
-> O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
->
-> **Orientações**:
->
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+O desenvolvimento deste software busca oferecer uma solução tecnológica capaz de melhorar esse sistema, proporcionando mais confiabilidade e praticidade. Além disso, o projeto permite aplicar conhecimentos técnicos na criação de uma ferramenta com impacto social positivo, baseada nas necessidades reais dos usuários e voltada para a melhoria da gestão e distribuição dos auxílios.
 
 ## Público-Alvo
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
+O público-alvo da solução é formado por doadores, promotores sociais e beneficiários de auxílios. Os administradores e promotores utilizarão o sistema para organizar e acompanhar a distribuição dos recursos, possuindo conhecimento básico ou intermediário em tecnologia.
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Descreva o mercado para o qual a solução está sendo desenvolvida, detalhando um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações hierárquicas, etc. Adicione informações sobre o público-alvo por meio de uma descrição textual ou por meio do mapa de stakeholders, ou como o grupo achar mais conveniente.
->
-> **Orientações**:
->
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+Os doadores utilizarão a plataforma para realizar e acompanhar suas contribuições, enquanto os beneficiários terão acesso às informações sobre os auxílios recebidos. Como parte do público pode ter pouca familiaridade com tecnologia, o sistema será simples, acessível e intuitivo.
 
 # Product Discovery
 
 ## Etapa de Entendimento
 
-**✳️✳️✳️ APRESENTE OS ARTEFATOS DA ETAPA  ✳️✳️✳️**
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Nessa etapa, vamos trabalhar com a metdologia de Design Thinking para compreender com maior profundidade o problema a ser tratado. Nesse processo, vamos elaborar:
->
-> * **Matriz CSD**: também conhecida por Matriz de Alinhamento, é uma ferramenta utilizada no Design Thinking para organizar informações e facilitar o processo de tomada de decisão e solução de problemas;
-> * **Mapa de stakeholders**: ferramenta que nos permite compreender o grupo de pessoas e entidades que devemos estudar e conversar para entender mais sobre o problema
-> * **Entrevistas qualitativas**: série de entrevistas qualitativas para validar suposições e solucionar as dúvidas com as principais pessoas envolvidas;
-> * **Highlights de pesquisa**: um compilado do levantamento realizado por meio das entrevistas.
+![Matriz CSD e Mapa de Stakeholders](images/Matriz%20CSD%20e%20Mapa%20de%20Stakeholders.jpg)
 
 ## Etapa de Definição
 
 ### Personas
 
-**✳️✳️✳️ APRESENTE OS DIAGRAMAS DE PERSONAS ✳️✳️✳️**
-
-![Exemplo de proposta de valor](images/exemplo-persona.png)
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Relacione as personas identificadas no seu projeto e os respectivos mapas de empatia. Lembre-se que você deve ser enumerar e descrever precisamente e de forma personalizada todos os principais envolvidos com a solução almeja.
->
-> **Orientações**:
->
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Criar personas (Hotmart)](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
+![Persona 1](images/Persona%201.jpg)
+![Persona 2](images/Persona%202.jpg)
+![Persona 3](images/Persona%203.jpg)
+![Persona 4](images/Persona%204.jpg)
+![Persona 5](images/Persona%205.jpg)
 
 # Product Design
 
@@ -121,31 +75,15 @@ Nesse momento, vamos transformar os insights e validações obtidos em soluçõe
 
 Com base na análise das personas foram identificadas as seguintes histórias de usuários:
 
-| EU COMO...`PERSONA` | QUERO/PRECISO ...`FUNCIONALIDADE`        | PARA ...`MOTIVO/VALOR`               |
-| --------------------- | ------------------------------------------ | -------------------------------------- |
-| Usuário do sistema   | Registrar minhas tarefas ⚠️ EXEMPLO ⚠️ | Não esquecer de fazê-las             |
-| Administrador         | Alterar permissões ⚠️ EXEMPLO ⚠️      | Permitir que possam administrar contas |
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão das necessidades de cada persona. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
->
-> **Orientações**:
->
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
+![Histórias de Usuário](images/Histórias%20de%20Usuário.jpg)
 
 ## Proposta de Valor
 
-**✳️✳️✳️ APRESENTE O DIAGRAMA DA PROPOSTA DE VALOR PARA CADA PERSONA ✳️✳️✳️**
-
-##### Proposta de valor para Persona XPTO ⚠️ EXEMPLO ⚠️
-
-![Exemplo de proposta de valor](images/exemplo-proposta-valor.png)
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> O mapa da proposta de valor é uma ferramenta que nos ajuda a definir qual tipo de produto ou serviço melhor atende às personas definidas anteriormente.
+![Proposta 1](images/Proposta%201.jpg)
+![Proposta 2](images/Proposta%202.jpg)
+![Proposta 3](images/Proposta%203.jpg)
+![Proposta 4](images/Proposta%204.jpg)
+![Proposta 5](images/Proposta%205.jpg)
 
 ## Requisitos
 
@@ -153,33 +91,48 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 ### Requisitos Funcionais
 
-| ID     | Descrição do Requisito                                   | Prioridade |
-| ------ | ---------------------------------------------------------- | ---------- |
-| RF-001 | Permitir que o usuário cadastre tarefas ⚠️ EXEMPLO ⚠️ | ALTA       |
-| RF-002 | Emitir um relatório de tarefas no mês ⚠️ EXEMPLO ⚠️ | MÉDIA     |
+| ID     | Descrição do Requisito                                                                              | Prioridade |
+| ------ | --------------------------------------------------------------------------------------------------- | ---------- |
+| RF-001 | Permitir o cadastro de usuários nos perfis de Doador, Beneficiário e Organizador.                   | ALTA       |
+| RF-002 | Permitir a autenticação (login) dos usuários cadastrados.                                           | ALTA       |
+| RF-003 | Permitir a recuperação de senha.                                                                    | MÉDIA      |
+| RF-004 | Permitir que organizadores criem campanhas de auxílio.                                              | ALTA       |
+| RF-005 | Permitir que organizadores editem e gerenciem campanhas existentes.                                 | ALTA       |
+| RF-006 | Exibir uma lista de campanhas ativas.                                                               | ALTA       |
+| RF-007 | Permitir pesquisar campanhas por nome.                                                              | MÉDIA      |
+| RF-008 | Permitir filtrar campanhas por categoria.                                                           | MÉDIA      |
+| RF-009 | Exibir informações detalhadas de cada campanha.                                                     | ALTA       |
+| RF-010 | Exibir o progresso de arrecadação de cada campanha.                                                 | ALTA       |
+| RF-011 | Permitir que doadores realizem doações para campanhas.                                              | ALTA       |
+| RF-012 | Registrar o histórico de doações realizadas pelos usuários.                                         | ALTA       |
+| RF-013 | Apresentar indicadores de impacto, como número de beneficiários atendidos e quantidade de doadores. | ALTA       |
+| RF-014 | Permitir compartilhar campanhas.                                                                    | MÉDIA      |
+| RF-015 | Disponibilizar uma área de perfil para consulta dos dados do usuário.                               | ALTA       |
+| RF-016 | Permitir a edição das informações do perfil.                                                        | MÉDIA      |
+| RF-017 | Permitir a alteração de senha do usuário.                                                           | MÉDIA      |
+| RF-018 | Exibir atividades recentes relacionadas às doações realizadas.                                      | MÉDIA      |
+| RF-019 | Permitir configurar preferências de notificação.                                                    | BAIXA      |
+| RF-020 | Permitir configurar opções de privacidade da conta.                                                 | BAIXA      |
 
 ### Requisitos não Funcionais
 
-| ID      | Descrição do Requisito                                                              | Prioridade |
-| ------- | ------------------------------------------------------------------------------------- | ---------- |
-| RNF-001 | O sistema deve ser responsivo para rodar em um dispositivos móvel ⚠️ EXEMPLO ⚠️ | MÉDIA     |
-| RNF-002 | Deve processar requisições do usuário em no máximo 3s ⚠️ EXEMPLO ⚠️          | BAIXA      |
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Os requisitos de um projeto são classificados em dois grupos:
->
-> - [Requisitos Funcionais (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
->   correspondem a uma funcionalidade que deve estar presente na plataforma (ex: cadastro de usuário).
-> - [Requisitos Não Funcionais (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
->   correspondem a uma característica técnica, seja de usabilidade, desempenho, confiabilidade, segurança ou outro (ex: suporte a dispositivos iOS e Android).
->
-> Lembre-se que cada requisito deve corresponder à uma e somente uma característica alvo da sua solução. Além disso, certifique-se de que todos os aspectos capturados nas Histórias de Usuário foram cobertos.
->
-> **Orientações**:
->
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+| ID      | Descrição do Requisito                                                                                                            | Prioridade |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| RNF-001 | O sistema deve possuir interface intuitiva e de fácil utilização para usuários com diferentes níveis de conhecimento tecnológico. | ALTA       |
+| RNF-002 | O sistema deve ser acessível em navegadores web modernos.                                                                         | ALTA       |
+| RNF-003 | O sistema deve garantir a segurança das informações pessoais dos usuários.                                                        | ALTA       |
+| RNF-004 | O sistema deve armazenar senhas utilizando mecanismos seguros de criptografia ou hash.                                            | ALTA       |
+| RNF-005 | O sistema deve garantir a integridade dos registros de doações e campanhas.                                                       | ALTA       |
+| RNF-006 | O sistema deve disponibilizar informações de arrecadação de forma transparente e atualizada.                                      | ALTA       |
+| RNF-007 | O sistema deve apresentar tempo de resposta adequado para consultas e navegação entre páginas.                                    | MÉDIA      |
+| RNF-008 | O sistema deve permitir escalabilidade para suportar crescimento do número de usuários e campanhas.                               | MÉDIA      |
+| RNF-009 | O sistema deve manter disponibilidade contínua para acesso às campanhas e doações.                                                | MÉDIA      |
+| RNF-010 | O sistema deve possuir design responsivo para utilização em computadores, tablets e smartphones.                                  | MÉDIA      |
+| RNF-011 | O sistema deve seguir a legislação vigente relacionada à proteção de dados pessoais (LGPD).                                       | ALTA       |
+| RNF-012 | O sistema deve registrar logs das operações relevantes para auditoria e rastreabilidade.                                          | MÉDIA      |
+| RNF-013 | O sistema deve permitir manutenção e evolução do código de forma modular.                                                         | BAIXA      |
+| RNF-014 | O sistema deve garantir confiabilidade na comunicação entre doadores, organizadores e beneficiários.                              | ALTA       |
+| RNF-015 | O sistema deve oferecer mecanismos que favoreçam a transparência e a confiança no processo de distribuição de auxílios.           | ALTA       |
 
 ## Projeto de Interface
 
@@ -189,50 +142,21 @@ Artefatos relacionados com a interface e a interacão do usuário na proposta de
 
 Estes são os protótipos de telas do sistema.
 
-**✳️✳️✳️ COLOQUE AQUI OS PROTÓTIPOS DE TELAS COM TÍTULO E DESCRIÇÃO ✳️✳️✳️**
-
-##### TELA XPTO ⚠️ EXEMPLO ⚠️
-
-Descrição para a tela XPTO
-
-![Exemplo de wireframe](images/exemplo-wireframe.png)
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Wireframes são protótipos das telas da aplicação usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante ao layout de elementos fundamentais na interface.
->
-> **Orientações**:
->
-> - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
-> - [Figma](https://www.figma.com/)
-> - [Adobe XD](https://www.adobe.com/br/products/xd.html#scroll)
-> - [MarvelApp](https://marvelapp.com/developers/documentation/tutorials/)
+![Wireframe 1](/images/wireframe1.jpg)
+![Wireframe 2](/images/wireframe2.jpg)
+![Wireframe 3](/images/wireframe3.jpg)
+![Wireframe 4](/images/wireframe4.jpg)
+![Wireframe 5](/images/wireframe5.jpg)
+![Wireframe 6](/images/wireframe6.jpg)
+![Wireframe 7](/images/wireframe7.jpg)
 
 ### User Flow
 
-**✳️✳️✳️ COLOQUE AQUI O DIAGRAMA DE FLUXO DE TELAS ✳️✳️✳️**
-
-![Exemplo de fluxo de telas](images/exemplo-userflow.png)
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Fluxo de usuário (User Flow) é uma técnica que permite ao desenvolvedor mapear todo fluxo de telas do site ou app. Essa técnica funciona para alinhar os caminhos e as possíveis ações que o usuário pode fazer junto com os membros de sua equipe.
->
-> **Orientações**:
->
-> - [User Flow: O Quê É e Como Fazer?](https://medium.com/7bits/fluxo-de-usu%C3%A1rio-user-flow-o-que-%C3%A9-como-fazer-79d965872534)
-> - [User Flow vs Site Maps](http://designr.com.br/sitemap-e-user-flow-quais-as-diferencas-e-quando-usar-cada-um/)
-> - [Top 25 User Flow Tools &amp; Templates for Smooth](https://www.mockplus.com/blog/post/user-flow-tools)
+![Fluxo de Telas](images/User%20Flow.jpg)
 
 ### Protótipo Interativo
 
-**✳️✳️✳️ COLOQUE AQUI UM IFRAME COM SEU PROTÓTIPO INTERATIVO ✳️✳️✳️**
-
-✅ [Protótipo Interativo (MarvelApp)](https://marvelapp.com/prototype/4hd6091?emb=1&iosapp=false&frameless=false)  ⚠️ EXEMPLO ⚠️
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Um protótipo interativo apresenta o projeto de interfaces e permite ao usuário navegar pelas funcionalidades como se estivesse lidando com o software pronto. Utilize as mesmas ferramentas de construção de wireframes para montagem do seu protótipo interativo. Inclua o link para o protótipo interativo do projeto.
+✅ [Protótipo Interativo (Figma)](https://near-resist-21634368.figma.site/)
 
 # Metodologia
 
@@ -244,15 +168,9 @@ Relação de ferramentas empregadas pelo grupo durante o projeto.
 
 | Ambiente                    | Plataforma | Link de acesso                                     |
 | --------------------------- | ---------- | -------------------------------------------------- |
-| Processo de Design Thinking | Miro       | https://miro.com/XXXXXXX ⚠️ EXEMPLO ⚠️        |
-| Repositório de código     | GitHub     | https://github.com/XXXXXXX ⚠️ EXEMPLO ⚠️      |
-| Hospedagem do site          | Render     | https://site.render.com/XXXXXXX ⚠️ EXEMPLO ⚠️ |
-| Protótipo Interativo       | MarvelApp  | https://marvelapp.com/XXXXXXX ⚠️ EXEMPLO ⚠️   |
-|                             |            |                                                    |
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Liste as ferramentas empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível. Inclua itens como: (1) Editor de código, (2) )ferramentas de comunicação, (3) )ferramentas de diagramação, (4) )plataformas de hospedagem, entre outras.
+| Processo de Design Thinking | Miro       | https://miro.com/app/board/uXjVGttHmME=/?share_link_id=617207108658/        |
+| Repositório de código     | GitHub     | https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti1-0438100-deference/      |
+| Protótipo Interativo       | Figma  | https://near-resist-21634368.figma.site/   |
 
 ## Gerenciamento do Projeto
 

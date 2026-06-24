@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/site.css">
+    <title>Plataforma de Campanhas - Solidariza</title>
+</head>
+<body>
+
+    <nav id="menu-superior">
+        <div class="container-nav">
+            <div class="logo" id="logo-home" style="cursor: pointer;">
+                <span class="icone-coracao">♥</span>
+                <strong>Solidariza</strong>
+            </div>
+            <div class="links-navegacao">
+                <a href="#" id="link-inicio" class="ativo">Início</a>
+                <a href="#" id="link-campanhas">Campanhas</a>
+                <a href="#">👤 Meu Perfil</a>
+                <button class="btn-sair">↪ Sair</button>
+            </div>
+        </div>
+    </nav>
+
+    <div id="tela-listagem">
+        <header id="cabecalho-principal">
+            <div class="grupo-titulo">
+                <h1>Todas as campanhas</h1>
+                <p>Encontre a causa que mais combina com você</p>
+            </div>
+            <button class="botao-criar" id="btnAbrirCriar">+ Criar Campanha</button>
+        </header>
+
+        <section id="painel-estatisticas">
+            <div class="card-estatistica">
+                <div class="icone-estatistica verde">📈</div>
+                <div class="info-estatistica">
+                    <h2>R$ 48.500</h2>
+                    <p>Total arrecadado</p>
+                </div>
+            </div>
+            <div class="card-estatistica">
+                <div class="icone-estatistica azul">👥</div>
+                <div class="info-estatistica">
+                    <h2>945</h2>
+                    <p>Pessoas ajudadas</p>
+                </div>
+            </div>
+            <div class="card-estatistica">
+                <div class="icone-estatistica laranja">♥</div>
+                <div class="info-estatistica">
+                    <h2>6</h2>
+                    <p>Campanhas ativas</p>
+                </div>
+            </div>
+        </section>
+
+        <input type="text" id="inputBusca" class="barra-busca" placeholder="🔍 Buscar por nome ou descrição...">
+
+        <div id="container-filtros">
+            <button class="botao-filtro ativo" data-filtro="todos">Todas</button>
+            <button class="botao-filtro" data-filtro="alimentacao">Alimentação</button>
+            <button class="botao-filtro" data-filtro="saude">Saúde</button>
+            <button class="botao-filtro" data-filtro="educacao">Educação</button>
+            <button class="botao-filtro" data-filtro="moradia">Moradia</button>
+            <button class="botao-filtro" data-filtro="vestuario">Vestuário</button>
+        </div>
+
+        <main id="grade-campanhas">
+            <div class="cartao" data-categoria="saude" data-organizador="Fundo de Saúde Integral" data-local="São Paulo - SP" data-inicio="10/05/2026" data-fim="10/08/2026" data-doadores="32">
+                <div class="imagem-cartao"><img src="./assets/images/photo-1758691462321-9b6c98c40f7e.jpg" alt=""></div>
+                <span class="etiqueta">Saúde</span>
+                <h3>Fundo de Ajuda Médica</h3>
+                <p>Apoio médico e medicamentos para pessoas sem recursos. Garantindo exames fundamentais e consultas de urgência.</p>
+                <div class="cabecalho-estatisticas">
+                    <span class="valor-arrecadado" data-valor="5000"></span> 
+                    <span class="porcentagem-texto">0%</span>
+                </div>
+                <div class="fundo-progresso"><div class="preenchimento-progresso"></div></div>
+                <div class="meta-valor" data-meta="15000"></div>
+                <div class="beneficiarios">👤 75 beneficiários</div>
+            </div>
+
+            <div class="cartao" data-categoria="saude" data-organizador="Instituto Água Viva" data-local="Comunidades Rurais - MG" data-inicio="01/04/2026" data-fim="30/07/2026" data-doadores="124">
+                <div class="imagem-cartao"><img src="./assets/images/photo-1758691462321-9b6c98c40f7e.jpg" alt=""></div>
+                <span class="etiqueta">Saúde</span>
+                <h3>Projeto Água Limpa</h3>
+                <p>Acesso a água potável e saneamento básico simplificado para comunidades rurais isoladas.</p>
+                <div class="cabecalho-estatisticas">
+                    <span class="valor-arrecadado" data-valor="15000"></span> 
+                    <span class="porcentagem-texto">0%</span>
+                </div>
+                <div class="fundo-progresso"><div class="preenchimento-progresso"></div></div>
+                <div class="meta-valor" data-meta="20000"></div>
+                <div class="beneficiarios">👤 200 beneficiários</div>
+            </div>
+
+            <div class="cartao" data-categoria="alimentacao" data-organizador="Instituto Ajuda Próxima" data-local="Bairro Centro, São Paulo - SP" data-inicio="05/05/2026" data-fim="05/07/2026" data-doadores="84">
+                <div class="imagem-cartao"><img src="./assets/images/photo-1593113630400-ea4288922497.jpg" alt=""></div>
+                <span class="etiqueta">Alimentação</span>
+                <h3>Cestas Básicas de Emergência</h3>
+                <p>Distribuição de alimentos essenciais para famílias que perderam suas fontes de renda recentemente.</p>
+                <div class="cabecalho-estatisticas">
+                    <span class="valor-arrecadado" data-valor="7500"></span> 
+                    <span class="porcentagem-texto">0%</span>
+                </div>
+                <div class="fundo-progresso"><div class="preenchimento-progresso"></div></div>
+                <div class="meta-valor" data-meta="10000"></div>
+                <div class="beneficiarios">👤 200 beneficiários</div>
+            </div>
+
+            <div class="cartao" data-categoria="educacao" data-organizador="Educa Brasil" data-local="Periferias de São Paulo" data-inicio="12/03/2026" data-fim="15/06/2026" data-doadores="56">
+                <div class="imagem-cartao"><img src="./assets/images/photo-1581929207722-a3ac7efe8930.jpg" alt=""></div>
+                <span class="etiqueta">Educação</span>
+                <h3>Material Escolar</h3>
+                <p>Kits escolares completos contendo cadernos, mochilas e estojos para estudantes de baixa renda.</p>
+                <div class="cabecalho-estatisticas">
+                    <span class="valor-arrecadado" data-valor="3000"></span> 
+                    <span class="porcentagem-texto">0%</span>
+                </div>
+                <div class="fundo-progresso"><div class="preenchimento-progresso"></div></div>
+                <div class="meta-valor" data-meta="8000"></div>
+                <div class="beneficiarios">👤 200 beneficiários</div>
+            </div>
+
+            <div class="cartao" data-categoria="moradia" data-organizador="Teto Cidadão" data-local="Guarulhos - SP" data-inicio="20/02/2026" data-fim="20/06/2026" data-doadores="19">
+                <div class="imagem-cartao"><img src="./assets/images/photo-1769028885299-c5c3503d6778.jpg" alt=""></div>
+                <span class="etiqueta">Moradia</span>
+                <h3>Reforma de Moradias</h3>
+                <p>Reformas emergenciais em telhados e estruturas de casas danificadas pelas chuvas em comunidades carentes.</p>
+                <div class="cabecalho-estatisticas">
+                    <span class="valor-arrecadado" data-valor="12000"></span> 
+                    <span class="porcentagem-texto">0%</span>
+                </div>
+                <div class="fundo-progresso"><div class="preenchimento-progresso"></div></div>
+                <div class="meta-valor" data-meta="25000"></div>
+                <div class="beneficiarios">👤 40 beneficiários</div>
+            </div>
+
+            <div class="cartao" data-categoria="vestuario" data-organizador="Mãos Quentes" data-local="Porto Alegre - RS" data-inicio="01/05/2026" data-fim="31/08/2026" data-doadores="92">
+                <div class="imagem-cartao"><img src="./assets/images/photo-1593113598332-cd288d649433.jpg" alt=""></div>
+                <span class="etiqueta">Vestuário</span>
+                <h3>Agasalhos de Inverno</h3>
+                <p>Arrecadação e distribuição de roupas quentes e cobertores pesados para pessoas em situação de rua.</p>
+                <div class="cabecalho-estatisticas">
+                    <span class="valor-arrecadado" data-valor="6000"></span> 
+                    <span class="porcentagem-texto">0%</span>
+                </div>
+                <div class="fundo-progresso"><div class="preenchimento-progresso"></div></div>
+                <div class="meta-valor" data-meta="10000"></div>
+                <div class="beneficiarios">👤 180 beneficiários</div>
+            </div>
+        </main>
+    </div>
+
+    <div id="tela-detalhes" style="display: none;">
+        <header class="banner-campanha" id="detalhe-banner">
+            <div class="banner-overlay">
+                <div class="banner-conteudo">
+                    <span class="etiqueta-categoria" id="detalhe-categoria">Categoria</span>
+                    <h1 id="detalhe-titulo">Título da Campanha</h1>
+                    <p class="autor" id="detalhe-autor">por Nome da Organização</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="layout-detalhes">
+            <section class="coluna-esquerda">
+                <div class="card-detalhe">
+                    <h2>Sobre a campanha</h2>
+                    <p id="detalhe-sobre">Texto descritivo.</p>
+                </div>
+
+                <div class="grid-detalhes-tecnicos">
+                    <div class="item-tecnico">
+                        <div class="icone-tecnico verde">👥</div>
+                        <div>
+                            <h3>Organizador</h3>
+                            <p id="detalhe-tech-organizador">Organizador</p>
+                        </div>
+                    </div>
+                    <div class="item-tecnico">
+                        <div class="icone-tecnico azul">📍</div>
+                        <div>
+                            <h3>Localização</h3>
+                            <p id="detalhe-tech-local">Localização</p>
+                        </div>
+                    </div>
+                    <div class="item-tecnico">
+                        <div class="icone-tecnico laranja">📅</div>
+                        <div>
+                            <h3>Data de Início</h3>
+                            <p id="detalhe-tech-inicio">00/00/0000</p>
+                        </div>
+                    </div>
+                    <div class="item-tecnico">
+                        <div class="icone-tecnico verde">🎯</div>
+                        <div>
+                            <h3>Data de Término</h3>
+                            <p id="detalhe-tech-fim">00/00/0000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-detalhe">
+                    <h2>Impacto esperado</h2>
+                    <div class="grid-impacto">
+                        <div class="card-impacto verde">
+                            <span class="numero-impacto" id="detalhe-impacto-beneficiarios">0</span>
+                            <span class="legenda-impacto">Beneficiários apoiados</span>
+                        </div>
+                        <div class="card-impacto azul">
+                            <span class="numero-impacto" id="detalhe-impacto-doadores">0</span>
+                            <span class="legenda-impacto">Doadores contribuindo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-detalhe">
+                    <h2>Atualizações</h2>
+                    <div class="linha-tempo">
+                        <div class="item-linha-tempo">
+                            <div class="status-icone verde">✓</div>
+                            <div class="conteudo-linha-tempo">
+                                <span class="data-linha-tempo">Hoje</span>
+                                <p>Campanha aberta para doações de qualquer valor em dinheiro ou PIX.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="coluna-direita">
+                <div class="card-arrecadacao">
+                    <h3>Progresso da arrecadação</h3>
+                    <div class="valores-arrecadacao">
+                        <span class="valor-principal" id="detalhe-painel-arrecadado">R$ 0</span>
+                        <span class="valor-meta" id="detalhe-painel-meta">de R$ 0 meta</span>
+                    </div>
+                    <div class="fundo-progresso-detalhe">
+                        <div class="barra-progresso-detalhe" id="detalhe-painel-barra" style="width: 0%;"></div>
+                    </div>
+                    <div class="info-rodape-progresso">
+                        <span id="detalhe-painel-porcentagem">0% concluído</span>
+                        <strong id="detalhe-painel-restante">R$ 0 restante</strong>
+                    </div>
+                    <button class="btn-doar-agora" id="btnFazerDoacao">♥ Doar agora</button>
+                    <button class="btn-compartilhar" id="btnCompartilharLink">🔗 Compartilhar</button>
+                    <div class="total-doadores" id="detalhe-painel-pessoas-doaram">
+                        👤 0 pessoas já doaram
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="modalCriarCampanha">
+        <div class="modal-conteudo">
+            <h2>Criar Nova Campanha</h2>
+            <p class="subtitulo">Preencha os detalhes para iniciar sua campanha de ajuda</p>
+            
+            <form id="formNovaCampanha">
+                <div class="campo-formulario">
+                    <label for="titulo">Título da Campanha</label>
+                    <input type="text" id="titulo" placeholder="Ex: Cestas Básicas de Emergência" required>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="categoria">Categoria</label>
+                    <select id="categoria" required>
+                        <option value="" disabled selected>Selecione uma categoria...</option>
+                        <option value="alimentacao">Alimentação</option>
+                        <option value="saude">Saúde</option>
+                        <option value="educacao">Educação</option>
+                        <option value="moradia">Moradia</option>
+                        <option value="vestuario">Vestuário</option>
+                    </select>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="descricao">Descrição</label>
+                    <textarea id="descricao" placeholder="Descreva o objetivo da sua campanha..." required></textarea>
+                </div>
+
+                <div class="linha-dupla">
+                    <div class="campo-formulario">
+                        <label for="meta">Meta de Arrecadação (R$)</label>
+                        <input type="number" id="meta" placeholder="10000" min="1" required>
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="beneficiarios">Beneficiários Esperados</label>
+                        <input type="number" id="beneficiarios" placeholder="150" min="1" required>
+                    </div>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="local">Local/Região</label>
+                    <input type="text" id="local" placeholder="Ex: Bairro Centro, São Paulo - SP" required>
+                </div>
+
+                <div class="linha-dupla">
+                    <div class="campo-formulario">
+                        <label for="dataInicio">Data de Início</label>
+                        <input type="date" id="dataInicio" required>
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="dataTermino">Data de Término</label>
+                        <input type="date" id="dataTermino" required>
+                    </div>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="organizacao">Nome da Organização</label>
+                    <input type="text" id="organizacao" placeholder="Ex: Instituto Ajuda Próxima" required>
+                </div>
+
+                <div class="linha-dupla">
+                    <div class="campo-formulario">
+                        <label for="email">Email de Contato</label>
+                        <input type="email" id="email" placeholder="contato@ong.org" required>
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="telefone">Telefone de Contato</label>
+                        <input type="text" id="telefone" placeholder="(11) 99999-9999" required>
+                    </div>
+                </div>
+
+                <div class="diretrizes-container">
+                    <h3>Diretrizes da Campanha</h3>
+                    <ul>
+                        <li>Todas as campanhas devem ser verificadas antes de entrar no ar</li>
+                        <li>Forneça informações precisas e verdadeiras</li>
+                        <li>Os recursos devem ser usados apenas para os fins declarados</li>
+                        <li>Atualizações regulares de progresso are necessárias</li>
+                        <li>A revisão da campanha leva de 2 a 3 dias úteis</li>
+                    </ul>
+                </div>
+
+                <div class="botoes-acao">
+                    <button type="submit" class="btn-enviar">Enviar Campanha</button>
+                    <button type="button" class="btn-cancelar" id="btnCancelar">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="tela-detalhes" style="display: none;">
+    
+    <div style="max-width: 1100px; margin: 20px auto 10px auto; padding: 0 20px;">
+        <button id="btn-voltar-detalhes" class="btn-voltar-seta">← Voltar para Campanhas</button>
+    </div>
+
+    <header class="banner-campanha" id="detalhe-banner">
+        <div class="banner-overlay">
+            <div class="banner-conteudo">
+                <span class="etiqueta-categoria" id="detalhe-categoria">Categoria</span>
+                <h1 id="detalhe-titulo">Título da Campanha</h1>
+                <p class="autor" id="detalhe-autor">por Nome da Organização</p>
+            </div>
+        </div>
+    </header>
+
+    
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

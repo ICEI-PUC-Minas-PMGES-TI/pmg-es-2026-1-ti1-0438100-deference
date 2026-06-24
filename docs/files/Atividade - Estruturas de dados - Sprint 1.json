@@ -1,0 +1,146 @@
+{
+  "solicitacoes": [
+    {
+      "id": 1,
+      "campanhaId": 1,
+      "nomeCompleto": "João da Silva",
+      "telefone": "(31) 99999-0000",
+      "email": "joao.silva@email.com",
+      "endereco": {
+        "rua": "Rua Exemplo",
+        "numero": "123",
+        "bairro": "Centro",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
+        "cep": "30000-000"
+      },
+      "numeroPessoasFamilia": 4,
+      "rendaMensal": 1200.00,
+      "motivo": "Estou passando por dificuldades financeiras e preciso de ajuda com alimentação.",
+      "status": "em_analise",
+      "documentosComprobatorios": [
+        "rg.pdf",
+        "comprovante_residencia.pdf"
+      ],
+      "dataCriacao": "2026-04-22T14:30:00"
+    },
+    {
+      "id": 2,
+      "campanhaId": 2,
+      "nomeCompleto": "Ana Souza",
+      "telefone": "(31) 98888-1111",
+      "email": "ana.souza@email.com",
+      "endereco": {
+        "rua": "Av. Principal",
+        "numero": "456",
+        "bairro": "São Lucas",
+        "cidade": "Santa Luzia",
+        "estado": "MG",
+        "cep": "33000-000"
+      },
+      "numeroPessoasFamilia": 3,
+      "rendaMensal": 900.00,
+      "motivo": "Necessito de apoio para alimentação dos meus filhos.",
+      "status": "aprovada",
+      "documentosComprobatorios": [
+        "cpf.pdf"
+      ],
+      "dataCriacao": "2026-04-23T10:15:00"
+    }
+  ],
+
+  "doacoes": [
+    {
+      "id": 1,
+      "campanhaId": 1,
+      "doadorNome": "Maria Silva",
+      "doadorEmail": "maria@email.com",
+      "valorDoacao": 50.00,
+      "taxaProcessamento": 0.00,
+      "valorTotal": 50.00,
+      "formaPagamento": {
+        "tipo": "cartao_credito",
+        "numeroCartao": "1234567812345678",
+        "validade": "12/28",
+        "cvv": "123",
+        "nomeCartao": "Maria Silva"
+      },
+      "comprovantePagamento": "pagamento1.pdf",
+      "dataCriacao": "2026-04-22T16:00:00",
+      "status": "confirmada"
+    },
+    {
+      "id": 2,
+      "campanhaId": 2,
+      "doadorNome": "Carlos Mendes",
+      "doadorEmail": "carlos@email.com",
+      "valorDoacao": 120.00,
+      "taxaProcessamento": 2.50,
+      "valorTotal": 122.50,
+      "formaPagamento": {
+        "tipo": "pix",
+        "chavePix": "ong@pix.com"
+      },
+      "comprovantePagamento": "pagamento2.pdf",
+      "dataCriacao": "2026-04-23T18:20:00",
+      "status": "pendente"
+    }
+  ],
+
+  "campanhas": [
+    {
+      "id": 1,
+      "titulo": "Cestas Básicas de Emergência",
+      "categoria": "Alimentação",
+      "descricao": "Campanha para arrecadar alimentos para famílias em situação de vulnerabilidade.",
+      "metaArrecadacao": 10000,
+      "valorArrecadado": 7500,
+      "porcentagemConcluida": 75,
+      "beneficiariosEsperados": 150,
+      "numeroBeneficiariosAtendidos": 112,
+      "local": {
+        "regiao": "Distrito Rural",
+        "cidade": "Santa Luzia",
+        "estado": "MG"
+      },
+      "imagemUrl": "imagens/campanha1.jpg",
+      "dataInicio": "2026-05-01",
+      "dataTermino": "2026-06-01",
+      "organizacao": {
+        "nome": "ONG Esperança",
+        "cnpj": "12.345.678/0001-99",
+        "email": "contato@ong.org",
+        "telefone": "+55 31 98765-4321"
+      },
+      "status": "pendente_aprovacao",
+      "dataCriacao": "2026-04-22T17:00:00"
+    },
+    {
+      "id": 2,
+      "titulo": "Ajuda Solidária Escolar",
+      "categoria": "Educação",
+      "descricao": "Arrecadação para materiais escolares de crianças carentes.",
+      "metaArrecadacao": 5000,
+      "valorArrecadado": 2100,
+      "porcentagemConcluida": 42,
+      "beneficiariosEsperados": 80,
+      "numeroBeneficiariosAtendidos": 34,
+      "local": {
+        "regiao": "Bairro Industrial",
+        "cidade": "Belo Horizonte",
+        "estado": "MG"
+      },
+      "imagemUrl": "imagens/campanha2.jpg",
+      "dataInicio": "2026-06-10",
+      "dataTermino": "2026-07-15",
+      "organizacao": {
+        "nome": "Instituto Educação Viva",
+        "cnpj": "98.765.432/0001-55",
+        "email": "apoio@educacaoviva.org",
+        "telefone": "+55 31 97654-3210"
+      },
+      "status": "ativa",
+      "dataCriacao": "2026-04-25T09:00:00"
+    }
+  ]
+}

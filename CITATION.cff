@@ -1,31 +1,36 @@
 cff-version: 1.0.1
-message: Please cite this software using these metadata.
-title: 
+message: Plataforma que conecta doadores, organizações e beneficiários para gerenciar e acompanhar a distribuição de auxílios de forma transparente, organizada e eficiente..
+title: Solidariza
 authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names:
+  - family-names: de Paula Marques
+    given-names: Frederico Marcos
+  - family-names: Dutra Figueiredo
+    given-names: Lucas
+  - family-names: Gibim Borges
+    given-names: Luiz Felipe
+  - family-names: Rocha de Souza
+    given-names: Pedro Henrique
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: de Faria Barros
+    given-names: Diego Augusto
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Almeida Louzada
+    given-names: Henrique
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: de Paiva Lacerda
+    given-names: Lucca Soares
 keywords:
-  - 
-  - 
-repository-code: 
+  - Solidariedade
+  - Assistência social
+  - Distribuição de auxílios
+  - Ações solidárias
+  - Doações
+  - Desenvolvimento social
+  - Impacto social
+repository-code: https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti1-0438100-deference
 license: CC-BY-4.0
 version: 1.0.0
 date-released: 2022-07-14
