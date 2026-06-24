@@ -1,0 +1,148 @@
+/* reset básico */
+* {
+    box-sizing: border-box;
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* estilos gerais do body */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.9375rem;
+    color: #1a1a1a;
+    background-color: #f3f4f6;
+}
+
+/* NAVBAR */
+
+.navbar {
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* ícone verde da marca */
+.icone-marca {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    background-color: #2e7d32;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.icone-marca i {
+    font-size: 0.9rem;
+}
+
+/* versão menor do ícone pra usar no rodapé */
+.icone-marca-pequeno {
+    width: 30px;
+    height: 30px;
+}
+
+.icone-marca-pequeno i {
+    font-size: 0.8rem;
+}
+
+.nome-marca {
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    letter-spacing: -0.01em;
+}
+
+/* links do menu */
+.texto-nav {
+    color: #374151 !important;
+    font-size: 0.9375rem;
+    font-weight: 400;
+}
+
+.texto-nav:hover {
+    color: #2e7d32 !important;
+}
+
+/* botão verde de cadastrar */
+.botao-cadastrar {
+    background-color: #2e7d32;
+    color: #fff !important;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.botao-cadastrar:hover {
+    background-color: #256428;
+    color: #fff !important;
+}
+
+/* BODY */
+
+/* FOOTER */
+
+.rodape-site {
+    background-color: #ffffff;
+    border-top: 1px solid #e9ecef;
+}
+
+.slogan-rodape {
+    font-size: 0.85rem;
+    color: #6b7280;
+    line-height: 1.6;
+    max-width: 320px;
+}
+
+.titulo-rodape {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.links-rodape li {
+    margin-bottom: 0.45rem;
+}
+
+.links-rodape a {
+    font-size: 0.875rem;
+    color: #6b7280;
+    text-decoration: none;
+    transition: color 0.15s;
+}
+
+.links-rodape a:hover {
+    color: #2e7d32;
+}
+
+.copyright-rodape {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    border-top: 1px solid #e9ecef;
+    padding-top: 1rem;
+}
+
+/* RESPONSIVIDADE */
+
+/* tablet */
+@media (max-width: 767.98px) {
+    .titulo-secao {
+        font-size: 1.45rem;
+    }
+
+    .slogan-rodape {
+        max-width: 100%;
+    }
+}
+
+/* celular */
+@media (max-width: 575.98px) {
+    .navbar .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solidariza</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- ícones do bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <!-- meu css -->
+    <link rel="stylesheet" href="./assets/css/criarNovaCampanha.css" />
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2">
+            <div class="container">
+
+                <!-- logo -->
+                <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                    <span class="icone-marca">
+                        <i class="bi bi-heart-fill text-white"></i>
+                    </span>
+                    <span class="nome-marca fw-semibold">Solidariza</span>
+                </a>
+
+                <!-- botão hamburger mobile -->
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- links do menu -->
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3 mt-3 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link texto-nav" href="#">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link texto-nav" href="#">Campanhas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link texto-nav d-flex align-items-center gap-1" href="#">
+                                <i class="bi bi-person"></i> Meu Perfil
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn botao-sair d-flex align-items-center gap-1 px-3 py-2" href="#">
+                                <i class="bi bi-box-arrow-right"></i> Sair
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main class="fundo-principal py-4 py-lg-5">
+        <div class="container">
+
+            <!-- link voltar -->
+            <a href="#" class="link-voltar d-inline-flex align-items-center gap-1 mb-4">
+                <i class="bi bi-arrow-left"></i>
+                <span>Voltar para Campanhas</span>
+            </a>
+
+            <!-- card do formulário -->
+            <section class="cartao-formulario">
+                <article>
+
+                    <!-- cabeçalho do card -->
+                    <div class="mb-4">
+                        <h1 class="titulo-formulario mb-1">Criar Nova Campanha</h1>
+                        <p class="subtitulo-formulario mb-0">Preencha os detalhes para iniciar sua campanha de ajuda</p>
+                    </div>
+
+                    <!-- FORMULÁRIO -->
+                    <form id="formCriarCampanha" novalidate>
+
+                        <!-- Título da Campanha -->
+                        <div class="mb-4">
+                            <label class="label-campo" for="campanhaTitulo">Título da Campanha</label>
+                            <input type="text" id="campanhaTitulo" class="form-control campo-input"
+                                placeholder="Ex: Cestas Básicas de Emergência" />
+                        </div>
+
+                        <!-- Categoria -->
+                        <div class="mb-4">
+                            <label class="label-campo" for="campanhaCategoria">Categoria</label>
+                            <select id="campanhaCategoria" class="form-select campo-input">
+                                <option value="" disabled selected>Selecione uma categoria...</option>
+                                <option>Alimentação</option>
+                                <option>Saúde</option>
+                                <option>Educação</option>
+                                <option>Moradia</option>
+                                <option>Meio Ambiente</option>
+                            </select>
+                        </div>
+
+                        <!-- Descrição -->
+                        <div class="mb-4">
+                            <label class="label-campo" for="campanhaDescricao">Descrição</label>
+                            <textarea id="campanhaDescricao" class="form-control campo-input area-texto"
+                                placeholder="Descreva o objetivo da sua campanha e como os recursos serão utilizados..."></textarea>
+                        </div>
+
+                        <!-- Meta + Beneficiários -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-12 col-md-6">
+                                <label class="label-campo" for="campanhaMeta">Meta de Arrecadação (R$)</label>
+                                <input type="text" id="campanhaMeta" class="form-control campo-input"
+                                    placeholder="1.000,00" />
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="label-campo" for="campanhaBeneficiarios">Beneficiários Esperados</label>
+                                <input type="number" id="campanhaBeneficiarios" class="form-control campo-input"
+                                    placeholder="150" />
+                            </div>
+                        </div>
+
+                        <!-- Local/Região -->
+                        <div class="mb-4">
+                            <label class="label-campo" for="campanhaLocal">Local/Região</label>
+                            <input type="text" id="campanhaLocal" class="form-control campo-input"
+                                placeholder="Ex: Distrito Rural, Região A" />
+                        </div>
+
+                        <!-- Datas -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-12 col-md-6">
+                                <label class="label-campo" for="campanhaInicio">Data de Início</label>
+                                <input type="date" id="campanhaInicio" class="form-control campo-input" />
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="label-campo" for="campanhaFim">Data de Término</label>
+                                <input type="date" id="campanhaFim" class="form-control campo-input" />
+                            </div>
+                        </div>
+
+                        <!-- Nome da Organização -->
+                        <div class="mb-4">
+                            <label class="label-campo" for="campanhaOrg">Nome da Organização</label>
+                            <input type="text" id="campanhaOrg" class="form-control campo-input"
+                                placeholder="Nome da sua organização" />
+                        </div>
+
+                        <!-- E-mail -->
+                        <div class="mb-4">
+                            <label class="label-campo" for="campanhaEmail">E-mail para Contato</label>
+                            <input type="email" id="campanhaEmail" class="form-control campo-input"
+                                placeholder="contato@organizacao.org" />
+                        </div>
+
+                        <!-- Telefone -->
+                        <div class="mb-4">
+                            <label class="label-campo" for="campanhaTel">Telefone para Contato</label>
+                            <input type="text" id="campanhaTel" class="form-control campo-input"
+                                placeholder="(00) 99999-9999" />
+                        </div>
+
+                        <!-- Diretrizes -->
+                        <div class="caixa-diretrizes mb-4">
+                            <h6 class="titulo-diretrizes mb-2">Diretrizes da Campanha</h6>
+                            <ul class="lista-diretrizes mb-0">
+                                <li>Todas as campanhas devem ser verificadas antes de entrar no ar</li>
+                                <li>Forneça informações precisas e verdadeiras</li>
+                                <li>Os recursos devem ser usados apenas para os fins declarados</li>
+                                <li>Atualizações regulares de progresso são necessárias</li>
+                                <li>A revisão da campanha leva de 2 a 3 dias úteis</li>
+                            </ul>
+                        </div>
+
+                        <!-- Botões -->
+                        <div class="d-flex flex-column flex-sm-row gap-3">
+                            <button type="submit" class="btn botao-enviar flex-fill">Enviar Campanha</button>
+                            <button type="button" class="btn botao-cancelar flex-fill" id="btnCancelar">Cancelar</button>
+                        </div>
+
+                    </form>
+
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="rodape-site pt-5 pb-3">
+        <div class="container">
+            <div class="row g-4 pb-4">
+
+                <!-- marca e descrição -->
+                <div class="col-12 col-md-5 col-lg-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <span class="icone-marca icone-marca-pequeno">
+                            <i class="bi bi-heart-fill text-white"></i>
+                        </span>
+                        <span class="nome-marca fw-semibold">Solidariza</span>
+                    </div>
+                    <p class="slogan-rodape">
+                        Conectando solidariedade a quem mais precisa. Transformando doações em impacto real
+                        para comunidades em situação de vulnerabilidade.
+                    </p>
+                </div>
+
+                <!-- espaço -->
+                <div class="col-12 col-md-1 d-none d-md-block"></div>
+
+                <!-- Sobre -->
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h6 class="titulo-rodape mb-3">Sobre</h6>
+                    <ul class="links-rodape list-unstyled mb-0">
+                        <li><a href="#">Como funciona</a></li>
+                        <li><a href="#">Nossa missão</a></li>
+                        <li><a href="#">Transparência</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contato -->
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h6 class="titulo-rodape mb-3">Contato</h6>
+                    <ul class="links-rodape list-unstyled mb-0">
+                        <li><a href="#">Suporte</a></li>
+                        <li><a href="#">Privacidade</a></li>
+                        <li><a href="#">Termos de uso</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="copyright-rodape text-center pt-3">
+                © 2026 Solidariza. Todos os direitos reservados.
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/criarNovaCampanha.js"></script>
+</body>
+
+</html>
