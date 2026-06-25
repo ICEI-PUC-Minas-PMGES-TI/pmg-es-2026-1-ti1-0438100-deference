@@ -1,4 +1,4 @@
-/* reset básico */
+/* Reset básico */
 * {
     box-sizing: border-box;
 }
@@ -8,21 +8,22 @@
     box-sizing: border-box;
 }
 
-/* estilos gerais do body */
+/* Estilos gerais do body */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-size: 0.9375rem;
     color: #1a1a1a;
     background-color: #f3f4f6;
+    overflow-x: hidden;
+    /* Previne barras de rolagem horizontais indesejadas */
 }
 
 /* NAVBAR */
-
 .navbar {
     border-bottom: 1px solid #e9ecef;
 }
 
-/* ícone verde da marca */
+/* Ícone verde da marca */
 .icone-marca {
     display: inline-flex;
     align-items: center;
@@ -38,7 +39,7 @@ body {
     font-size: 0.9rem;
 }
 
-/* versão menor do ícone pra usar no rodapé */
+/* Versão menor do ícone para o rodapé */
 .icone-marca-pequeno {
     width: 30px;
     height: 30px;
@@ -54,18 +55,19 @@ body {
     letter-spacing: -0.01em;
 }
 
-/* links do menu */
+/* Links do menu */
 .texto-nav {
     color: #374151 !important;
     font-size: 0.9375rem;
     font-weight: 400;
+    padding: 0.5rem 0;
 }
 
 .texto-nav:hover {
     color: #2e7d32 !important;
 }
 
-/* botão verde de cadastrar */
+/* Botão verde de cadastrar */
 .botao-cadastrar {
     background-color: #2e7d32;
     color: #fff !important;
@@ -82,20 +84,291 @@ body {
     color: #fff !important;
 }
 
-/* BODY */
+/* SEÇÃO HERO */
+.secao-hero {
+    position: relative;
+    background-image: url('https://images.unsplash.com/photo-1593113598332-cd288d649433?w=1400&q=80');
+    background-size: cover;
+    background-position: center;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    padding-top: 5rem;
+    padding-bottom: 11rem;
+    /* Espaço seguro para a barra de estatísticas em telas de desktop */
+}
+
+.overlay-hero {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(30, 90, 34, 0.78);
+}
+
+.titulo-hero {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.subtitulo-hero {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    max-width: 540px;
+}
+
+/* Botão laranja */
+.botao-doar {
+    background-color: #e8652a;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.75rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.botao-doar:hover {
+    background-color: #d4561f;
+    color: #fff;
+}
+
+/* Botão branco com borda */
+.botao-ajuda {
+    background-color: transparent;
+    color: #fff;
+    border: 1.5px solid rgba(255, 255, 255, 0.75);
+    border-radius: 8px;
+    padding: 0.75rem 1.75rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.botao-ajuda:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: #fff;
+    color: #fff;
+}
+
+/* SEÇÃO DE ESTATÍSTICAS (Efeito Blur/Glassmorphism) */
+.secao-estatisticas {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 10;
+    margin-top: -130px;
+    /* Sobe exatamente o tamanho proporcional da linha única de blocos */
+}
+
+.numero-stat {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.label-stat {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.75);
+    /* Branco suave melhora a leitura sobre o verde do que o cinza escuro antigo */
+    font-weight: 500;
+    margin: 0;
+}
+
+/* SEÇÃO DE CAMPANHAS */
+.secao-campanhas {
+    background-color: #ffffff;
+}
+
+.titulo-secao {
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: #111827;
+    letter-spacing: -0.02em;
+}
+
+.subtitulo-secao {
+    font-size: 0.95rem;
+    color: #6b7280;
+}
+
+/* Card de campanha */
+.cartao-campanha {
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.cartao-campanha:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+}
+
+.imagem-campanha-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.imagem-campanha {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.badge-categoria {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    border-radius: 20px;
+    padding: 0.25rem 0.75rem;
+}
+
+.categoria-alimentacao {
+    background-color: #fff3e0;
+    color: #b45309;
+}
+
+.categoria-educacao {
+    background-color: #ede9fe;
+    color: #5b21b6;
+}
+
+.categoria-saude {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+.titulo-card {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.4;
+}
+
+.valor-arrecadado {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.percentual-card {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #6b7280;
+}
+
+.barra-progresso {
+    height: 6px;
+    background-color: #e5e7eb;
+    border-radius: 999px;
+}
+
+.barra-preenchida {
+    background-color: #2e7d32;
+    border-radius: 999px;
+}
+
+.meta-card {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+.beneficiarios-card {
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+.beneficiarios-card i {
+    font-size: 0.9rem;
+    margin-right: 0.25rem;
+}
+
+.link-ver-todas {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #2e7d32;
+    text-decoration: none;
+    transition: color 0.15s;
+}
+
+.link-ver-todas:hover {
+    color: #1b5e20;
+    text-decoration: underline;
+}
+
+/* SEÇÃO DE CONFIANÇA */
+.secao-confianca {
+    background-color: #f3f4f6;
+}
+
+.icone-confianca {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+}
+
+.icone-verde {
+    background-color: #dcfce7;
+    color: #2e7d32;
+}
+
+.icone-azul {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+}
+
+.icone-laranja {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+.titulo-diferencial {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.texto-diferencial {
+    font-size: 0.875rem;
+    color: #6b7280;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+}
 
 /* FOOTER */
-
 .rodape-site {
     background-color: #ffffff;
     border-top: 1px solid #e9ecef;
 }
 
 .slogan-rodape {
-    font-size: 0.85rem;
+    font-size: 0.875rem;
     color: #6b7280;
     line-height: 1.6;
-    max-width: 320px;
+    max-width: 340px;
 }
 
 .titulo-rodape {
@@ -105,7 +378,7 @@ body {
 }
 
 .links-rodape li {
-    margin-bottom: 0.45rem;
+    margin-bottom: 0.5rem;
 }
 
 .links-rodape a {
@@ -120,18 +393,115 @@ body {
 }
 
 .copyright-rodape {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: #9ca3af;
     border-top: 1px solid #e9ecef;
-    padding-top: 1rem;
+    padding-top: 1.25rem;
 }
 
-/* RESPONSIVIDADE */
+/* ==========================================================================
+   MEDIA QUERIES - RESPONSIVIDADE ADAPTATIVA E FLUIDA
+   ========================================================================== */
 
-/* tablet */
+/* Telas Grandes e Médias (Ajustes finos para Notebooks e Tablets deitados) */
+@media (max-width: 1199.98px) {
+    .titulo-hero {
+        font-size: 2.4rem;
+    }
+
+    .secao-hero {
+        padding-bottom: 12rem;
+    }
+
+    .secao-estatisticas {
+        margin-top: -105px;
+    }
+}
+
+/* Tablets em modo Retrato (Abaixo de 992px) */
+@media (max-width: 991.98px) {
+
+    /* Ajustes na navegação Mobile para dar respiro aos itens empilhados */
+    .navbar-nav {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .navbar-nav .nav-item {
+        width: 100%;
+    }
+
+    .navbar-nav .botao-cadastrar {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+
+    /* Hero e Estatísticas */
+    .secao-hero {
+        text-align: center;
+        padding-top: 4rem;
+        padding-bottom: 16rem;
+        /* Aumenta o espaço inferior pois os blocos de stat começam a condensar */
+    }
+
+    .subtitulo-hero {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .secao-hero .d-flex {
+        justify-content: center;
+    }
+
+    .secao-estatisticas {
+        margin-top: -140px;
+    }
+}
+
+/* Smartphones Grandes / Módulos de Estatísticas quebram para colunas individuais (Abaixo de 768px) */
 @media (max-width: 767.98px) {
+    .titulo-hero {
+        font-size: 2rem;
+    }
+
+    .secao-hero {
+        min-height: auto;
+        padding-top: 3.5rem;
+        padding-bottom: 4rem;
+        /* Libera o espaço interno do Hero no mobile */
+    }
+
+    /* Como os 3 blocos de estatísticas ficam empilhados verticalmente no mobile, 
+       eles ocupam muito espaço. Remover o margin-top negativo previne que eles 
+       esmaguem ou subam por cima do texto principal do Hero. */
+    .secao-estatisticas {
+        margin-top: 0;
+        background-color: #1e5a22;
+        /* Fundo sólido adaptado para perfeita leitura em bloco isolado mobile */
+        border: none;
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    .numero-stat {
+        font-size: 1.8rem;
+    }
+
+    .label-stat {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 1rem;
+    }
+
+    /* Remove a margem de baixo do último bloco de estatística */
+    .secao-estatisticas .row>div:last-child .label-stat {
+        margin-bottom: 0;
+    }
+
     .titulo-secao {
-        font-size: 1.45rem;
+        font-size: 1.5rem;
     }
 
     .slogan-rodape {
@@ -139,10 +509,30 @@ body {
     }
 }
 
-/* celular */
+/* Smartphones Pequenos (Abaixo de 576px) */
 @media (max-width: 575.98px) {
+    .titulo-hero {
+        font-size: 1.75rem;
+    }
+
+    /* Botões do Hero passam a ocupar a largura total do display de forma elegante */
+    .botao-doar,
+    .botao-ajuda {
+        width: 100%;
+        text-align: center;
+    }
+
     .navbar .container {
         padding-left: 1rem;
         padding-right: 1rem;
+    }
+
+    /* Pequeno espaçamento adicional nos cards de diferencial para melhor escaneabilidade */
+    .texto-diferencial {
+        margin-bottom: 1.5rem;
+    }
+
+    .secao-confianca .row>div:last-child .texto-diferencial {
+        margin-bottom: 0;
     }
 }

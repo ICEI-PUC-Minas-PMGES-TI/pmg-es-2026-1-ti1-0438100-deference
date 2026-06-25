@@ -11,7 +11,7 @@
     <!-- ícones do bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
     <!-- meu css -->
-    <link rel="stylesheet" href="./assets/css/criarNovaCampanha.css" />
+    <link rel="stylesheet" href="../../assets/css/campanha/criar-campanha.css" />
 </head>
 
 <body>
@@ -19,44 +19,57 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2">
             <div class="container">
-
-                <!-- logo -->
-                <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html">
                     <span class="icone-marca">
                         <i class="bi bi-heart-fill text-white"></i>
                     </span>
                     <span class="nome-marca fw-semibold">Solidariza</span>
                 </a>
 
-                <!-- botão hamburger mobile -->
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                     data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                    aria-label="Alternar navegação">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <!-- links do menu -->
                 <div class="collapse navbar-collapse" id="mainNav">
                     <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3 mt-3 mt-lg-0">
+
                         <li class="nav-item">
-                            <a class="nav-link texto-nav" href="#">Início</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link texto-nav" href="#">Campanhas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link texto-nav d-flex align-items-center gap-1" href="#">
-                                <i class="bi bi-person"></i> Meu Perfil
+                            <a class="nav-link texto-nav" href="./campanhas.html">
+                                Campanhas
                             </a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="btn botao-sair d-flex align-items-center gap-1 px-3 py-2" href="#">
-                                <i class="bi bi-box-arrow-right"></i> Sair
+                            <a class="nav-link texto-nav" href="#">
+                                Como funciona
                             </a>
                         </li>
+
+                        <li class="nav-item nav-guest">
+                            <a class="nav-link texto-nav" href="../login/login.html">
+                                Entrar
+                            </a>
+                        </li>
+
+                        <li class="nav-item nav-guest">
+                            <a class="btn botao-cadastrar px-4 py-2" href="../cadastro/cadastro.html">
+                                Cadastrar
+                            </a>
+                        </li>
+
+                        <li class="nav-item nav-auth d-none">
+                            <a class="nav-link texto-nav" href="../perfil/perfil.html">
+
+                                <i class="bi bi-person-circle me-1"></i>
+                                Meu Perfil
+
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
-
             </div>
         </nav>
     </header>
@@ -66,7 +79,7 @@
         <div class="container">
 
             <!-- link voltar -->
-            <a href="#" class="link-voltar d-inline-flex align-items-center gap-1 mb-4">
+            <a href="./campanhas.html" class="link-voltar d-inline-flex align-items-center gap-1 mb-4">
                 <i class="bi bi-arrow-left"></i>
                 <span>Voltar para Campanhas</span>
             </a>
@@ -180,7 +193,8 @@
                         <!-- Botões -->
                         <div class="d-flex flex-column flex-sm-row gap-3">
                             <button type="submit" class="btn botao-enviar flex-fill">Enviar Campanha</button>
-                            <button type="button" class="btn botao-cancelar flex-fill" id="btnCancelar">Cancelar</button>
+                            <button type="button" class="btn botao-cancelar flex-fill"
+                                id="btnCancelar">Cancelar</button>
                         </div>
 
                     </form>
@@ -244,7 +258,11 @@
 
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/js/criarNovaCampanha.js"></script>
+    <script src="../../assets/js/api/api-config.js"></script>
+    <script src="../../assets/js/api/campanha-service.js"></script>
+    <script src="../../assets/js/navbar.js"></script>
+    <script src="../../assets/js/criar-campanha/criar-campanha.js"></script>
+    <script src="../../assets/js/campanha/criar-campanha.js"></script>
 </body>
 
 </html>

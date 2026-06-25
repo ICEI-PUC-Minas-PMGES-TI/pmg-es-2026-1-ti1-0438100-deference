@@ -1,5 +1,3 @@
-
-
 const mapaImagens = {
     alimentacao: './assets/images/photo-1593113630400-ea4288922497.jpg',
     saude: './assets/images/photo-1758691462321-9b6c98c40f7e.jpg',
@@ -29,7 +27,7 @@ function iniciarApp() {
     const telaDetalhes = document.getElementById('tela-detalhes');
     const linkInicio = document.getElementById('link-inicio');
     const linkCampanhas = document.getElementById('link-campanhas');
-    
+
     const btnFazerDoacao = document.getElementById('btnFazerDoacao');
     let cartaoAtivo = null;
 
@@ -50,11 +48,11 @@ function iniciarApp() {
             if (elBarra) elBarra.style.width = porcentagem + "%";
         });
     }
-   
+
     function registrarCartao(cartao) {
         cartao.addEventListener('click', () => {
             cartaoAtivo = cartao;
-           
+
             const titulo = cartao.querySelector('h3').innerText;
             const categoria = cartao.querySelector('.etiqueta').innerText;
             const sobreTexto = cartao.querySelector('p').innerText;
@@ -86,7 +84,7 @@ function iniciarApp() {
 
             telaListagem.style.display = 'none';
             telaDetalhes.style.display = 'block';
-            
+
             linkInicio.classList.remove('ativo');
             linkCampanhas.classList.add('ativo');
             window.scrollTo(0, 0);
@@ -146,8 +144,8 @@ function iniciarApp() {
         linkInicio.classList.add('ativo');
     }
 
-    if(linkInicio) linkInicio.addEventListener('click', (e) => { e.preventDefault(); voltarParaHome(); });
-    if(linkCampanhas) linkCampanhas.addEventListener('click', (e) => { e.preventDefault(); voltarParaHome(); });
+    if (linkInicio) linkInicio.addEventListener('click', (e) => { e.preventDefault(); voltarParaHome(); });
+    if (linkCampanhas) linkCampanhas.addEventListener('click', (e) => { e.preventDefault(); voltarParaHome(); });
 
     const btnVoltarDetalhes = document.getElementById('btn-voltar-detalhes');
     if (btnVoltarDetalhes) {
@@ -161,35 +159,38 @@ function iniciarApp() {
     if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
 
     formNovaCampanha.addEventListener('submit', (e) => {
-    e.preventDefault();
+        e.preventDefault();
 
-    const categoria = document.getElementById('categoria').value;
-    const campanha = {
-        titulo: document.getElementById('titulo').value,
-        categoria,
-        descricao: document.getElementById('descricao').value,
-        meta: document.getElementById('meta').value,
-        beneficiarios: document.getElementById('beneficiarios').value,
-        local: document.getElementById('local').value,
-        organizacao: document.getElementById('organizacao').value,
-        imagem: acheImagem(categoria)
-    };
+        const categoria = document.getElementById('categoria').value;
+        const campanha = {
+            titulo: document.getElementById('titulo').value,
+            categoria,
+            descricao: document.getElementById('descricao').value,
+            meta: document.getElementById('meta').value,
+            beneficiarios: document.getElementById('beneficiarios').value,
+            local: document.getElementById('local').value,
+            organizacao: document.getElementById('organizacao').value,
+            imagem: acheImagem(categoria)
+        };
 
-    let campanhas = JSON.parse(localStorage.getItem('campanhas')) || [];
-    campanhas.push(campanha);
-    localStorage.setItem('campanhas', JSON.stringify(campanhas));
+        const campanhas =
+            await listarCampanhas();
+        campanhas.push(campanha);
+        await criarCampanha(
+            campanha
+        );
 
-    adicionarCampanhaNaTela(campanha);
+        adicionarCampanhaNaTela(campanha);
 
-    const novoCartao = gradeCampanhas.lastElementChild;
-    if (novoCartao) registrarCartao(novoCartao);
-    atualizarValores();
+        const novoCartao = gradeCampanhas.lastElementChild;
+        if (novoCartao) registrarCartao(novoCartao);
+        atualizarValores();
 
-    alert('Campanha criada com sucesso!');
+        alert('Campanha criada com sucesso!');
 
-    formNovaCampanha.reset();
-    modal.style.display = 'none';
-});
+        formNovaCampanha.reset();
+        modal.style.display = 'none';
+    });
     if (inputBusca) {
         inputBusca.addEventListener('input', () => {
             const termoBusca = inputBusca.value.toLowerCase().trim();
@@ -205,7 +206,7 @@ function iniciarApp() {
         botao.addEventListener('click', () => {
             botoesFiltro.forEach(btn => btn.classList.remove('ativo'));
             botao.classList.add('ativo');
-            if (inputBusca) inputBusca.value = ''; 
+            if (inputBusca) inputBusca.value = '';
             const categoria = botao.getAttribute('data-filtro');
             cartoes.forEach(cartao => {
                 const catCartao = cartao.getAttribute('data-categoria');
@@ -263,10 +264,10 @@ function adicionarCampanhaNaTela(campanha) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  const campanhas = JSON.parse(localStorage.getItem('campanhas')) || [];
+    const campanhas = JSON.parse(localStorage.getItem('campanhas')) || [];
 
-campanhas.forEach(campanha => {
-    adicionarCampanhaNaTela(campanha);
-});
+    campanhas.forEach(campanha => {
+        adicionarCampanhaNaTela(campanha);
+    });
     iniciarApp();
 });

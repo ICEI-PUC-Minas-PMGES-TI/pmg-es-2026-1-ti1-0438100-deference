@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			});
 			if (!resp.ok) throw new Error(`Servidor retornou ${resp.status}`);
 			const data = await resp.json();
-			alert(`Campanha cadastrada com sucesso! ID: ${data.id}`);
+			Toast(`Campanha cadastrada com sucesso! ID: ${data.id}`);
 			form.reset();
 			clearValidation();
 		} catch (err) {

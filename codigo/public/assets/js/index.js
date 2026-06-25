@@ -1,1 +1,3 @@
-// Arquivo para JS da index
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Solidariza carregado.");
+});
