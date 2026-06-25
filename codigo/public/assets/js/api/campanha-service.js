@@ -1,54 +1,84 @@
-async function listarCampanhas() {
-    const resposta =
-        await fetch(`${API_URL}/campanhas`);
+const CampanhaService = {
 
-    return await resposta.json();
-}
+    async listar() {
 
-async function buscarCampanha(id) {
+        const response = await fetch(
+            `${API_URL}/campanhas`
+        );
 
-    const resposta =
-        await fetch(
+        if (!response.ok) {
+            throw new Error('Erro ao buscar campanhas');
+        }
+
+        return await response.json();
+    },
+
+    async buscarPorId(id) {
+
+        const response = await fetch(
             `${API_URL}/campanhas/${id}`
         );
 
-    return await resposta.json();
-}
+        if (!response.ok) {
+            throw new Error('Erro ao buscar campanha');
+        }
 
-async function criarCampanha(campanha) {
+        return await response.json();
+    },
 
-    const resposta =
-        await fetch(`${API_URL}/campanhas`, {
-            method: "POST",
-            headers: {
-                "Content-Type":
-                    "application/json"
-            },
-            body: JSON.stringify(campanha)
-        });
+    async criar(campanha) {
 
-    return await resposta.json();
-}
-
-async function atualizarCampanha(
-    id,
-    campanha
-) {
-
-    const resposta =
-        await fetch(
-            `${API_URL}/campanhas/${id}`,
+        const response = await fetch(
+            `${API_URL}/campanhas`,
             {
-                method: "PUT",
+                method: 'POST',
                 headers: {
-                    "Content-Type":
-                        "application/json"
+                    'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(
-                    campanha
-                )
+                body: JSON.stringify(campanha)
             }
         );
 
-    return await resposta.json();
-}
+        if (!response.ok) {
+            throw new Error('Erro ao criar campanha');
+        }
+
+        return await response.json();
+    },
+
+    async atualizar(id, campanha) {
+
+        const response = await fetch(
+            `${API_URL}/campanhas/${id}`,
+            {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(campanha)
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error('Erro ao atualizar campanha');
+        }
+
+        return await response.json();
+    },
+
+    async excluir(id) {
+
+        const response = await fetch(
+            `${API_URL}/campanhas/${id}`,
+            {
+                method: 'DELETE'
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error('Erro ao excluir campanha');
+        }
+
+        return true;
+    }
+};
