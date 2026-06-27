@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../../assets/css/index.css" />
-    <link rel="stylesheet" href="../../assets/css/campanha/campanhas.css" />
+    <link rel="stylesheet" href="../../assets/css/campanha/detalhe-campanha.css" />
     <title>Solidariza</title>
 </head>
 
@@ -30,76 +30,33 @@
 
                 <div class="collapse navbar-collapse" id="mainNav">
                     <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3 mt-3 mt-lg-0">
-
                         <li class="nav-item">
-                            <a class="nav-link texto-nav" href="./campanhas.html">
-                                Campanhas
-                            </a>
+                            <a class="nav-link texto-nav" href="./campanhas.html">Campanhas</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link texto-nav" href="#">
-                                Como funciona
-                            </a>
+                            <a class="nav-link texto-nav" href="#">Como funciona</a>
                         </li>
-
                         <li class="nav-item nav-guest">
-                            <a class="nav-link texto-nav" href="../login/login.html">
-                                Entrar
-                            </a>
+                            <a class="nav-link texto-nav" href="../login/login.html">Entrar</a>
                         </li>
-
                         <li class="nav-item nav-guest">
-                            <a class="btn botao-cadastrar px-4 py-2" href="../cadastro/cadastro.html">
-                                Cadastrar
-                            </a>
+                            <a class="btn botao-cadastrar px-4 py-2" href="../cadastro/cadastro.html">Cadastrar</a>
                         </li>
-
                         <li class="nav-item nav-auth d-none">
                             <a class="nav-link texto-nav" href="../perfil/perfil.html">
-
-                                <i class="bi bi-person-circle me-1"></i>
-                                Meu Perfil
-
+                                <i class="bi bi-person-circle me-1"></i> Meu Perfil
                             </a>
                         </li>
-
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+    <main class="pagina-detalhe-campanha">
+        <a href="./campanhas.html" class="link-voltar-detalhe">
+            <i class="bi bi-arrow-left"></i> Voltar para Campanhas
+        </a>
 
-    <div id="tela-listagem">
-        <header id="cabecalho-principal">
-            <div class="grupo-titulo">
-                <h1>Todas as campanhas</h1>
-                <p>Encontre a causa que mais combina com você</p>
-            </div>
-            <a href="./criar-campanha.html" class="btn botao-criar">
-                + Criar Campanha
-            </a>
-        </header>
-
-        <input type="text" id="inputBusca" class="barra-busca" placeholder="🔍 Buscar por nome ou descrição...">
-
-        <div id="container-filtros">
-            <button class="botao-filtro ativo" data-filtro="todos">Todas</button>
-            <button class="botao-filtro" data-filtro="Alimentação">Alimentação</button>
-            <button class="botao-filtro" data-filtro="Saúde">Saúde</button>
-            <button class="botao-filtro" data-filtro="Educação">Educação</button>
-            <button class="botao-filtro" data-filtro="Moradia">Moradia</button>
-            <button class="botao-filtro" data-filtro="Vestuário">Vestuário</button>
-            <button class="botao-filtro" data-filtro="Meio Ambiente">Meio Ambiente</button>
-        </div>
-
-        <main id="grade-campanhas">
-
-        </main>
-    </div>
-
-
-    <div id="tela-detalhes" style="display: none;">
         <header class="banner-campanha" id="detalhe-banner">
             <div class="banner-overlay">
                 <div class="banner-conteudo">
@@ -110,7 +67,7 @@
             </div>
         </header>
 
-        <main class="layout-detalhes">
+        <div class="layout-detalhes container">
             <section class="coluna-esquerda">
                 <div class="card-detalhe">
                     <h2>Sobre a campanha</h2>
@@ -120,31 +77,19 @@
                 <div class="grid-detalhes-tecnicos">
                     <div class="item-tecnico">
                         <div class="icone-tecnico verde">👥</div>
-                        <div>
-                            <h3>Organizador</h3>
-                            <p id="detalhe-tech-organizador">Organizador</p>
-                        </div>
+                        <div><h3>Organizador</h3><p id="detalhe-tech-organizador">Organizador</p></div>
                     </div>
                     <div class="item-tecnico">
                         <div class="icone-tecnico azul">📍</div>
-                        <div>
-                            <h3>Localização</h3>
-                            <p id="detalhe-tech-local">Localização</p>
-                        </div>
+                        <div><h3>Localização</h3><p id="detalhe-tech-local">Localização</p></div>
                     </div>
                     <div class="item-tecnico">
                         <div class="icone-tecnico laranja">📅</div>
-                        <div>
-                            <h3>Data de Início</h3>
-                            <p id="detalhe-tech-inicio">00/00/0000</p>
-                        </div>
+                        <div><h3>Data de Início</h3><p id="detalhe-tech-inicio">00/00/0000</p></div>
                     </div>
                     <div class="item-tecnico">
                         <div class="icone-tecnico verde">🎯</div>
-                        <div>
-                            <h3>Data de Término</h3>
-                            <p id="detalhe-tech-fim">00/00/0000</p>
-                        </div>
+                        <div><h3>Data de Término</h3><p id="detalhe-tech-fim">00/00/0000</p></div>
                     </div>
                 </div>
 
@@ -190,22 +135,51 @@
                         <span id="detalhe-painel-porcentagem">0% concluído</span>
                         <strong id="detalhe-painel-restante">R$ 0 restante</strong>
                     </div>
-                    <button class="btn-doar-agora" id="btnFazerDoacao">♥ Doar agora</button>
+                    <a class="btn-doar-agora" id="btnFazerDoacao" href="#">♥ Doar agora</a>
                     <button class="btn-compartilhar" id="btnCompartilharLink">🔗 Compartilhar</button>
-                    <div class="total-doadores" id="detalhe-painel-pessoas-doaram">
-                        👤 0 pessoas já doaram
-                    </div>
+                    <div class="total-doadores" id="detalhe-painel-pessoas-doaram">👤 0 pessoas já doaram</div>
                 </div>
             </aside>
-        </main>
-    </div>
+        </div>
+    </main>
+    <footer class="rodape-site pt-5 pb-3">
+        <div class="container">
+            <div class="row g-4 pb-4">
+                <div class="col-12 col-md-5 col-lg-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <span class="icone-marca icone-marca-pequeno"><i class="bi bi-heart-fill text-white"></i></span>
+                        <span class="nome-marca fw-semibold">Solidariza</span>
+                    </div>
+                    <p class="slogan-rodape">Conectando solidariedade a quem mais precisa. Transformando doações em impacto real para comunidades em situação de vulnerabilidade.</p>
+                </div>
+                <div class="col-12 col-md-1 d-none d-md-block"></div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h6 class="titulo-rodape mb-3">Sobre</h6>
+                    <ul class="links-rodape list-unstyled mb-0">
+                        <li><a href="#">Como funciona</a></li>
+                        <li><a href="#">Nossa missão</a></li>
+                        <li><a href="#">Transparência</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h6 class="titulo-rodape mb-3">Contato</h6>
+                    <ul class="links-rodape list-unstyled mb-0">
+                        <li><a href="#">Suporte</a></li>
+                        <li><a href="#">Privacidade</a></li>
+                        <li><a href="#">Termos de uso</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright-rodape text-center pt-3">© 2026 Solidariza. Todos os direitos reservados.</div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../assets/js/api/api-config.js"></script>
     <script src="../../assets/js/api/campanha-service.js"></script>
-
     <script src="../../assets/js/navbar.js"></script>
-    <script src="../../assets/js/campanha/campanhas.js"></script>
+    <script src="../../assets/js/campanha/detalhe-campanha.js"></script>
 </body>
-
 </html>
+
+

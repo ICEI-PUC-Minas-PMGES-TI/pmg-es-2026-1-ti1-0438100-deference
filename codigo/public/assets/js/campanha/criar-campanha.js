@@ -1,3 +1,17 @@
+const mapaImagensCriar = {
+    alimentacao: '../../assets/images/alimentacao.jpg',
+    saude: '../../assets/images/saude.jpg',
+    educacao: '../../assets/images/educacao.jpg',
+    moradia: '../../assets/images/moradia.jpg',
+    vestuario: '../../assets/images/vestuario.jpg',
+    'meio ambiente': '../../assets/images/meio-ambiente.jpg'
+};
+
+function acheImagemCriar(categoria) {
+    const chave = String(categoria || '').trim().toLowerCase();
+    return mapaImagensCriar[chave] || mapaImagensCriar.alimentacao;
+}
+
 // JavaScript da página criarNovaCampanha.html
 document.addEventListener('DOMContentLoaded', () => {
 	const form = document.getElementById('formCriarCampanha');
@@ -148,6 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			organizacao: fields.org.value.trim(),
 			email: fields.email.value.trim(),
 			telefone: fields.tel.value.replace(/\D/g, ''),
+			imagem: acheImagemCriar(fields.categoria.value),
 			criadoEm: new Date().toISOString()
 		};
 

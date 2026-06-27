@@ -1,9 +1,10 @@
 const mapaImagens = {
-    alimentacao: "./assets/images/photo-1593113630400-ea4288922497.jpg",
-    saude: "./assets/images/photo-1758691462321-9b6c98c40f7e.jpg",
-    educacao: "./assets/images/photo-1581929207722-a3ac7efe8930.jpg",
-    moradia: "./assets/images/photo-1769028885299-c5c3503d6778.jpg",
-    vestuario: "./assets/images/photo-1593113598332-cd288d649433.jpg"
+    alimentacao: "../assets/images/alimentacao.jpg",
+    saude: "../assets/images/saude.jpg",
+    educacao: "../assets/images/educacao.jpg",
+    moradia: "../assets/images/moradia.jpg",
+    vestuario: "../assets/images/vestuario.jpg",
+    "meio ambiente": "../assets/images/meio-ambiente.jpg"
 };
 
 function normalizarCategoria(categoria) {
@@ -25,7 +26,6 @@ async function carregarCampanhasDestaque() {
     try {
 
         const campanhas = await CampanhaService.listar();
-
         const formatador = new Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL"
@@ -37,62 +37,61 @@ async function carregarCampanhasDestaque() {
 
                 const arrecadado = campanha.arrecadado || campanha.valorArrecadado || 0;
                 const meta = campanha.meta || 1;
-
-                const porcentagem = Math.min(
-                    (arrecadado / meta) * 100,
-                    100
-                ).toFixed(0);
+                const porcentagem = Math.min((arrecadado / meta) * 100, 100).toFixed(0);
+                const campanhaId = campanha.id || "";
 
                 return `
                     <div class="col-lg-4 col-md-6 mb-4">
-                        <article class="cartao h-100">
-                            <div class="imagem-cartao">
-                                <img
-                                    src="${campanha.imagem || acheImagem(campanha.categoria)}"
-                                    alt="${campanha.titulo || ""}">
-                            </div>
-
-                            <span class="etiqueta">
-                                ${campanha.categoria || ""}
-                            </span>
-
-                            <h3>
-                                ${campanha.titulo || ""}
-                            </h3>
-
-                            <p>
-                                ${campanha.descricao || ""}
-                            </p>
-
-                            <div class="cabecalho-estatisticas">
-                                <span
-                                    class="valor-arrecadado"
-                                    data-valor="${arrecadado}">
-                                    ${formatador.format(arrecadado)}
-                                </span>
-
-                                <span class="porcentagem-texto">
-                                    ${porcentagem}%
-                                </span>
-                            </div>
-
-                            <div class="fundo-progresso">
-                                <div
-                                    class="preenchimento-progresso"
-                                    style="width: ${porcentagem}%">
+                        <a href="./campanha/detalhe-campanha.html?id=${campanhaId}" class="text-decoration-none">
+                            <article class="cartao h-100" data-id="${campanhaId}" data-categoria="${campanha.categoria || ''}">
+                                <div class="imagem-cartao">
+                                    <img
+                                        src="${campanha.imagem || acheImagem(campanha.categoria)}"
+                                        alt="${campanha.titulo || ''}">
                                 </div>
-                            </div>
 
-                            <div
-                                class="meta-valor"
-                                data-meta="${meta}">
-                                Meta: ${formatador.format(meta)}
-                            </div>
+                                <span class="etiqueta">
+                                    ${campanha.categoria || ''}
+                                </span>
 
-                            <div class="beneficiarios">
-                                &#128100; ${campanha.beneficiarios || 0} benefici&aacute;rios
-                            </div>
-                        </article>
+                                <h3>
+                                    ${campanha.titulo || ''}
+                                </h3>
+
+                                <p>
+                                    ${campanha.descricao || ''}
+                                </p>
+
+                                <div class="cabecalho-estatisticas">
+                                    <span
+                                        class="valor-arrecadado"
+                                        data-valor="${arrecadado}">
+                                        ${formatador.format(arrecadado)}
+                                    </span>
+
+                                    <span class="porcentagem-texto">
+                                        ${porcentagem}%
+                                    </span>
+                                </div>
+
+                                <div class="fundo-progresso">
+                                    <div
+                                        class="preenchimento-progresso"
+                                        style="width: ${porcentagem}%">
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="meta-valor"
+                                    data-meta="${meta}">
+                                    Meta: ${formatador.format(meta)}
+                                </div>
+
+                                <div class="beneficiarios">
+                                    &#128100; ${campanha.beneficiarios || 0} benefici&aacute;rios
+                                </div>
+                            </article>
+                        </a>
                     </div>
                 `;
             });

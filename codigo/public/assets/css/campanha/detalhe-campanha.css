@@ -1,0 +1,289 @@
+.pagina-detalhe-campanha {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.link-voltar-detalhe {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #2e7d32;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 20px;
+    transition: color 0.2s;
+}
+.link-voltar-detalhe:hover {
+    color: #1b5e20;
+    text-decoration: underline;
+}
+.banner-campanha {
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.25));
+    display: flex;
+    align-items: flex-end;
+}
+.banner-conteudo {
+    padding: 30px;
+    color: #fff;
+}
+.etiqueta-categoria {
+    display: inline-block;
+    background: #e8652a;
+    color: #fff;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+.banner-conteudo h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0 0 6px 0;
+    line-height: 1.2;
+}
+.banner-conteudo .autor {
+    font-size: 16px;
+    opacity: 0.85;
+    margin: 0;
+}
+.layout-detalhes {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 30px;
+    padding: 0;
+    margin-bottom: 40px;
+}
+.coluna-esquerda {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.card-detalhe {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border: 1px solid #f0f0f0;
+}
+.card-detalhe h2 {
+    font-size: 20px;
+    color: #222;
+    margin: 0 0 12px 0;
+}
+.card-detalhe p {
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 15px;
+}
+.grid-detalhes-tecnicos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+.item-tecnico {
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border: 1px solid #f0f0f0;
+}
+.icone-tecnico {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+.icone-tecnico.verde { background: #e8f5e9; }
+.icone-tecnico.azul { background: #e3f2fd; }
+.icone-tecnico.laranja { background: #fff3e0; }
+.item-tecnico h3 {
+    font-size: 13px;
+    color: #888;
+    margin: 0 0 2px 0;
+    font-weight: 500;
+}
+.item-tecnico p {
+    font-size: 15px;
+    color: #333;
+    margin: 0;
+    font-weight: 500;
+}
+.grid-impacto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+.card-impacto {
+    text-align: center;
+    padding: 24px 16px;
+    border-radius: 10px;
+}
+.card-impacto.verde { background: #e8f5e9; }
+.card-impacto.azul { background: #e3f2fd; }
+.numero-impacto {
+    display: block;
+    font-size: 28px;
+    font-weight: 800;
+    color: #222;
+    margin-bottom: 4px;
+}
+.legenda-impacto {
+    font-size: 13px;
+    color: #666;
+}
+.linha-tempo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.item-linha-tempo {
+    display: flex;
+    gap: 14px;
+}
+.status-icone {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.status-icone.verde { background: #e8f5e9; color: #2e7d32; }
+.conteudo-linha-tempo .data-linha-tempo {
+    font-size: 12px;
+    color: #999;
+    display: block;
+    margin-bottom: 4px;
+}
+.conteudo-linha-tempo p {
+    font-size: 14px;
+    color: #555;
+    margin: 0;
+    line-height: 1.5;
+}
+.coluna-direita {
+    position: sticky;
+    top: 20px;
+    align-self: start;
+}
+.card-arrecadacao {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border: 1px solid #f0f0f0;
+}
+.card-arrecadacao h3 {
+    font-size: 16px;
+    color: #333;
+    margin: 0 0 16px 0;
+}
+.valores-arrecadacao {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.valor-principal {
+    font-size: 28px;
+    font-weight: 800;
+    color: #2e7d32;
+}
+.valor-meta {
+    font-size: 14px;
+    color: #888;
+}
+.fundo-progresso-detalhe {
+    height: 10px;
+    background: #e9ecef;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.barra-progresso-detalhe {
+    height: 100%;
+    background: linear-gradient(90deg, #2e7d32, #4caf50);
+    border-radius: 6px;
+    transition: width 0.4s ease;
+}
+.info-rodape-progresso {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+}
+.btn-doar-agora {
+    display: block;
+    width: 100%;
+    background: #e8652a;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.2s;
+    margin-bottom: 10px;
+}
+.btn-doar-agora:hover {
+    background: #d4561f;
+    color: #fff;
+}
+.btn-compartilhar {
+    display: block;
+    width: 100%;
+    background: transparent;
+    color: #555;
+    border: 1px solid #ddd;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 16px;
+}
+.btn-compartilhar:hover {
+    background: #f5f5f5;
+    border-color: #bbb;
+}
+.total-doadores {
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+}
+@media (max-width: 768px) {
+    .layout-detalhes { grid-template-columns: 1fr; }
+    .grid-detalhes-tecnicos { grid-template-columns: 1fr; }
+    .grid-impacto { grid-template-columns: 1fr; }
+    .banner-conteudo h1 { font-size: 24px; }
+    .banner-campanha { min-height: 220px; }
+}

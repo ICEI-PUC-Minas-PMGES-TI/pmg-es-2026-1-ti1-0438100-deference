@@ -1,13 +1,14 @@
 const mapaImagens = {
-    alimentacao: './assets/images/photo-1593113630400-ea4288922497.jpg',
-    saude: './assets/images/photo-1758691462321-9b6c98c40f7e.jpg',
-    educacao: './assets/images/photo-1581929207722-a3ac7efe8930.jpg',
-    moradia: './assets/images/photo-1769028885299-c5c3503d6778.jpg',
-    vestuario: './assets/images/photo-1593113598332-cd288d649433.jpg'
+    alimentacao: '../../assets/images/alimentacao.jpg',
+    saude: '../../assets/images/saude.jpg',
+    educacao: '../../assets/images/educacao.jpg',
+    moradia: '../../assets/images/moradia.jpg',
+    vestuario: '../../assets/images/vestuario.jpg',
+    'meio ambiente': '../../assets/images/meio-ambiente.jpg'
 };
 
 function acheImagem(categoria) {
-    const chave = String(categoria || '').trim().toLowerCase();
+    const chave = String(categoria || '').trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     return mapaImagens[chave] || mapaImagens.alimentacao;
 }
 
@@ -53,6 +54,11 @@ function iniciarApp() {
 
     function registrarCartao(cartao) {
         cartao.addEventListener('click', () => {
+            const campanhaId = cartao.getAttribute('data-id');
+            if (campanhaId) {
+                window.location.href = './detalhe-campanha.html?id=' + campanhaId;
+                return;
+            }
             cartaoAtivo = cartao;
 
             const titulo = cartao.querySelector('h3').innerText;
@@ -108,33 +114,12 @@ function iniciarApp() {
         document.getElementById('detalhe-painel-pessoas-doaram').innerText = `👤 ${doadores} pessoas já doaram`;
     }
 
-    if (btnFazerDoacao) {
+        if (btnFazerDoacao) {
         btnFazerDoacao.addEventListener('click', () => {
             if (!cartaoAtivo) return;
-
-            const quantiaDigitada = prompt("Digite o valor que deseja doar (R$):", "500");
-            const valorDoacao = parseFloat(quantiaDigitada);
-
-            if (!isNaN(valorDoacao) && valorDoacao > 0) {
-                const elValorCartao = cartaoAtivo.querySelector('.valor-arrecadado');
-                const elMetaCartao = cartaoAtivo.querySelector('.meta-valor');
-
-                let atual = parseFloat(elValorCartao.getAttribute('data-valor')) || 0;
-                const meta = parseFloat(elMetaCartao.getAttribute('data-meta')) || 1;
-                let doadores = parseInt(cartaoAtivo.getAttribute('data-doadores')) || 0;
-
-                atual += valorDoacao;
-                doadores += 1;
-
-                elValorCartao.setAttribute('data-valor', atual);
-                cartaoAtivo.setAttribute('data-doadores', doadores);
-
-                atualizarValores();
-                atualizarPainelDetalhes(atual, meta, doadores);
-
-                alert(`Obrigado! Sua doação de ${formatador.format(valorDoacao)} foi contabilizada.`);
-            } else if (quantiaDigitada !== null) {
-                alert("Por favor, digite um valor numérico válido.");
+            const campanhaId = cartaoAtivo.getAttribute('data-id');
+            if (campanhaId) {
+                window.location.href = '../contribuicao/realizar-contribuicao.html?id=' + campanhaId;
             }
         });
     }
@@ -263,6 +248,11 @@ function adicionarCampanhaNaTela(campanha) {
         cartao.setAttribute(
             'data-doadores',
             campanha.doadores || 0
+        );
+
+        cartao.setAttribute(
+            'data-id',
+            campanha.id || ''
         );
 
         cartao.innerHTML = `
