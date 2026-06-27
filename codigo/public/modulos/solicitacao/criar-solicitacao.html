@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solidariza – Nova Solicitação</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/css/solicitacao/criar-solicitacao.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-inner">
+      <a class="logo" href="#">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+          </svg>
+        </div>
+        <span>Solidariza</span>
+      </a>
+      <div class="nav-links">
+        <a href="#">Início</a>
+        <a href="#">Campanhas</a>
+        <a href="#" class="profile-link">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+          Meu Perfil
+        </a>
+        <a class="btn-exit" href="#">Sair</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BANNER -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Nova Solicitação</h1>
+      <p>Preencha o formulário para solicitar ajuda</p>
+    </div>
+  </div>
+
+  <!-- CONTEUDO -->
+  <main>
+
+    <div class="top-actions">
+      <button class="btn-amber" onclick="alert('Redirecionando...')">Ver Minhas Solicitações</button>
+    </div>
+
+    <div class="card">
+      <h2>Solicitar Ajuda</h2>
+
+      <!-- BARRA DE PROGRESSO -->
+      <div class="progresso">
+        <div class="passo ativo" id="passo-1">
+          <div class="circulo">1</div>
+          <span>Campanha</span>
+        </div>
+        <div class="linha" id="linha-1"></div>
+        <div class="passo" id="passo-2">
+          <div class="circulo">2</div>
+          <span>Dados Pessoais</span>
+        </div>
+        <div class="linha" id="linha-2"></div>
+        <div class="passo" id="passo-3">
+          <div class="circulo">3</div>
+          <span>Situação</span>
+        </div>
+      </div>
+
+      <!-- ETAPA 1: Campanha -->
+      <div class="etapa" id="etapa-1">
+        <div class="field">
+          <label for="campanha">Escolher Campanha</label>
+          <select id="campanha">
+            <option value="">Selecione uma campanha...</option>
+            <option>Campanha Alimentação Solidária</option>
+            <option>Auxílio Escolar 2026</option>
+            <option>Apoio Habitacional</option>
+            <option>Cesta Básica de Natal</option>
+          </select>
+          <small id="erro-campanha" class="erro-msg"></small>
+        </div>
+        <div class="botoes">
+          <button class="btn-green" onclick="avancar(2)">Próximo</button>
+        </div>
+      </div>
+
+      <!-- ETAPA 2: Dados Pessoais -->
+      <div class="etapa escondido" id="etapa-2">
+        <div class="field">
+          <label for="nome">Nome Completo</label>
+          <input type="text" id="nome" placeholder="Digite seu nome completo" />
+          <small id="erro-nome" class="erro-msg"></small>
+        </div>
+        <div class="field">
+          <label for="telefone">Telefone para Contato</label>
+          <input type="tel" id="telefone" placeholder="(00) 00000-0000" maxlength="15" />
+          <small id="erro-telefone" class="erro-msg"></small>
+        </div>
+        <div class="field">
+          <label for="endereco">Endereço</label>
+          <input type="text" id="endereco" placeholder="Digite seu endereço completo" />
+          <small id="erro-endereco" class="erro-msg"></small>
+        </div>
+        <div class="botoes">
+          <button class="btn-outline" onclick="voltar(1)">Voltar</button>
+          <button class="btn-green" onclick="avancar(3)">Próximo</button>
+        </div>
+      </div>
+
+      <!-- ETAPA 3: Situação -->
+      <div class="etapa escondido" id="etapa-3">
+        <div class="field">
+          <label for="familia">Número de Pessoas na Família</label>
+          <input type="number" id="familia" placeholder="Quantas pessoas moram com você?" min="1" max="30" />
+          <small id="erro-familia" class="erro-msg"></small>
+        </div>
+        <div class="field">
+          <label for="motivo">Motivo da Solicitação</label>
+          <textarea id="motivo"
+            placeholder="Conte-nos sobre sua situação e por que você precisa de ajuda..."></textarea>
+          <small id="erro-motivo" class="erro-msg"></small>
+        </div>
+        <div class="botoes">
+          <button class="btn-outline" onclick="voltar(2)">Voltar</button>
+          <button class="btn-green" onclick="enviar()">Enviar Solicitação</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">✓ Solicitação enviada com sucesso!</div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="logo" href="#">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+          </div>
+          <span>Solidariza</span>
+        </a>
+        <p>Conectando solidariedade a quem mais precisa. Transformando doações em impacto real para comunidades em
+          situação de vulnerabilidade.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Sobre</h4>
+        <a href="#">Como funciona</a>
+        <a href="#">Nossa missão</a>
+        <a href="#">Transparência</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <a href="#">Suporte</a>
+        <a href="#">Privacidade</a>
+        <a href="#">Termos de uso</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Solidariza. Todos os direitos reservados.</div>
+  </footer>
+
+  <script src="../../assets/js/solicitacao/criar-solicitacao.js"></script>
+</body>
+
+</html>

@@ -240,48 +240,50 @@ function adicionarCampanhaNaTela(campanha) {
 
     const grade = document.getElementById('grade-campanhas');
 
-    const cartao = document.createElement('div');
+    function criarCardCampanha(campanha) {
 
-    cartao.className = 'cartao';
+        const cartao = document.createElement("article");
+        cartao.className = "cartao";
 
-    cartao.setAttribute(
-        'data-categoria',
-        campanha.categoria || ''
-    );
+        cartao.setAttribute(
+            'data-categoria',
+            campanha.categoria || ''
+        );
 
-    cartao.setAttribute(
-        'data-organizador',
-        campanha.organizacao || 'ONG Parceira'
-    );
+        cartao.setAttribute(
+            'data-organizador',
+            campanha.organizacao || 'ONG Parceira'
+        );
 
-    cartao.setAttribute(
-        'data-local',
-        campanha.local || 'Brasil'
-    );
+        cartao.setAttribute(
+            'data-local',
+            campanha.local || 'Brasil'
+        );
 
-    cartao.setAttribute(
-        'data-doadores',
-        campanha.doadores || 0
-    );
+        cartao.setAttribute(
+            'data-doadores',
+            campanha.doadores || 0
+        );
 
-    cartao.innerHTML = `
+        cartao.innerHTML = `
         <div class="imagem-cartao">
-            <img src="${campanha.imagem || acheImagem(campanha.categoria)}" alt="">
+            <img src="${campanha.imagem || acheImagem(campanha.categoria)}" alt="${campanha.titulo}">
         </div>
 
         <span class="etiqueta">
-            ${campanha.categoria || ''}
+            ${campanha.categoria || ""}
         </span>
 
         <h3>
-            ${campanha.titulo || ''}
+            ${campanha.titulo || ""}
         </h3>
 
         <p>
-            ${campanha.descricao || ''}
+            ${campanha.descricao || ""}
         </p>
 
         <div class="cabecalho-estatisticas">
+
             <span
                 class="valor-arrecadado"
                 data-valor="${campanha.arrecadado || 0}">
@@ -290,6 +292,7 @@ function adicionarCampanhaNaTela(campanha) {
             <span class="porcentagem-texto">
                 0%
             </span>
+
         </div>
 
         <div class="fundo-progresso">
@@ -305,6 +308,11 @@ function adicionarCampanhaNaTela(campanha) {
             👤 ${campanha.beneficiarios || 0} beneficiários
         </div>
     `;
+
+        return cartao;
+    }
+
+    const cartao = criarCardCampanha(campanha);
 
     grade.appendChild(cartao);
 }

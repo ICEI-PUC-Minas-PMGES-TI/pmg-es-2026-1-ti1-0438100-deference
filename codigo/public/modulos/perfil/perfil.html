@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil | Solidariza</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/index.css" />
+    <link rel="stylesheet" href="../../assets/css/perfil/perfil.css" />
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html">
+                    <span class="icone-marca">
+                        <i class="bi bi-heart-fill text-white"></i>
+                    </span>
+                    <span class="nome-marca fw-semibold">Solidariza</span>
+                </a>
+
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false"
+                    aria-label="Alternar navegacao">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3 mt-3 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link texto-nav" href="../campanha/campanhas.html">
+                                Campanhas
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link texto-nav" href="#">
+                                Como funciona
+                            </a>
+                        </li>
+
+                        <li class="nav-item nav-guest">
+                            <a class="nav-link texto-nav" href="../login/login.html">
+                                Entrar
+                            </a>
+                        </li>
+
+                        <li class="nav-item nav-guest">
+                            <a class="btn botao-cadastrar px-4 py-2" href="../cadastro/cadastro.html">
+                                Cadastrar
+                            </a>
+                        </li>
+
+                        <li class="nav-item nav-auth d-none">
+                            <a class="nav-link texto-nav active" href="./perfil.html">
+                                <i class="bi bi-person-circle me-1"></i>
+                                Meu Perfil
+                            </a>
+                        </li>
+
+                        <li class="nav-item nav-auth d-none">
+                            <button class="btn botao-sair px-3 py-2" type="button" id="btnSairNavbar">
+                                <i class="bi bi-box-arrow-right me-1"></i>
+                                Sair
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="perfil-page py-5">
+        <div class="container">
+            <div class="cabecalho-perfil mb-4">
+                <div>
+                    <h1 class="titulo-perfil mb-2">Meu Perfil</h1>
+                    <p class="subtitulo-perfil mb-0">Gerencie seus dados, preferencias e historico de apoio.</p>
+                </div>
+            </div>
+
+            <div class="alert alert-danger d-none" id="alertaPerfil" role="alert"></div>
+
+            <div class="row g-4 align-items-start">
+                <aside class="col-12 col-lg-4">
+                    <section class="painel-perfil painel-usuario text-center">
+                        <div class="avatar-perfil mx-auto mb-3">
+                            <i class="bi bi-person-fill"></i>
+                        </div>
+
+                        <h2 class="nome-usuario mb-2" id="perfilNome">Usuario</h2>
+                        <span class="badge-tipo" id="perfilTipo">Doador</span>
+
+                        <div class="lista-dados mt-4">
+                            <div class="item-dado">
+                                <i class="bi bi-envelope"></i>
+                                <span id="perfilEmail">email@exemplo.com</span>
+                            </div>
+                            <div class="item-dado">
+                                <i class="bi bi-telephone"></i>
+                                <span id="perfilTelefone">Nao informado</span>
+                            </div>
+                            <div class="item-dado">
+                                <i class="bi bi-geo-alt"></i>
+                                <span id="perfilLocalizacao">Brasil</span>
+                            </div>
+                            <div class="item-dado">
+                                <i class="bi bi-calendar-check"></i>
+                                <span id="perfilEntrada">Membro da comunidade</span>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 mt-4">
+                            <button class="btn botao-perfil-primario" type="button" id="btnEditarPerfil">
+                                Editar Perfil
+                            </button>
+                            <button class="btn botao-perfil-secundario" type="button" id="btnAlterarSenha">
+                                Alterar Senha
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="painel-perfil mt-4">
+                        <h3 class="titulo-painel mb-3">
+                            <i class="bi bi-heart me-2"></i>
+                            Resumo de Impacto
+                        </h3>
+
+                        <div class="metricas-impacto">
+                            <div class="metrica-impacto">
+                                <strong>5</strong>
+                                <span>Campanhas apoiadas</span>
+                            </div>
+                            <div class="metrica-impacto">
+                                <strong>R$ 875</strong>
+                                <span>Total doado</span>
+                            </div>
+                        </div>
+                    </section>
+                </aside>
+
+                <section class="col-12 col-lg-8">
+                    <div class="painel-perfil mb-4">
+                        <h2 class="titulo-painel mb-3">Atividade Recente</h2>
+
+                        <div class="lista-atividades">
+                            <article class="atividade-item">
+                                <div>
+                                    <div class="atividade-meta">
+                                        <span class="badge-atividade">Doacao</span>
+                                        <span>30 de marco de 2026</span>
+                                    </div>
+                                    <h3>Cestas Basicas de Emergencia</h3>
+                                </div>
+                                <strong>R$ 100</strong>
+                            </article>
+
+                            <article class="atividade-item">
+                                <div>
+                                    <div class="atividade-meta">
+                                        <span class="badge-atividade">Doacao</span>
+                                        <span>20 de marco de 2026</span>
+                                    </div>
+                                    <h3>Projeto Agua Limpa</h3>
+                                </div>
+                                <strong>R$ 250</strong>
+                            </article>
+
+                            <article class="atividade-item">
+                                <div>
+                                    <div class="atividade-meta">
+                                        <span class="badge-atividade">Doacao</span>
+                                        <span>10 de marco de 2026</span>
+                                    </div>
+                                    <h3>Fundo de Ajuda Medica</h3>
+                                </div>
+                                <strong>R$ 150</strong>
+                            </article>
+
+                            <article class="atividade-item">
+                                <div>
+                                    <div class="atividade-meta">
+                                        <span class="badge-atividade">Doacao</span>
+                                        <span>28 de fevereiro de 2026</span>
+                                    </div>
+                                    <h3>Material Escolar</h3>
+                                </div>
+                                <strong>R$ 75</strong>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="painel-perfil">
+                        <h2 class="titulo-painel mb-3">Configuracoes da Conta</h2>
+
+                        <form id="formConfiguracoes">
+                            <div class="grupo-configuracao">
+                                <h3>Preferencias de Notificacao</h3>
+                                <div class="opcoes-configuracao">
+                                    <label class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="cfgNotifCampanhas">
+                                        <span class="form-check-label">Receber e-mails sobre novas campanhas</span>
+                                    </label>
+                                    <label class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="cfgNotifAtualizacoes">
+                                        <span class="form-check-label">Receber atualizacoes de campanhas apoiadas</span>
+                                    </label>
+                                    <label class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="cfgNotifRelatorios">
+                                        <span class="form-check-label">Receber relatorios mensais de impacto</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="grupo-configuracao">
+                                <h3>Privacidade</h3>
+                                <div class="opcoes-configuracao">
+                                    <label class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="cfgPrivDoacoes">
+                                        <span class="form-check-label">Mostrar minhas doacoes publicamente</span>
+                                    </label>
+                                    <label class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="cfgPrivContato">
+                                        <span class="form-check-label">Permitir contato de organizadores</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button class="btn botao-perfil-primario px-4" type="submit">
+                                Salvar Configuracoes
+                            </button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="rodape-site pt-5 pb-3">
+        <div class="container">
+            <div class="row g-4 pb-4">
+                <div class="col-12 col-md-5 col-lg-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <span class="icone-marca icone-marca-pequeno">
+                            <i class="bi bi-heart-fill text-white"></i>
+                        </span>
+                        <span class="nome-marca fw-semibold">Solidariza</span>
+                    </div>
+                    <p class="slogan-rodape">
+                        Conectando solidariedade a quem mais precisa. Transformando doacoes em impacto real
+                        para comunidades em situacao de vulnerabilidade.
+                    </p>
+                </div>
+
+                <div class="col-12 col-md-1 d-none d-md-block"></div>
+
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h6 class="titulo-rodape mb-3">Sobre</h6>
+                    <ul class="links-rodape list-unstyled mb-0">
+                        <li><a href="#">Como funciona</a></li>
+                        <li><a href="#">Nossa missao</a></li>
+                        <li><a href="#">Transparencia</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h6 class="titulo-rodape mb-3">Contato</h6>
+                    <ul class="links-rodape list-unstyled mb-0">
+                        <li><a href="#">Suporte</a></li>
+                        <li><a href="#">Privacidade</a></li>
+                        <li><a href="#">Termos de uso</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright-rodape text-center pt-3">
+                &copy; 2026 Solidariza. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="modalEditarPerfil" tabindex="-1" aria-labelledby="modalEditarPerfilTitulo"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-perfil">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="modalEditarPerfilTitulo">Editar Perfil</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <form id="formPerfil">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="editNome" class="form-label rotulo-campo">Nome completo</label>
+                            <input type="text" class="form-control campo-entrada" id="editNome" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editEmail" class="form-label rotulo-campo">E-mail</label>
+                            <input type="email" class="form-control campo-entrada" id="editEmail" required>
+                        </div>
+                        <div class="row g-3 mb-3">
+                            <div class="col-12 col-md-6">
+                                <label for="editTelefone" class="form-label rotulo-campo">Telefone</label>
+                                <input type="text" class="form-control campo-entrada" id="editTelefone" required
+                                    placeholder="(31) 99999-9999">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="editDocumento" class="form-label rotulo-campo">CPF</label>
+                                <input type="text" class="form-control campo-entrada" id="editDocumento" required
+                                    maxlength="14" placeholder="000.000.000-00">
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-12 col-md-5">
+                                <label for="editDataNascimento" class="form-label rotulo-campo">Data de nascimento</label>
+                                <input type="date" class="form-control campo-entrada" id="editDataNascimento" required>
+                            </div>
+                            <div class="col-12 col-md-5">
+                                <label for="editCidade" class="form-label rotulo-campo">Cidade</label>
+                                <input type="text" class="form-control campo-entrada" id="editCidade" required>
+                            </div>
+                            <div class="col-12 col-md-2">
+                                <label for="editEstado" class="form-label rotulo-campo">UF</label>
+                                <select class="form-select campo-entrada" id="editEstado" required>
+                                    <option value="">UF</option>
+                                    <option value="AC">AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AP">AP</option>
+                                    <option value="AM">AM</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MT">MT</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MG">MG</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PR">PR</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RS">RS</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SP">SP</option>
+                                    <option value="SE">SE</option>
+                                    <option value="TO">TO</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn botao-perfil-secundario" data-bs-dismiss="modal">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="btn botao-perfil-primario">
+                            Salvar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalSenha" tabindex="-1" aria-labelledby="modalSenhaTitulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-perfil">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="modalSenhaTitulo">Alterar Senha</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <form id="formSenha">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="senhaAtual" class="form-label rotulo-campo">Senha atual</label>
+                            <input type="password" class="form-control campo-entrada" id="senhaAtual" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="senhaNova" class="form-label rotulo-campo">Nova senha</label>
+                            <input type="password" class="form-control campo-entrada" id="senhaNova" minlength="6"
+                                required>
+                        </div>
+                        <div class="mb-0">
+                            <label for="senhaConfirmar" class="form-label rotulo-campo">Confirmar nova senha</label>
+                            <input type="password" class="form-control campo-entrada" id="senhaConfirmar" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn botao-perfil-secundario" data-bs-dismiss="modal">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="btn botao-perfil-primario">
+                            Alterar Senha
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+        <div id="toastPerfil" class="toast toast-perfil align-items-center text-bg-success border-0" role="status"
+            aria-live="polite" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body" id="toastPerfilMensagem"></div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Fechar"></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/navbar.js"></script>
+    <script src="../../assets/js/api/api-config.js"></script>
+    <script src="../../assets/js/api/auth-service.js"></script>
+    <script src="../../assets/js/api/usuario-service.js"></script>
+    <script src="../../assets/js/perfil/perfil.js"></script>
+</body>
+
+</html>

@@ -26,13 +26,12 @@
 
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                     data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false"
-                    aria-label="Alternar navegação">
+                    aria-label="Alternar navegacao">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="mainNav">
                     <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3 mt-3 mt-lg-0">
-
                         <li class="nav-item">
                             <a class="nav-link texto-nav" href="../campanha/campanhas.html">
                                 Campanhas
@@ -59,13 +58,10 @@
 
                         <li class="nav-item nav-auth d-none">
                             <a class="nav-link texto-nav" href="../perfil/perfil.html">
-
                                 <i class="bi bi-person-circle me-1"></i>
                                 Meu Perfil
-
                             </a>
                         </li>
-
                     </ul>
                 </div>
             </div>
@@ -75,20 +71,19 @@
     <main class="conteudo-cadastro py-5">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-12 col-md-8 col-lg-6">
+                <div class="col-12 col-md-10 col-lg-7">
 
                     <div class="cartao-cadastro p-4 p-md-5">
                         <div class="text-center mb-4">
                             <h1 class="titulo-cadastro mb-2">Crie sua conta</h1>
-                            <p class="subtitulo-cadastro">Junte-se à nossa comunidade e faça a diferença</p>
+                            <p class="subtitulo-cadastro">Junte-se a nossa comunidade e faca a diferenca</p>
                         </div>
 
                         <div class="alert alert-danger d-none" id="alertaErro" role="alert"></div>
 
                         <form id="formCadastro" class="needs-validation" novalidate>
-
                             <div class="mb-3">
-                                <label for="nome" class="form-label rotulo-campo">Nome Completo</label>
+                                <label for="nome" class="form-label rotulo-campo">Nome completo</label>
                                 <input type="text" class="form-control campo-entrada" id="nome" required
                                     placeholder="Ex: Mariana Medeiros">
                                 <div class="invalid-feedback">Por favor, insira seu nome completo.</div>
@@ -98,7 +93,73 @@
                                 <label for="email" class="form-label rotulo-campo">E-mail</label>
                                 <input type="email" class="form-control campo-entrada" id="email" required
                                     placeholder="exemplo@email.com">
-                                <div class="invalid-feedback">Por favor, insira um e-mail válido.</div>
+                                <div class="invalid-feedback">Por favor, insira um e-mail valido.</div>
+                            </div>
+
+                            <div class="row g-3 mb-3">
+                                <div class="col-12 col-md-6">
+                                    <label for="telefone" class="form-label rotulo-campo">Telefone</label>
+                                    <input type="tel" class="form-control campo-entrada" id="telefone" required
+                                        placeholder="(31) 99999-9999">
+                                    <div class="invalid-feedback">Informe um telefone para contato.</div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <label for="documento" class="form-label rotulo-campo">CPF</label>
+                                    <input type="text" class="form-control campo-entrada" id="documento" required
+                                        minlength="11" maxlength="14" placeholder="000.000.000-00">
+                                    <div class="invalid-feedback">Informe um CPF valido.</div>
+                                </div>
+                            </div>
+
+                            <div class="row g-3 mb-3">
+                                <div class="col-12 col-md-5">
+                                    <label for="dataNascimento" class="form-label rotulo-campo">Data de nascimento</label>
+                                    <input type="date" class="form-control campo-entrada" id="dataNascimento" required>
+                                    <div class="invalid-feedback">Informe sua data de nascimento.</div>
+                                </div>
+
+                                <div class="col-12 col-md-5">
+                                    <label for="cidade" class="form-label rotulo-campo">Cidade</label>
+                                    <input type="text" class="form-control campo-entrada" id="cidade" required
+                                        placeholder="Ex: Belo Horizonte">
+                                    <div class="invalid-feedback">Informe sua cidade.</div>
+                                </div>
+
+                                <div class="col-12 col-md-2">
+                                    <label for="estado" class="form-label rotulo-campo">UF</label>
+                                    <select class="form-select campo-entrada" id="estado" required>
+                                        <option value="">UF</option>
+                                        <option value="AC">AC</option>
+                                        <option value="AL">AL</option>
+                                        <option value="AP">AP</option>
+                                        <option value="AM">AM</option>
+                                        <option value="BA">BA</option>
+                                        <option value="CE">CE</option>
+                                        <option value="DF">DF</option>
+                                        <option value="ES">ES</option>
+                                        <option value="GO">GO</option>
+                                        <option value="MA">MA</option>
+                                        <option value="MT">MT</option>
+                                        <option value="MS">MS</option>
+                                        <option value="MG">MG</option>
+                                        <option value="PA">PA</option>
+                                        <option value="PB">PB</option>
+                                        <option value="PR">PR</option>
+                                        <option value="PE">PE</option>
+                                        <option value="PI">PI</option>
+                                        <option value="RJ">RJ</option>
+                                        <option value="RN">RN</option>
+                                        <option value="RS">RS</option>
+                                        <option value="RO">RO</option>
+                                        <option value="RR">RR</option>
+                                        <option value="SC">SC</option>
+                                        <option value="SP">SP</option>
+                                        <option value="SE">SE</option>
+                                        <option value="TO">TO</option>
+                                    </select>
+                                    <div class="invalid-feedback">Informe a UF.</div>
+                                </div>
                             </div>
 
                             <div class="mb-4">
@@ -117,7 +178,7 @@
                                             value="beneficiario">
                                         <label class="btn botao-seletor w-100 py-3" for="perfilBeneficiario">
                                             <i class="bi bi-hand-index-thumb-fill mb-2 d-block fs-4"></i>
-                                            Beneficiário
+                                            Beneficiario
                                         </label>
                                     </div>
                                 </div>
@@ -127,11 +188,11 @@
                                 <div class="col-12 col-sm-6">
                                     <label for="senha" class="form-label rotulo-campo">Senha</label>
                                     <input type="password" class="form-control campo-entrada" id="senha" required
-                                        minlength="6" placeholder="No mínimo 6 caracteres">
+                                        minlength="6" placeholder="No minimo 6 caracteres">
                                     <div class="invalid-feedback">A senha deve ter pelo menos 6 caracteres.</div>
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <label for="confirmarSenha" class="form-label rotulo-campo">Confirmar Senha</label>
+                                    <label for="confirmarSenha" class="form-label rotulo-campo">Confirmar senha</label>
                                     <input type="password" class="form-control campo-entrada" id="confirmarSenha"
                                         required placeholder="Repita a senha">
                                     <div class="invalid-feedback">Confirme sua senha.</div>
@@ -142,9 +203,9 @@
                                 <input type="checkbox" class="form-check-input check-solidariza" id="termos" required>
                                 <label class="form-check-label texto-termos" for="termos">
                                     Li e concordo com os <a href="#" class="link-verde">Termos de Uso</a> e <a href="#"
-                                        class="link-verde">Política de Privacidade</a>.
+                                        class="link-verde">Politica de Privacidade</a>.
                                 </label>
-                                <div class="invalid-feedback">Você precisa aceitar os termos para continuar.</div>
+                                <div class="invalid-feedback">Voce precisa aceitar os termos para continuar.</div>
                             </div>
 
                             <button type="submit" class="btn botao-submeter w-100 py-2-5">
@@ -153,9 +214,9 @@
                         </form>
 
                         <div class="text-center mt-4">
-                            <p class="texto-login mb-0">Já tem uma conta? <a href="../login/login.html"
+                            <p class="texto-login mb-0">Ja tem uma conta? <a href="../login/login.html"
                                     class="link-verde fw-semibold">
-                                    Faça Login
+                                    Faca Login
                                 </a></p>
                         </div>
                     </div>
@@ -176,8 +237,8 @@
                         <span class="nome-marca fw-semibold">Solidariza</span>
                     </div>
                     <p class="slogan-rodape">
-                        Conectando solidariedade a quem mais precisa. Transformando doações em impacto real
-                        para comunidades em situação de vulnerabilidade.
+                        Conectando solidariedade a quem mais precisa. Transformando doacoes em impacto real
+                        para comunidades em situacao de vulnerabilidade.
                     </p>
                 </div>
                 <div class="col-12 col-md-1 d-none d-md-block"></div>
@@ -185,8 +246,8 @@
                     <h6 class="titulo-rodape mb-3">Sobre</h6>
                     <ul class="links-rodape list-unstyled mb-0">
                         <li><a href="#">Como funciona</a></li>
-                        <li><a href="#">Nossa missão</a></li>
-                        <li><a href="#">Transparência</a></li>
+                        <li><a href="#">Nossa missao</a></li>
+                        <li><a href="#">Transparencia</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
@@ -199,7 +260,7 @@
                 </div>
             </div>
             <div class="copyright-rodape text-center pt-3">
-                © 2026 Solidariza. Todos os direitos reservados.
+                &copy; 2026 Solidariza. Todos os direitos reservados.
             </div>
         </div>
     </footer>

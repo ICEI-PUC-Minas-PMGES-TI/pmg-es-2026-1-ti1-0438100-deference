@@ -32,3 +32,22 @@ async function criarUsuario(usuario) {
 
     return await resposta.json();
 }
+
+async function atualizarUsuario(id, usuario) {
+
+    const resposta =
+        await fetch(`${API_URL}/usuarios/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type":
+                    "application/json"
+            },
+            body: JSON.stringify(usuario)
+        });
+
+    if (!resposta.ok) {
+        throw new Error("Erro ao atualizar usuario");
+    }
+
+    return await resposta.json();
+}

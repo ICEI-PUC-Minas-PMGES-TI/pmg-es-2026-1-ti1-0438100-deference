@@ -1,0 +1,272 @@
+.perfil-page {
+    background-color: #f3f4f6;
+    min-height: 70vh;
+}
+
+.cabecalho-perfil {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.titulo-perfil {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: -0.02em;
+}
+
+.subtitulo-perfil {
+    color: #6b7280;
+    font-size: 0.95rem;
+}
+
+.painel-perfil {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    padding: 1.5rem;
+}
+
+.avatar-perfil {
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    background-color: #dcfce7;
+    color: #2e7d32;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.nome-usuario {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #111827;
+}
+
+.badge-tipo,
+.badge-atividade {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    background-color: #dcfce7;
+    color: #2e7d32;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.badge-tipo {
+    padding: 0.35rem 0.85rem;
+}
+
+.badge-atividade {
+    padding: 0.25rem 0.65rem;
+}
+
+.lista-dados {
+    border-top: 1px solid #e5e7eb;
+}
+
+.item-dado {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.95rem 0;
+    border-bottom: 1px solid #e5e7eb;
+    color: #4b5563;
+    font-size: 0.92rem;
+    text-align: left;
+}
+
+.item-dado i {
+    width: 1.25rem;
+    color: #2e7d32;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.botao-perfil-primario,
+.botao-sair {
+    background-color: #2e7d32;
+    color: #ffffff !important;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.botao-perfil-primario:hover,
+.botao-sair:hover {
+    background-color: #256428;
+    color: #ffffff !important;
+}
+
+.botao-perfil-secundario {
+    background-color: #ffffff;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.botao-perfil-secundario:hover {
+    background-color: #f9fafb;
+    border-color: #9ca3af;
+    color: #111827;
+}
+
+.titulo-painel {
+    color: #111827;
+    font-size: 1.15rem;
+    font-weight: 800;
+}
+
+.metricas-impacto {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.metrica-impacto {
+    background-color: #f9fafb;
+    border: 1px solid #edf0f3;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.metrica-impacto strong {
+    display: block;
+    color: #111827;
+    font-size: 1.75rem;
+    line-height: 1.1;
+}
+
+.metrica-impacto span {
+    color: #6b7280;
+    font-size: 0.88rem;
+}
+
+.lista-atividades {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.atividade-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    background-color: #f9fafb;
+    border: 1px solid #edf0f3;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.atividade-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    color: #6b7280;
+    font-size: 0.82rem;
+    margin-bottom: 0.45rem;
+}
+
+.atividade-item h3 {
+    margin: 0;
+    color: #111827;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.atividade-item strong {
+    color: #111827;
+    font-size: 1.2rem;
+    white-space: nowrap;
+}
+
+.grupo-configuracao {
+    padding: 1rem 0;
+    border-top: 1px solid #e5e7eb;
+}
+
+.grupo-configuracao:first-of-type {
+    border-top: 0;
+    padding-top: 0;
+}
+
+.grupo-configuracao h3 {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 0.85rem;
+}
+
+.opcoes-configuracao {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.opcoes-configuracao .form-check {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: #4b5563;
+    margin: 0;
+    padding-left: 0;
+}
+
+.opcoes-configuracao .form-check-input {
+    float: none;
+    margin: 0;
+    accent-color: #2e7d32;
+}
+
+.opcoes-configuracao .form-check-input:checked {
+    background-color: #2e7d32;
+    border-color: #2e7d32;
+}
+
+.modal-perfil {
+    border: 0;
+    border-radius: 12px;
+}
+
+.rotulo-campo {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #374151;
+}
+
+.campo-entrada {
+    border-radius: 8px;
+    border-color: #d1d5db;
+    padding: 0.7rem 0.85rem;
+}
+
+.campo-entrada:focus {
+    border-color: #2e7d32;
+    box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.15);
+}
+
+.toast-perfil {
+    border-radius: 8px;
+}
+
+@media (max-width: 575.98px) {
+    .titulo-perfil {
+        font-size: 1.65rem;
+    }
+
+    .painel-perfil {
+        padding: 1.15rem;
+    }
+
+    .atividade-item {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

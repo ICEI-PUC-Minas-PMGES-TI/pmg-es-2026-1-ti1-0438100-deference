@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - Solidariza</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- ícones do bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <!-- meu css -->
+    <link rel="stylesheet" href="./assets/css/dashboardAdmin.css" />
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2 navbar-dashboard">
+            <div class="container-fluid">
+
+                <!-- logo -->
+                <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                    <span class="icone-marca">
+                        <i class="bi bi-heart-fill text-white"></i>
+                    </span>
+                    <span class="nome-marca fw-semibold">Solidariza</span>
+                </a>
+
+                <!-- botão hamburger mobile para sidebar -->
+                <button class="navbar-toggler border-0 d-lg-none" type="button" id="btnToggleSidebar"
+                    aria-label="Toggle sidebar">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <!-- links do menu -->
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3 mt-3 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link texto-nav d-flex align-items-center gap-1" href="#">
+                                <i class="bi bi-person"></i> Admin
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn botao-sair d-flex align-items-center gap-1 px-3 py-2" href="#">
+                                <i class="bi bi-box-arrow-right"></i> Sair
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar-wrapper">
+        <aside class="sidebar" id="sidebar">
+            <!-- Botão fechar para mobile -->
+            <button class="btn-close-sidebar d-lg-none" id="btnCloseSidebar">
+                <i class="bi bi-x"></i>
+            </button>
+
+            <!-- Menu de Navegação -->
+            <nav class="sidebar-nav">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-link active" href="./dashboardAdmin.html" data-page="dashboard">
+                            <i class="bi bi-graph-up"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-link" href="./solicitacoesAdmin.html" data-page="solicitacoes">
+                            <i class="bi bi-inbox"></i>
+                            <span>Solicitações</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-link" href="./campanhasAdmin.html" data-page="campanhas">
+                            <i class="bi bi-megaphone"></i>
+                            <span>Campanhas</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-link" href="./usuariosAdmin.html" data-page="usuarios">
+                            <i class="bi bi-people"></i>
+                            <span>Usuários</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-link" href="./avisosAdmin.html" data-page="avisos">
+                            <i class="bi bi-bell"></i>
+                            <span>Avisos</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+
+    <!-- OVERLAY para mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- MAIN -->
+    <main class="main-dashboard">
+        <div class="container-fluid">
+            <!-- Cabeçalho da Página -->
+            <div class="dashboard-header mb-4">
+                <h1 class="dashboard-title">Dashboard</h1>
+                <p class="dashboard-subtitle">Bem-vindo ao painel administrativo. Acompanhe os indicadores da plataforma</p>
+            </div>
+
+            <!-- Grid de KPIs Fixos -->
+            <div class="row g-3 mb-4">
+                <!-- Card: Campanhas Ativas -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card kpi-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <p class="kpi-label">Campanhas Ativas</p>
+                                    <p class="kpi-valor" id="kpiCampanhasAtivas">24</p>
+                                </div>
+                                <div class="kpi-icon bg-primary">
+                                    <i class="bi bi-megaphone"></i>
+                                </div>
+                            </div>
+                            <small class="text-muted">+2 nesta semana</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card: Solicitações Pendentes -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card kpi-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <p class="kpi-label">Solicitações Pendentes</p>
+                                    <p class="kpi-valor" id="kpiSolicitacoes">8</p>
+                                </div>
+                                <div class="kpi-icon bg-warning">
+                                    <i class="bi bi-exclamation-circle"></i>
+                                </div>
+                            </div>
+                            <small class="text-muted">Aguardando análise</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card: Taxa de Sucesso -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card kpi-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <p class="kpi-label">Taxa de Sucesso</p>
+                                    <p class="kpi-valor" id="kpiTaxaSucesso">87%</p>
+                                </div>
+                                <div class="kpi-icon bg-danger">
+                                    <i class="bi bi-check-circle"></i>
+                                </div>
+                            </div>
+                            <small class="text-muted">Campanhas concluídas</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção de Indicadores por Período -->
+            <div class="periodo-section mb-4">
+                <div class="periodo-header d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0">Indicadores por Período</h5>
+                    <div class="btn-group btn-group-toggle" role="group">
+                        <input type="radio" class="btn-check" name="periodo" id="periodo-dia" value="dia" checked>
+                        <label class="btn btn-outline-period" for="periodo-dia">Hoje</label>
+
+                        <input type="radio" class="btn-check" name="periodo" id="periodo-mes" value="mes">
+                        <label class="btn btn-outline-period" for="periodo-mes">Este Mês</label>
+
+                        <input type="radio" class="btn-check" name="periodo" id="periodo-ano" value="ano">
+                        <label class="btn btn-outline-period" for="periodo-ano">Este Ano</label>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <!-- Card: Contribuições Totais -->
+                    <div class="col-md-6">
+                        <div class="card kpi-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <p class="kpi-label">Contribuições</p>
+                                        <p class="kpi-valor" id="kpiContribuicoes">R$ 12.450</p>
+                                    </div>
+                                    <div class="kpi-icon bg-success">
+                                        <i class="bi bi-cash-coin"></i>
+                                    </div>
+                                </div>
+                                <small class="text-muted" id="kpiContribuicoesVariacao">+5% vs período anterior</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card: Beneficiados -->
+                    <div class="col-md-6">
+                        <div class="card kpi-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <p class="kpi-label">Beneficiados</p>
+                                        <p class="kpi-valor" id="kpiBeneficiados">342</p>
+                                    </div>
+                                    <div class="kpi-icon bg-info">
+                                        <i class="bi bi-people"></i>
+                                    </div>
+                                </div>
+                                <small class="text-muted" id="kpiBeneficiadosVariacao">+15 nesta semana</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gráficos -->
+            <div class="row g-3 mb-4">
+                <!-- Gráfico: Status das Campanhas -->
+                <div class="col-lg-6">
+                    <div class="card grafico-card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Status das Campanhas</h5>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="graficoStatusCampanhas" style="max-height: 300px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráfico: Evolução de Contribuições -->
+                <div class="col-lg-6">
+                    <div class="card grafico-card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Evolução de Contribuições (Últimos 7 dias)</h5>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="graficoContribuicoes" style="max-height: 300px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabelas -->
+            <div class="row g-3">
+                <!-- Campanhas Recentes -->
+                <div class="col-lg-6">
+                    <div class="card tabela-card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Campanhas Recentes</h5>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Campanha</th>
+                                            <th>Status</th>
+                                            <th>Progresso</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tabelaCampanhasRecentes">
+                                        <!-- Preenchida por JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Atividades Recentes -->
+                <div class="col-lg-6">
+                    <div class="card tabela-card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Atividades Recentes</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="atividadesRecentes">
+                                <!-- Preenchida por JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="rodape-site pt-5 pb-3">
+        <div class="container">
+            <div class="row g-4 pb-4">
+
+                <!-- marca e descrição -->
+                <div class="col-12 col-md-5 col-lg-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <span class="icone-marca icone-marca-pequeno">
+                            <i class="bi bi-heart-fill text-white"></i>
+                        </span>
+                        <span class="nome-marca fw-semibold">Solidariza</span>
+                    </div>
+                    <p class="slogan-rodape">
+                        Conectando solidariedade e necessidade para
+                        criar um mundo mais justo e compassivo.
+                    </p>
+                </div>
+
+                <!-- espaço -->
+                <div class="col-12 col-md-1 d-none d-md-block"></div>
+
+                <!-- Sobre -->
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h6 class="titulo-rodape mb-3">Sobre</h6>
+                    <ul class="links-rodape list-unstyled mb-0">
+                        <li><a href="#">Quem Somos</a></li>
+                        <li><a href="#">Nossa Missão</a></li>
+                        <li><a href="#">Como Funciona</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contato -->
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h6 class="titulo-rodape mb-3">Contato</h6>
+                    <ul class="links-rodape list-unstyled mb-0">
+                        <li><a href="#">Email</a></li>
+                        <li><a href="#">Telefone</a></li>
+                        <li><a href="#">Redes Sociais</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="copyright-rodape text-center pt-3">
+                © 2026 Solidariza. Todos os direitos reservados.
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script da dashboard -->
+    <script src="./assets/js/dashboardAdmin.js"></script>
+</body>
+
+</html>
