@@ -1,4 +1,4 @@
-const mapaImagensDetalhe = {
+﻿const mapaImagensDetalhe = {
     alimentacao: '../../assets/images/alimentacao.jpg',
     saude: '../../assets/images/saude.jpg',
     educacao: '../../assets/images/educacao.jpg',
@@ -42,7 +42,7 @@ async function renderizarAtualizacoes(campanhaId) {
         lista.innerHTML = '';
 
         if (!atualizacoes.length) {
-            lista.innerHTML = '<p class="texto-vazio-atualizacao">Sem atualizações registradas até o momento.</p>';
+            lista.innerHTML = '<p class="texto-vazio-atualizacao">Sem atualizacoes registradas até o momento.</p>';
             return;
         }
 
@@ -53,7 +53,7 @@ async function renderizarAtualizacoes(campanhaId) {
                 item.type = 'button';
                 item.className = 'item-linha-tempo item-linha-tempo-acao';
                 item.innerHTML = `
-                    <div class="status-icone verde">✓</div>
+                    <div class="status-icone verde"><i class="bi bi-check-lg"></i></div>
                     <div class="conteudo-linha-tempo">
                         <span class="data-linha-tempo">${formatarDataHora(atualizacao.criadoEm || atualizacao.dataOcorrencia)}</span>
                         <p><strong>${atualizacao.titulo || 'Atualização'}</strong> - ${(atualizacao.resumo || '').slice(0, 120)}</p>
@@ -68,7 +68,7 @@ async function renderizarAtualizacoes(campanhaId) {
             });
     } catch (erro) {
         console.error('Erro ao carregar atualizacoes:', erro);
-        lista.innerHTML = '<p class="texto-vazio-atualizacao text-danger">Nao foi possivel carregar as atualizacoes desta campanha.</p>';
+        lista.innerHTML = '<p class="texto-vazio-atualizacao text-danger">Não foi possível carregar as atualizacoes desta campanha.</p>';
     }
 }
 
@@ -166,3 +166,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             '<a href="./campanhas.html" class="btn botao-cadastrar">Voltar para campanhas</a></div>';
     }
 });
+
+
+

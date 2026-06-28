@@ -1,4 +1,4 @@
-function formatarDataHoraDetalhe(dataISO) {
+﻿function formatarDataHoraDetalhe(dataISO) {
     if (!dataISO) return 'Sem data';
     const data = new Date(dataISO);
     if (isNaN(data.getTime())) return dataISO;
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const id = params.get('id');
 
     if (!id) {
-        alert('Atualizacao nao informada.');
+        alert('Atualização não informada.');
         window.location.href = './campanhas.html';
         return;
     }
@@ -23,12 +23,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         const atualizacao = await AtualizacaoService.buscarPorId(id);
         const campanha = await CampanhaService.buscarPorId(atualizacao.campanhaId);
 
-        document.getElementById('tituloAtualizacaoDetalhe').textContent = atualizacao.titulo || 'Atualizacao';
-        document.getElementById('tagTipoAtualizacao').textContent = String(atualizacao.tipo || 'Atualizacao').replace(/_/g, ' ');
-        document.getElementById('metaAtualizacaoDetalhe').textContent = `Campanha: ${campanha.titulo || '-'} | Publicado em ${formatarDataHoraDetalhe(atualizacao.criadoEm || atualizacao.dataOcorrencia)} por ${atualizacao.autorNome || 'Responsavel'}`;
+        document.getElementById('tituloAtualizaçãoDetalhe').textContent = atualizacao.titulo || 'Atualização';
+        document.getElementById('tagTipoAtualização').textContent = String(atualizacao.tipo || 'Atualização').replace(/_/g, ' ');
+        document.getElementById('metaAtualizaçãoDetalhe').textContent = `Campanha: ${campanha.titulo || '-'} | Publicado em ${formatarDataHoraDetalhe(atualizacao.criadoEm || atualizacao.dataOcorrencia)} por ${atualizacao.autorNome || 'Responsavel'}`;
 
-        document.getElementById('resumoAtualizacaoDetalhe').textContent = atualizacao.resumo || '-';
-        document.getElementById('descricaoAtualizacaoDetalhe').textContent = atualizacao.detalhes || '-';
+        document.getElementById('resumoAtualizaçãoDetalhe').textContent = atualizacao.resumo || '-';
+        document.getElementById('descricaoAtualizaçãoDetalhe').textContent = atualizacao.detalhes || '-';
 
         const cards = [];
 
@@ -52,18 +52,20 @@ document.addEventListener('DOMContentLoaded', async () => {
             cards.push(`<article class="card-info"><h3>Proximos passos</h3><p>${atualizacao.proximosPassos}</p></article>`);
         }
 
-        document.getElementById('gridInfoAtualizacao').innerHTML = cards.join('');
+        document.getElementById('gridInfoAtualização').innerHTML = cards.join('');
 
         const usuario = typeof obterSessao === 'function' ? obterSessao() : JSON.parse(localStorage.getItem('usuarioSessao'));
         const ehDono = (Number(campanha.criadorId) === Number(usuario?.id))
             || (campanha.email && usuario?.email && String(campanha.email).toLowerCase() === String(usuario.email).toLowerCase());
 
-        document.getElementById('linkVoltarAtualizacao').href = ehDono
+        document.getElementById('linkVoltarAtualização').href = ehDono
             ? `./detalhe-campanha-admin.html?id=${campanha.id}`
             : `./detalhe-campanha.html?id=${campanha.id}`;
     } catch (erro) {
         console.error(erro);
-        alert('Nao foi possivel carregar os detalhes da atualizacao.');
+        alert('Não foi possível carregar os detalhes da atualizacao.');
         window.location.href = './campanhas.html';
     }
 });
+
+

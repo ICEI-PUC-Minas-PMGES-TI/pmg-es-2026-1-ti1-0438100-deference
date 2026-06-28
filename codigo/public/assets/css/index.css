@@ -1,4 +1,4 @@
-/* Reset básico */
+﻿/* Reset básico */
 * {
     box-sizing: border-box;
 }
@@ -16,6 +16,15 @@ body {
     background-color: #f3f4f6;
     overflow-x: hidden;
     /* Previne barras de rolagem horizontais indesejadas */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.btn i {
+    vertical-align: middle;
 }
 
 /* NAVBAR */

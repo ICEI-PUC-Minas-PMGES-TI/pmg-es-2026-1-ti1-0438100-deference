@@ -1,4 +1,4 @@
-function obterUsuarioSessaoSegura() {
+﻿function obterUsuarioSessaoSegura() {
     try {
         return typeof obterSessao === 'function'
             ? obterSessao()
@@ -30,7 +30,7 @@ function formatarStatus(status) {
 }
 
 function formatarCategoria(categoria) {
-    if (!categoria) return 'Nao informada';
+    if (!categoria) return 'Não informada';
 
     const mapa = {
         alimentacao: 'Alimentacao',
@@ -52,7 +52,7 @@ function formatarUrgencia(urgencia) {
         alta: 'Alta'
     };
 
-    return mapa[urgencia] || 'Nao informada';
+    return mapa[urgencia] || 'Não informada';
 }
 
 function renderizarEvidencias(solicitacao) {
@@ -132,12 +132,12 @@ function configurarAcaoSolicitacao(solicitacao) {
 
     if (solicitacao.status === 'em_desenvolvimento' || solicitacao.status === 'concluida') {
         if (!solicitacao.campanhaId) {
-            mensagem.textContent = 'A solicitacao indica campanha vinculada, mas o registro da campanha ainda nao foi localizado.';
+            mensagem.textContent = 'A solicitacao indica campanha vinculada, mas o registro da campanha ainda não foi localizado.';
             return;
         }
 
         mensagem.textContent = solicitacao.status === 'concluida'
-            ? 'A campanha relacionada foi concluida. Voce pode acompanhar os detalhes.'
+            ? 'A campanha relacionada foi concluida. Você pode acompanhar os detalhes.'
             : 'A campanha para esta solicitacao esta em desenvolvimento.';
 
         botao.textContent = 'Ver Campanha';
@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const solicitacaoId = params.get('id');
 
     if (!solicitacaoId) {
-        alerta.textContent = 'Solicitacao nao encontrada.';
+        alerta.textContent = 'Solicitacao não encontrada.';
         alerta.classList.remove('d-none');
         conteudo.classList.add('d-none');
         return;
@@ -170,19 +170,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('detalheDescricaoCompleta').textContent = solicitacao.descricaoCompleta || '';
         document.getElementById('detalheCategoria').textContent = formatarCategoria(solicitacao.categoriaAjuda);
         document.getElementById('detalheUrgencia').textContent = formatarUrgencia(solicitacao.urgencia);
-        document.getElementById('detalheLocal').textContent = solicitacao.local || 'Nao informado';
-        document.getElementById('detalheBeneficiarios').textContent = solicitacao.numeroBeneficiarios || 'Nao informado';
-        document.getElementById('detalheContatoNome').textContent = solicitacao.contatoNome || 'Nao informado';
-        document.getElementById('detalheContatoTelefone').textContent = solicitacao.contatoTelefone || 'Nao informado';
-        document.getElementById('detalheContatoEmail').textContent = solicitacao.contatoEmail || 'Nao informado';
+        document.getElementById('detalheLocal').textContent = solicitacao.local || 'Não informado';
+        document.getElementById('detalheBeneficiarios').textContent = solicitacao.numeroBeneficiarios || 'Não informado';
+        document.getElementById('detalheContatoNome').textContent = solicitacao.contatoNome || 'Não informado';
+        document.getElementById('detalheContatoTelefone').textContent = solicitacao.contatoTelefone || 'Não informado';
+        document.getElementById('detalheContatoEmail').textContent = solicitacao.contatoEmail || 'Não informado';
         document.getElementById('detalheCriador').textContent = solicitacao.criadorNome || 'Usuario da plataforma';
 
         renderizarEvidencias(solicitacao);
         configurarAcaoSolicitacao(solicitacao);
     } catch (erro) {
         console.error(erro);
-        alerta.textContent = 'Nao foi possivel carregar os detalhes da solicitacao.';
+        alerta.textContent = 'Não foi possível carregar os detalhes da solicitacao.';
         alerta.classList.remove('d-none');
         conteudo.classList.add('d-none');
     }
 });
+

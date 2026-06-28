@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const usuario = obterUsuarioSessao();
 
         if (!usuario) {
-            exibirAlerta('alertaSolicitacao', 'Voce precisa estar logado para criar uma solicitacao.');
+            exibirAlerta('alertaSolicitacao', 'Você precisa estar logado para criar uma solicitacao.');
             return;
         }
 
@@ -212,7 +212,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 900);
         } catch (erro) {
             console.error(erro);
-            exibirAlerta('alertaSolicitacao', 'Nao foi possivel enviar a solicitacao agora.');
+            exibirAlerta('alertaSolicitacao', 'Não foi possível enviar a solicitacao agora.');
         }
     });
 });
+

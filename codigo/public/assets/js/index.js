@@ -1,4 +1,4 @@
-const mapaImagens = {
+﻿const mapaImagens = {
     alimentacao: "../assets/images/alimentacao.jpg",
     saude: "../assets/images/saude.jpg",
     educacao: "../assets/images/educacao.jpg",
@@ -17,6 +17,51 @@ function normalizarCategoria(categoria) {
 
 function acheImagem(categoria) {
     return mapaImagens[normalizarCategoria(categoria)] || mapaImagens.alimentacao;
+}
+
+function formatarNumeroInteiro(valor) {
+    return new Intl.NumberFormat("pt-BR").format(Number(valor) || 0);
+}
+
+async function carregarIndicadoresHome() {
+    const elTotalArrecadado = document.getElementById("statTotalArrecadado");
+    const elDoadoresAtivos = document.getElementById("statDoadoresAtivos");
+    const elPessoasAjudadas = document.getElementById("statPessoasAjudadas");
+
+    if (!elTotalArrecadado || !elDoadoresAtivos || !elPessoasAjudadas) return;
+
+    try {
+        const [campanhas, contribuicoes] = await Promise.all([
+            CampanhaService.listar(),
+            fetch(`${API_URL}/contribuicoes`).then((resposta) => resposta.ok ? resposta.json() : [])
+        ]);
+
+        const totalArrecadado = campanhas.reduce(
+            (acumulador, campanha) => acumulador + Number(campanha.arrecadado || 0),
+            0
+        );
+
+        const idsDoadores = new Set(
+            contribuicoes
+                .map((contribuicao) => Number(contribuicao.usuarioId || 0))
+                .filter((id) => id > 0)
+        );
+
+        const pessoasAjudadas = campanhas.reduce(
+            (acumulador, campanha) => acumulador + Number(campanha.beneficiarios || 0),
+            0
+        );
+
+        elTotalArrecadado.textContent = new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        }).format(totalArrecadado);
+
+        elDoadoresAtivos.textContent = formatarNumeroInteiro(idsDoadores.size);
+        elPessoasAjudadas.textContent = formatarNumeroInteiro(pessoasAjudadas);
+    } catch (erro) {
+        console.error("Erro ao carregar indicadores da home:", erro);
+    }
 }
 
 async function carregarCampanhasDestaque() {
@@ -105,11 +150,17 @@ async function carregarCampanhasDestaque() {
         container.innerHTML = `
             <div class="col-12 text-center">
                 <p class="text-danger">
-                    Nao foi possivel carregar as campanhas em destaque.
+                    Não foi possível carregar as campanhas em destaque.
                 </p>
             </div>
         `;
     }
 }
 
-window.addEventListener("DOMContentLoaded", carregarCampanhasDestaque);
+window.addEventListener("DOMContentLoaded", async () => {
+    await Promise.all([
+        carregarIndicadoresHome(),
+        carregarCampanhasDestaque()
+    ]);
+});
+

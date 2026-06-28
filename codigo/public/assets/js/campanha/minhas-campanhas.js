@@ -1,4 +1,4 @@
-function obterUsuarioSessaoMinhas() {
+﻿function obterUsuarioSessaoMinhas() {
     try {
         return typeof obterSessao === 'function'
             ? obterSessao()
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const lista = document.getElementById('listaMinhasCampanhas');
 
     if (!usuario) {
-        alert('Voce precisa estar logado para acessar suas campanhas.');
+        alert('Você precisa estar logado para acessar suas campanhas.');
         window.location.href = '../login/login.html';
         return;
     }
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         lista.innerHTML = '';
 
         if (!minhasCampanhas.length) {
-            lista.innerHTML = '<p class="texto-vazio">Voce ainda nao criou campanhas.</p>';
+            lista.innerHTML = '<p class="texto-vazio">Você ainda não criou campanhas.</p>';
             return;
         }
 
@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
     } catch (erro) {
         console.error(erro);
-        lista.innerHTML = '<p class="texto-vazio text-danger">Nao foi possivel carregar suas campanhas.</p>';
+        lista.innerHTML = '<p class="texto-vazio text-danger">Não foi possível carregar suas campanhas.</p>';
     }
 });
+

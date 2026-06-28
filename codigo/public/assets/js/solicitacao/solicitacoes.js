@@ -35,7 +35,7 @@ function formatarStatusSolicitacao(status) {
 }
 
 function formatarData(dataIso) {
-    if (!dataIso) return 'Data nao informada';
+    if (!dataIso) return 'Data não informada';
     const data = new Date(dataIso);
     if (Number.isNaN(data.getTime())) return dataIso;
     return data.toLocaleDateString('pt-BR');
@@ -56,7 +56,7 @@ function criarCardSolicitacao(solicitacao) {
         </div>
         <p class="resumo-solicitacao">${solicitacao.descricaoResumo || 'Sem resumo informado.'}</p>
         <div class="meta-solicitacao">
-            <span><i class="bi bi-geo-alt me-1"></i>${solicitacao.local || 'Local nao informado'}</span>
+            <span><i class="bi bi-geo-alt me-1"></i>${solicitacao.local || 'Local não informado'}</span>
             <span><i class="bi bi-person me-1"></i>${solicitacao.criadorNome || 'Usuario da plataforma'}</span>
             <span><i class="bi bi-calendar3 me-1"></i>${formatarData(solicitacao.criadoEm)}</span>
         </div>
@@ -145,8 +145,8 @@ async function carregarSolicitacoes() {
                 try {
                     await SolicitacaoService.atualizar(solicitacao.id, solicitacaoConcluida);
                     return solicitacaoConcluida;
-                } catch (erroAtualizacao) {
-                    console.error('Erro ao sincronizar status da solicitacao:', erroAtualizacao);
+                } catch (erroAtualização) {
+                    console.error('Erro ao sincronizar status da solicitacao:', erroAtualização);
                     return solicitacao;
                 }
             })
@@ -157,7 +157,7 @@ async function carregarSolicitacoes() {
         aplicarFiltro();
     } catch (erro) {
         console.error(erro);
-        alerta.textContent = 'Nao foi possivel carregar as solicitacoes.';
+        alerta.textContent = 'Não foi possível carregar as solicitacoes.';
         alerta.classList.remove('d-none');
     }
 }
@@ -181,3 +181,4 @@ document.addEventListener('DOMContentLoaded', async () => {
     configurarFiltros();
     await carregarSolicitacoes();
 });
+

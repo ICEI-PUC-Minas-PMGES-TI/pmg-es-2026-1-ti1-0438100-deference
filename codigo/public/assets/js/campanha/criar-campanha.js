@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const usuario = obterUsuarioSessaoSegura();
 
     if (!usuario) {
-        alert('Voce precisa estar logado para criar campanha.');
+        alert('Você precisa estar logado para criar campanha.');
         window.location.href = '../login/login.html';
         return;
     }
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         solicitacao = await SolicitacaoService.buscarPorId(solicitacaoId);
     } catch (erro) {
         console.error(erro);
-        alert('Nao foi possivel carregar a solicitacao selecionada.');
+        alert('Não foi possível carregar a solicitacao selecionada.');
         window.location.href = '../solicitacao/solicitacoes.html';
         return;
     }
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const categoriaCampanha = categoriaMap[solicitacao.categoriaAjuda] || '';
 
     if (!categoriaCampanha) {
-        alert('A categoria da solicitacao nao e compativel com as categorias de campanha.');
+        alert('A categoria da solicitacao não e compativel com as categorias de campanha.');
         window.location.href = `../solicitacao/detalhe-solicitacao.html?id=${solicitacao.id}`;
         return;
     }
@@ -237,3 +237,5 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.location.href = `../solicitacao/detalhe-solicitacao.html?id=${solicitacao.id}`;
     });
 });
+
+

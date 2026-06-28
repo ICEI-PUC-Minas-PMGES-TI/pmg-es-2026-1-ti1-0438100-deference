@@ -1,4 +1,4 @@
-function normalizarAdmin(valor) {
+﻿function normalizarAdmin(valor) {
     return String(valor || '').replace(/\D/g, '');
 }
 
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const confirmarSenha = document.getElementById('confirmarSenha').value;
 
         if (senha !== confirmarSenha) {
-            exibirErroAdmin('As senhas nao coincidem.');
+            exibirErroAdmin('As senhas não coincidem.');
             return;
         }
 
@@ -112,3 +112,4 @@ document.addEventListener('DOMContentLoaded', () => {
         exibirSucessoAdmin('Administrador cadastrado com sucesso.');
     });
 });
+

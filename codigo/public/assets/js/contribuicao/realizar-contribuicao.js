@@ -1,4 +1,4 @@
-const mapaImagensContribuicao = {
+﻿const mapaImagensContribuicao = {
     alimentacao: '../../assets/images/alimentacao.jpg',
     saude: '../../assets/images/saude.jpg',
     educacao: '../../assets/images/educacao.jpg',
@@ -258,7 +258,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const campanhaId = params.get('id');
 
     if (!campanhaId) {
-        mostrarErro('Campanha nao identificada. Volte para a lista de campanhas e tente novamente.');
+        mostrarErro('Campanha não identificada. Volte para a lista de campanhas e tente novamente.');
         return;
     }
 
@@ -267,7 +267,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         preencherCampanhaNaTela(campanhaAtual);
     } catch (erro) {
         console.error('Erro ao carregar campanha para contribuicao:', erro);
-        mostrarErro('Nao foi possivel carregar os dados da campanha.');
+        mostrarErro('Não foi possível carregar os dados da campanha.');
         return;
     }
 
@@ -399,7 +399,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             atualizarResumoValor(0);
         } catch (erro) {
             console.error('Erro ao registrar contribuicao:', erro);
-            mostrarErro('Nao foi possivel concluir a doacao agora. Tente novamente em instantes.');
+            mostrarErro('Não foi possível concluir a doacao agora. Tente novamente em instantes.');
         }
     });
 });
+

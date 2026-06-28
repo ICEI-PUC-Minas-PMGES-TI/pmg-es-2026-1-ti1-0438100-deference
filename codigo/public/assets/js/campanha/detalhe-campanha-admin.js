@@ -1,4 +1,4 @@
-function obterUsuarioSessaoAdmin() {
+﻿function obterUsuarioSessaoAdmin() {
     try {
         return typeof obterSessao === 'function'
             ? obterSessao()
@@ -34,13 +34,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     const usuario = obterUsuarioSessaoAdmin();
 
     if (!usuario) {
-        alert('Voce precisa estar logado para acessar esta area.');
+        alert('Você precisa estar logado para acessar esta area.');
         window.location.href = '../login/login.html';
         return;
     }
 
     if (!campanhaId) {
-        alert('Campanha nao informada.');
+        alert('Campanha não informada.');
         window.location.href = './minhas-campanhas.html';
         return;
     }
@@ -49,15 +49,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         const campanha = await CampanhaService.buscarPorId(campanhaId);
 
         if (!campanhaEhDoUsuarioAdmin(campanha, usuario)) {
-            alert('Acesso negado. Esta campanha nao pertence ao seu perfil.');
+            alert('Acesso negado. Esta campanha não pertence ao seu perfil.');
             window.location.href = './minhas-campanhas.html';
             return;
         }
 
         document.getElementById('tituloCampanhaAdmin').textContent = campanha.titulo || 'Campanha';
-        document.getElementById('subtituloCampanhaAdmin').textContent = `Categoria ${campanha.categoria || 'Nao informada'} | Urgencia ${campanha.urgencia || 'media'}`;
+        document.getElementById('subtituloCampanhaAdmin').textContent = `Categoria ${campanha.categoria || 'Não informada'} | Urgencia ${campanha.urgencia || 'media'}`;
 
-        document.getElementById('btnNovaAtualizacao').href = `./criar-atualizacao.html?campanhaId=${campanha.id}`;
+        document.getElementById('btnNovaAtualização').href = `./criar-atualizacao.html?campanhaId=${campanha.id}`;
 
         const painelInfos = document.getElementById('painelInfosCampanha');
         painelInfos.innerHTML = `
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         listaAtualizacoes.innerHTML = '';
 
         if (!atualizacoes.length) {
-            listaAtualizacoes.innerHTML = '<p class="texto-vazio">Nenhuma atualização registrada ainda.</p>';
+            listaAtualizacoes.innerHTML = '<p class="texto-vazio">Nenhuma atualizacao registrada ainda.</p>';
             return;
         }
 
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const item = document.createElement('article');
                 item.className = 'item-atualizacao-admin';
                 item.innerHTML = `
-                    <h3>${atualizacao.titulo || 'Atualizacao sem titulo'}</h3>
+                    <h3>${atualizacao.titulo || 'Atualização sem titulo'}</h3>
                     <p>${(atualizacao.resumo || '').slice(0, 160)}</p>
                     <div class="meta-atualizacao">${formatarDataAdmin(atualizacao.criadoEm || atualizacao.dataOcorrencia)}</div>
                 `;
@@ -97,7 +97,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
     } catch (erro) {
         console.error(erro);
-        alert('Nao foi possivel carregar o painel da campanha.');
+        alert('Não foi possível carregar o painel da campanha.');
         window.location.href = './minhas-campanhas.html';
     }
 });
+
+
+

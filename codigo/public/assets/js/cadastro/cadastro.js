@@ -1,4 +1,4 @@
-document.addEventListener(
+﻿document.addEventListener(
     "DOMContentLoaded",
     () => {
         const form =
@@ -71,7 +71,7 @@ async function cadastrarUsuario(evento) {
     }
 
     if (senha !== confirmarSenha) {
-        exibirErro("As senhas nao coincidem.");
+        exibirErro("As senhas não coincidem.");
         return;
     }
 
@@ -152,7 +152,7 @@ async function cadastrarUsuario(evento) {
             "../index.html";
     } catch (erro) {
         console.error(erro);
-        exibirErro("Nao foi possivel concluir o cadastro.");
+        exibirErro("Não foi possível concluir o cadastro.");
     }
 }
 
@@ -291,7 +291,8 @@ function validarConfirmacaoSenha() {
 
     confirmarSenha.setCustomValidity(
         senha.value && confirmarSenha.value && senha.value !== confirmarSenha.value
-            ? "As senhas nao coincidem."
+            ? "As senhas não coincidem."
             : ""
     );
 }
+

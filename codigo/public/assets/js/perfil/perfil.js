@@ -1,8 +1,8 @@
-const perfilPadrao = {
+﻿const perfilPadrao = {
     nome: "Usuario Solidariza",
     email: "usuario@email.com",
     perfil: "usuario",
-    telefone: "Nao informado",
+    telefone: "Não informado",
     documento: "",
     dataNascimento: "",
     cidade: "",
@@ -265,7 +265,7 @@ async function salvarPerfil(evento) {
         exibirToast("Perfil atualizado com sucesso.");
     } catch (erro) {
         console.error(erro);
-        exibirAlerta("Nao foi possivel atualizar o perfil.");
+        exibirAlerta("Não foi possível atualizar o perfil.");
     }
 }
 
@@ -294,7 +294,7 @@ async function salvarSenha(evento) {
     }
 
     if (senhaNova !== senhaConfirmar) {
-        exibirAlerta("As senhas nao coincidem.");
+        exibirAlerta("As senhas não coincidem.");
         return;
     }
 
@@ -312,7 +312,7 @@ async function salvarSenha(evento) {
         exibirToast("Senha alterada com sucesso.");
     } catch (erro) {
         console.error(erro);
-        exibirAlerta("Nao foi possivel alterar a senha.");
+        exibirAlerta("Não foi possível alterar a senha.");
     }
 }
 
@@ -335,7 +335,7 @@ async function salvarPreferencias(evento) {
         exibirToast("Configuracoes salvas com sucesso.");
     } catch (erro) {
         console.error(erro);
-        exibirAlerta("Nao foi possivel salvar as configuracoes.");
+        exibirAlerta("Não foi possível salvar as configuracoes.");
     }
 }
 
@@ -468,7 +468,8 @@ function validarConfirmacaoSenha() {
 
     senhaConfirmar.setCustomValidity(
         senhaNova.value && senhaConfirmar.value && senhaNova.value !== senhaConfirmar.value
-            ? "As senhas nao coincidem."
+            ? "As senhas não coincidem."
             : ""
     );
 }
+

@@ -1,4 +1,4 @@
-function obterUsuarioSessaoAtualizacao() {
+﻿function obterUsuarioSessaoAtualização() {
     try {
         return typeof obterSessao === 'function'
             ? obterSessao()
@@ -8,7 +8,7 @@ function obterUsuarioSessaoAtualizacao() {
     }
 }
 
-function campanhaEhDoUsuarioAtualizacao(campanha, usuario) {
+function campanhaEhDoUsuarioAtualização(campanha, usuario) {
     if (!campanha || !usuario) return false;
 
     if (Number(campanha.criadorId) === Number(usuario.id)) return true;
@@ -34,21 +34,21 @@ function moedaParaNumero(valor) {
 document.addEventListener('DOMContentLoaded', async () => {
     const params = new URLSearchParams(window.location.search);
     const campanhaId = params.get('campanhaId');
-    const usuario = obterUsuarioSessaoAtualizacao();
+    const usuario = obterUsuarioSessaoAtualização();
 
-    const form = document.getElementById('formAtualizacao');
+    const form = document.getElementById('formAtualização');
     const valorAplicado = document.getElementById('valorAplicado');
-    const btnCancelar = document.getElementById('btnCancelarAtualizacao');
+    const btnCancelar = document.getElementById('btnCancelarAtualização');
     const linkVoltar = document.getElementById('linkVoltarAdmin');
 
     if (!usuario) {
-        alert('Voce precisa estar logado para registrar atualizacao.');
+        alert('Você precisa estar logado para registrar atualizacao.');
         window.location.href = '../login/login.html';
         return;
     }
 
     if (!campanhaId) {
-        alert('Campanha nao informada.');
+        alert('Campanha não informada.');
         window.location.href = './minhas-campanhas.html';
         return;
     }
@@ -59,12 +59,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         campanha = await CampanhaService.buscarPorId(campanhaId);
     } catch (erro) {
         console.error(erro);
-        alert('Nao foi possivel carregar a campanha.');
+        alert('Não foi possível carregar a campanha.');
         window.location.href = './minhas-campanhas.html';
         return;
     }
 
-    if (!campanhaEhDoUsuarioAtualizacao(campanha, usuario)) {
+    if (!campanhaEhDoUsuarioAtualização(campanha, usuario)) {
         alert('Acesso negado para registrar atualizacao nesta campanha.');
         window.location.href = './minhas-campanhas.html';
         return;
@@ -88,11 +88,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const payload = {
             campanhaId: Number(campanha.id),
-            titulo: document.getElementById('tituloAtualizacao').value.trim(),
-            tipo: document.getElementById('tipoAtualizacao').value,
+            titulo: document.getElementById('tituloAtualização').value.trim(),
+            tipo: document.getElementById('tipoAtualização').value,
             dataOcorrencia: document.getElementById('dataOcorrencia').value,
-            resumo: document.getElementById('resumoAtualizacao').value.trim(),
-            detalhes: document.getElementById('detalhesAtualizacao').value.trim(),
+            resumo: document.getElementById('resumoAtualização').value.trim(),
+            detalhes: document.getElementById('detalhesAtualização').value.trim(),
             percentualConcluido: document.getElementById('percentualConcluido').value ? Number(document.getElementById('percentualConcluido').value) : null,
             valorAplicado: valorAplicado.value ? moedaParaNumero(valorAplicado.value) : null,
             destinoRecurso: document.getElementById('destinoRecurso').value.trim() || null,
@@ -120,11 +120,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         try {
             await AtualizacaoService.criar(payload);
-            alert('Atualizacao publicada com sucesso.');
+            alert('Atualização publicada com sucesso.');
             window.location.href = `./detalhe-campanha-admin.html?id=${campanha.id}`;
         } catch (erro) {
             console.error(erro);
-            alert('Nao foi possivel publicar a atualizacao.');
+            alert('Não foi possível publicar a atualizacao.');
         }
     });
 });
+
+

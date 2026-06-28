@@ -1,4 +1,4 @@
-const mapaImagens = {
+﻿const mapaImagens = {
     alimentacao: '../../assets/images/alimentacao.jpg',
     saude: '../../assets/images/saude.jpg',
     educacao: '../../assets/images/educacao.jpg',
@@ -101,7 +101,8 @@ function iniciarApp() {
             const imagemUrl = cartao.querySelector('.imagem-cartao img').src;
             const valorArrecadado = parseFloat(cartao.querySelector('.valor-arrecadado').getAttribute('data-valor')) || 0;
             const valorMeta = parseFloat(cartao.querySelector('.meta-valor').getAttribute('data-meta')) || 1;
-            const beneficiariosTexto = cartao.querySelector('.beneficiarios').innerText.replace('👤 ', '');
+            const beneficiariosTexto = cartao.querySelector('.beneficiarios').innerText;
+            const beneficiariosNumero = (beneficiariosTexto.match(/\d+/) || ['0'])[0];
 
             const organizador = cartao.getAttribute('data-organizador') || "ONG Parceira";
             const local = cartao.getAttribute('data-local') || "Brasil";
@@ -122,7 +123,7 @@ function iniciarApp() {
             document.getElementById('detalhe-tech-inicio').innerText = dataInicio;
             document.getElementById('detalhe-tech-fim').innerText = dataFim;
 
-            document.getElementById('detalhe-impacto-beneficiarios').innerText = beneficiariosTexto.split(' ')[0];
+            document.getElementById('detalhe-impacto-beneficiarios').innerText = beneficiariosNumero;
 
             telaListagem.style.display = 'none';
             telaDetalhes.style.display = 'block';
@@ -145,7 +146,7 @@ function iniciarApp() {
         document.getElementById('detalhe-painel-barra').style.width = porcentagem + "%";
         document.getElementById('detalhe-painel-porcentagem').innerText = porcentagem + "% concluído";
         document.getElementById('detalhe-painel-restante').innerText = formatador.format(restante) + " restante";
-        document.getElementById('detalhe-painel-pessoas-doaram').innerText = `👤 ${doadores} pessoas já doaram`;
+        document.getElementById('detalhe-painel-pessoas-doaram').innerText = `${doadores} pessoas já doaram`;
     }
 
         if (btnFazerDoacao) {
@@ -329,7 +330,7 @@ function adicionarCampanhaNaTela(campanha) {
         </div>
 
         <div class="beneficiarios">
-            👤 ${campanha.beneficiarios || 0} beneficiários
+            ${campanha.beneficiarios || 0} beneficiários
         </div>
     `;
 
@@ -362,3 +363,4 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     }
 });
+

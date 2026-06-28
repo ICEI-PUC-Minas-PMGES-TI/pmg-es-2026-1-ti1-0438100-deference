@@ -1,4 +1,4 @@
-const AtualizacaoService = {
+﻿const AtualizacaoService = {
 
     async listar() {
         const response = await fetch(`${API_URL}/atualizacoes`);
@@ -62,3 +62,5 @@ const AtualizacaoService = {
         return await response.json();
     }
 };
+
+
