@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderizarPerfil(usuario);
     configurarEventos();
     configurarMascaras();
+    carregarDadosImpacto(usuario);
 });
 
 function obterUsuarioAtual() {
@@ -145,6 +146,162 @@ function renderizarPerfil(usuario) {
         usuario.configuracoes.privDoacoes;
     document.getElementById("cfgPrivContato").checked =
         usuario.configuracoes.privContato;
+}
+
+async function carregarDadosImpacto(usuario) {
+    if (!usuario?.id) {
+        renderizarResumoImpacto([]);
+        renderizarAtividadesRecentes([], new Map());
+        return;
+    }
+
+    try {
+        const contribuicoes = await buscarContribuicoesDoUsuario(usuario.id);
+        const campanhaIds = Array.from(
+            new Set(
+                contribuicoes
+                    .map((item) => Number(item.campanhaId))
+                    .filter((id) => Number.isFinite(id) && id > 0)
+            )
+        );
+
+        const campanhasMap = await buscarCampanhasPorIds(campanhaIds);
+
+        renderizarResumoImpacto(contribuicoes);
+        renderizarAtividadesRecentes(contribuicoes, campanhasMap);
+    } catch (erro) {
+        console.error(erro);
+        renderizarResumoImpacto([]);
+        renderizarAtividadesRecentes([], new Map());
+        exibirAlerta("Não foi possível carregar as métricas de impacto.");
+    }
+}
+
+async function buscarContribuicoesDoUsuario(usuarioId) {
+    const resposta = await fetch(`${API_URL}/contribuicoes?usuarioId=${usuarioId}`);
+
+    if (!resposta.ok) {
+        throw new Error("Erro ao buscar contribuições do usuário");
+    }
+
+    return await resposta.json();
+}
+
+async function buscarCampanhasPorIds(campanhaIds) {
+    const campanhasMap = new Map();
+
+    if (!campanhaIds.length) {
+        return campanhasMap;
+    }
+
+    const campanhas = await Promise.all(
+        campanhaIds.map(async (id) => {
+            const resposta = await fetch(`${API_URL}/campanhas/${id}`);
+
+            if (!resposta.ok) {
+                return null;
+            }
+
+            return await resposta.json();
+        })
+    );
+
+    campanhas
+        .filter(Boolean)
+        .forEach((campanha) => campanhasMap.set(Number(campanha.id), campanha));
+
+    return campanhasMap;
+}
+
+function renderizarResumoImpacto(contribuicoes) {
+    const campanhasApoiadas = new Set(
+        contribuicoes
+            .map((item) => Number(item.campanhaId))
+            .filter((id) => Number.isFinite(id) && id > 0)
+    ).size;
+
+    const totalDoado = contribuicoes.reduce((total, item) => {
+        const valor = Number(item.valor) || 0;
+        return total + valor;
+    }, 0);
+
+    document.getElementById("impactoCampanhasApoiadas").textContent = String(campanhasApoiadas);
+    document.getElementById("impactoTotalDoado").textContent = formatarMoeda(totalDoado);
+}
+
+function renderizarAtividadesRecentes(contribuicoes, campanhasMap) {
+    const listaAtividades = document.getElementById("listaAtividadesRecentes");
+
+    if (!contribuicoes.length) {
+        listaAtividades.innerHTML = `
+            <article class="atividade-item">
+                <div>
+                    <div class="atividade-meta">
+                        <span class="badge-atividade">Sem atividade</span>
+                        <span>Sem doações registradas</span>
+                    </div>
+                    <h3>As contribuições aparecerão aqui após sua primeira doação.</h3>
+                </div>
+                <strong>${formatarMoeda(0)}</strong>
+            </article>
+        `;
+        return;
+    }
+
+    const contribuicoesOrdenadas = [...contribuicoes]
+        .sort((a, b) => new Date(b.criadoEm || 0) - new Date(a.criadoEm || 0))
+        .slice(0, 5);
+
+    listaAtividades.innerHTML = contribuicoesOrdenadas
+        .map((contribuicao) => {
+            const campanhaId = Number(contribuicao.campanhaId);
+            const campanha = campanhasMap.get(campanhaId);
+            const tituloCampanha = campanha?.titulo || "Campanha não encontrada";
+
+            return `
+                <article class="atividade-item">
+                    <div>
+                        <div class="atividade-meta">
+                            <span class="badge-atividade">Doação</span>
+                            <span>${formatarData(contribuicao.criadoEm)}</span>
+                        </div>
+                        <h3>${escaparHtml(tituloCampanha)}</h3>
+                    </div>
+                    <strong>${formatarMoeda(contribuicao.valor)}</strong>
+                </article>
+            `;
+        })
+        .join("");
+}
+
+function formatarData(dataIso) {
+    const data = new Date(dataIso);
+
+    if (Number.isNaN(data.getTime())) {
+        return "Data não informada";
+    }
+
+    return data.toLocaleDateString("pt-BR", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric"
+    });
+}
+
+function formatarMoeda(valor) {
+    return Number(valor || 0).toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+    });
+}
+
+function escaparHtml(texto) {
+    return String(texto)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/\"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 }
 
 function formatarPerfil(perfil) {

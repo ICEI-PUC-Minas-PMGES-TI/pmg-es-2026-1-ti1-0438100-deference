@@ -210,106 +210,287 @@ O vídeo a seguir traz uma apresentação do problema que a equipe está tratand
 
 ## Funcionalidades
 
-Esta seção apresenta as funcionalidades da solução.Info
+Esta seção apresenta as principais funcionalidades implementadas na plataforma Solidariza.
 
-##### Funcionalidade 1 - Cadastro de Contatos ⚠️ EXEMPLO ⚠️
+##### Funcionalidade 1 - Cadastro e Autenticação de Usuários
 
-Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema
+Permite criar conta e acessar a plataforma com controle de sessão para usuários comuns e administradores.
 
-* **Estrutura de dados:** [Contatos](#ti_ed_contatos)
+* **Estrutura de dados:** [Usuários](#estrutura-de-dados---usuarios)
 * **Instruções de acesso:**
-  * Abra o site e efetue o login
-  * Acesse o menu principal e escolha a opção Cadastros
-  * Em seguida, escolha a opção Contatos
-* **Tela da funcionalidade**:
+  * Acesse a tela de cadastro em `modulos/cadastro/cadastro.html`
+  * Preencha os campos obrigatórios e confirme os termos
+  * Faça login em `modulos/login/login.html`
+* **Tela da funcionalidade:**
 
-![Tela de Funcionalidade](images/exemplo-funcionalidade.png)
+![Cadastro](images/funcionalidade-cadastro.png)
+![Login](images/funcionalidade-login.png)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente cada uma das funcionalidades que a aplicação fornece tanto para os usuários quanto aos administradores da solução.
->
-> Inclua, para cada funcionalidade, itens como: (1) titulos e descrição da funcionalidade; (2) Estrutura de dados associada; (3) o detalhe sobre as instruções de acesso e uso.
+##### Funcionalidade 2 - Listagem, Filtros e Detalhe de Campanhas
+
+Exibe campanhas com busca, filtros por categoria, painel de detalhes e progresso de arrecadação.
+
+* **Estrutura de dados:** [Campanhas](#estrutura-de-dados---campanhas), [Contribuições](#estrutura-de-dados---contribuicoes), [Atualizações](#estrutura-de-dados---atualizacoes)
+* **Instruções de acesso:**
+  * Acesse `modulos/campanha/campanhas.html`
+  * Utilize busca e filtros de categoria
+  * Clique em uma campanha para abrir `detalhe-campanha.html?id=<id>`
+* **Tela da funcionalidade:**
+
+![Campanhas](images/funcionalidade-campanhas.png)
+![Detalhe](images/funcionalidade-detalhe-campanha.png)
+
+##### Funcionalidade 3 - Doação para Campanhas
+
+Permite selecionar valor, preencher pagamento simulado e registrar contribuição com atualização do progresso da campanha.
+
+* **Estrutura de dados:** [Contribuições](#estrutura-de-dados---contribuicoes), [Campanhas](#estrutura-de-dados---campanhas), [Avisos](#estrutura-de-dados---avisos)
+* **Instruções de acesso:**
+  * Acesse o detalhe da campanha e clique em **Doar agora**
+  * Em `modulos/contribuicao/realizar-contribuicao.html?id=<id>`, informe valor e dados de pagamento
+  * Confirme a doação
+* **Tela da funcionalidade:**
+
+![Fluxo de doação](images/funcionalidade-doacao.png)
+
+##### Funcionalidade 4 - Solicitações de Ajuda
+
+Permite cadastrar solicitações, acompanhar status e criar campanhas vinculadas quando a solicitação está disponível.
+
+* **Estrutura de dados:** [Solicitações](#estrutura-de-dados---solicitacoes), [Campanhas](#estrutura-de-dados---campanhas)
+* **Instruções de acesso:**
+  * Acesse `modulos/solicitacao/solicitacoes.html`
+  * Para nova solicitação, utilize `criar-solicitacao.html`
+  * Acompanhe status (`em_analise`, `disponivel`, `em_desenvolvimento`, `concluida`, `reprovada`)
+* **Tela da funcionalidade:**
+
+![Solicitações](images/funcionalidade-solicitacoes.png)
+
+##### Funcionalidade 5 - Perfil do Usuário
+
+Permite visualizar dados do usuário, resumo de impacto e preferências de configuração.
+
+* **Estrutura de dados:** [Usuários](#estrutura-de-dados---usuarios), [Contribuições](#estrutura-de-dados---contribuicoes)
+* **Instruções de acesso:**
+  * Faça login
+  * Acesse `modulos/perfil/perfil.html`
+  * Consulte informações pessoais e preferências
+* **Tela da funcionalidade:**
+
+![Perfil do usuário](images/funcionalidade-perfil.png)
+
+##### Funcionalidade 6 - Administração (Dashboard, Solicitações, Campanhas, Usuários e Avisos)
+
+Permite gerenciamento administrativo de solicitações, campanhas, usuários e avisos operacionais da plataforma.
+
+* **Estrutura de dados:** [Solicitações](#estrutura-de-dados---solicitacoes), [Campanhas](#estrutura-de-dados---campanhas), [Usuários](#estrutura-de-dados---usuarios), [Avisos](#estrutura-de-dados---avisos), [Atualizações](#estrutura-de-dados---atualizacoes)
+* **Instruções de acesso:**
+  * Faça login com perfil `admin`
+  * Acesse `modulos/administrador/dashboard-admin.html`
+  * Navegue por `solicitacoes-admin.html`, `campanhas-admin.html`, `usuarios-admin.html` e `avisos-admin.html`
+* **Tela da funcionalidade:**
+
+![Painel administrativo](images/funcionalidade-admin.png)
+
+##### Funcionalidade 7 - Publicação de Atualizações da Campanha (Dono da campanha)
+
+Permite ao criador da campanha registrar progresso e prestação de contas, além de visualizar o detalhamento da atualização.
+
+* **Estrutura de dados:** [Atualizações](#estrutura-de-dados---atualizacoes), [Campanhas](#estrutura-de-dados---campanhas)
+* **Instruções de acesso:**
+  * Acesse `modulos/campanha/minhas-campanhas.html`
+  * Abra o painel da campanha em `detalhe-campanha-admin.html?id=<id>`
+  * Clique em **Registrar atualização** e preencha `criar-atualizacao.html?campanhaId=<id>`
+* **Tela da funcionalidade:**
+
+![Atualizações de campanha](images/funcionalidade-atualizacoes.png)
+![Formulário de atualização](images/funcionalidade-formulario-atualizacoes.png)
+![Detalhe de atualização](images/funcionalidade-detalhe-atualizacoes.png)
 
 ## Estruturas de Dados
 
-Descrição das estruturas de dados utilizadas na solução com exemplos no formato JSON.Info
+Descrição das estruturas de dados utilizadas na solução com exemplos no formato JSON.
 
-##### Estrutura de Dados - Contatos   ⚠️ EXEMPLO ⚠️
+##### Estrutura de Dados - Usuarios
 
-Contatos da aplicação
-
-```json
-  {
-    "id": 1,
-    "nome": "Leanne Graham",
-    "cidade": "Belo Horizonte",
-    "categoria": "amigos",
-    "email": "Sincere@april.biz",
-    "telefone": "1-770-736-8031",
-    "website": "hildegard.org"
-  }
-  
-```
-
-##### Estrutura de Dados - Usuários  ⚠️ EXEMPLO ⚠️
-
-Registro dos usuários do sistema utilizados para login e para o perfil do sistema
+Registro de usuários da plataforma (admin e usuário comum), incluindo dados de sessão, perfil e preferências.
 
 ```json
-  {
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    email: "admin@abc.com",
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    login: "admin",
-    nome: "Administrador do Sistema",
-    senha: "123"
+{
+  "id": 2,
+  "nome": "Carla Mendes",
+  "email": "carla@solidariza.com",
+  "senha": "123456",
+  "perfil": "usuario",
+  "telefone": "31991112222",
+  "documento": "11111111111",
+  "dataNascimento": "1993-04-09",
+  "cidade": "Mariana",
+  "estado": "MG",
+  "localizacao": "Mariana, MG",
+  "ativo": true,
+  "configuracoes": {
+    "notifCampanhas": true,
+    "notifAtualizacoes": true,
+    "notifRelatorios": false,
+    "privDoacoes": true,
+    "privContato": false
   }
+}
 ```
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente as estruturas de dados utilizadas na solução tanto para dados utilizados na essência da aplicação quanto outras estruturas que foram criadas para algum tipo de configuração
->
-> Nomeie a estrutura, coloque uma descrição sucinta e apresente um exemplo em formato JSON.
->
-> **Orientações:**
->
-> * [JSON Introduction](https://www.w3schools.com/js/js_json_intro.asp)
-> * [Trabalhando com JSON - Aprendendo desenvolvimento web | MDN](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Objects/JSON)
+##### Estrutura de Dados - Solicitacoes
+
+Solicitações de ajuda criadas por usuários, com status de análise e vínculo opcional com campanha.
+
+```json
+{
+  "id": 4,
+  "titulo": "Reforço escolar no bairro Rosário",
+  "tipoSolicitacao": "projeto_social",
+  "status": "em_desenvolvimento",
+  "descricaoResumo": "Solicitação aprovada com campanha ativa para aquisição de materiais.",
+  "local": "Mariana - MG",
+  "categoriaAjuda": "educacao",
+  "urgencia": "media",
+  "numeroBeneficiarios": 60,
+  "contatoNome": "Carla Mendes",
+  "contatoEmail": "carla@solidariza.com",
+  "criadorId": 2,
+  "campanhaId": 1,
+  "motivoReprovacao": null
+}
+```
+
+##### Estrutura de Dados - Campanhas
+
+Campanhas de arrecadação exibidas na plataforma, com metas, progresso, vínculo com solicitação e informações de contato.
+
+```json
+{
+  "id": 1,
+  "titulo": "Reforço Escolar no Bairro Rosário",
+  "categoria": "Educacao",
+  "descricao": "Captação para material pedagógico, transporte e alimentação de alunos em reforço escolar comunitário.",
+  "meta": 3000,
+  "arrecadado": 500,
+  "doadores": 3,
+  "beneficiarios": 60,
+  "urgencia": "media",
+  "solicitacaoId": 4,
+  "criadorId": 2,
+  "criadorNome": "Carla Mendes"
+}
+```
+
+##### Estrutura de Dados - Contribuicoes
+
+Registros de doações realizadas para campanhas, incluindo valor, data e dados de pagamento simulados.
+
+```json
+{
+  "id": 18,
+  "campanhaId": 1,
+  "usuarioId": 2,
+  "valor": 50,
+  "criadoEm": "2026-06-28T20:40:07.079Z",
+  "pagamento": {
+    "cartaoFinal": "1111",
+    "validade": "12/29",
+    "nomeTitular": "Carla Mendes"
+  }
+}
+```
+
+##### Estrutura de Dados - Atualizacoes
+
+Atualizações publicadas pelos responsáveis da campanha para prestação de contas e acompanhamento de progresso.
+
+```json
+{
+  "id": 1,
+  "campanhaId": 1,
+  "titulo": "Compra inicial de materiais escolares",
+  "tipo": "progresso",
+  "dataOcorrencia": "2026-06-07",
+  "resumo": "Primeiro lote de cadernos e kits pedagógicos adquirido.",
+  "detalhes": "Foram adquiridos 60 kits com cadernos, lápis e borrachas para início das turmas.",
+  "percentualConcluido": 20,
+  "valorAplicado": 320,
+  "destinoRecurso": "Materiais pedagógicos",
+  "proximosPassos": "Compra de livros de apoio e organização das oficinas.",
+  "autorId": 2,
+  "autorNome": "Carla Mendes"
+}
+```
+
+##### Estrutura de Dados - Avisos
+
+Eventos relevantes persistidos para acompanhamento administrativo (cadastros, julgamentos, campanhas e contribuições).
+
+```json
+{
+  "id": 11,
+  "tipo": "contribuicao_realizada",
+  "titulo": "Nova contribuicao registrada",
+  "descricao": "R$ 50,00 para campanha Reforço Escolar no Bairro Rosário",
+  "referenciaTipo": "campanha",
+  "referenciaId": 1,
+  "criadoEm": "2026-06-28T20:40:07.160Z"
+}
+```
 
 ## Módulos e APIs
 
-Esta seção apresenta os módulos e APIs utilizados na solução
+Esta seção apresenta os módulos e APIs utilizados na solução.
 
-**Images**:
+**Frameworks e bibliotecas (front-end):**
 
-* Unsplash - [https://unsplash.com/](https://unsplash.com/) ⚠️ EXEMPLO ⚠️
+* Bootstrap 5.3.3 (layout, grid e componentes): [https://getbootstrap.com/](https://getbootstrap.com/)
+* Bootstrap Icons 1.11.3 (ícones): [https://icons.getbootstrap.com/](https://icons.getbootstrap.com/)
 
-**Fonts:**
+**Back-end e persistência local:**
 
-* Icons Font Face - [https://fontawesome.com/](https://fontawesome.com/) ⚠️ EXEMPLO ⚠️
+* JSON Server 0.17.4 (API REST mock para desenvolvimento): [https://github.com/typicode/json-server](https://github.com/typicode/json-server)
+* Banco local em arquivo JSON: `codigo/db/db.json`
 
-**Scripts:**
+**Módulos da solução:**
 
-* jQuery - [http://www.jquery.com/](http://www.jquery.com/) ⚠️ EXEMPLO ⚠️
-* Bootstrap 4 - [http://getbootstrap.com/](http://getbootstrap.com/) ⚠️ EXEMPLO ⚠️
+* Módulo público inicial: `modulos/index.html`
+* Módulo de autenticação: `modulos/login/login.html` e `modulos/cadastro/cadastro.html`
+* Módulo de campanhas: listagem, detalhe, minhas campanhas, criação e atualização
+* Módulo de contribuições: `modulos/contribuicao/realizar-contribuicao.html`
+* Módulo de solicitações: listagem e criação
+* Módulo de perfil do usuário
+* Módulo administrativo: dashboard, solicitações, campanhas, usuários e avisos
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente os módulos e APIs utilizados no desenvolvimento da solução. Inclua itens como: (1) Frameworks, bibliotecas, módulos, etc. utilizados no desenvolvimento da solução; (2) APIs utilizadas para acesso a dados, serviços, etc.
+**APIs e serviços internos (camada de integração):**
+
+* `api-config.js` (URL base da API)
+* `auth-service.js` (sessão com Local Storage)
+* `usuario-service.js` (CRUD de usuários)
+* `campanha-service.js` (CRUD de campanhas)
+* `solicitacao-service.js` (CRUD de solicitações)
+* `contribuicao-service.js` (registro de contribuições)
+* `atualizacao-service.js` (CRUD de atualizações)
+
+**Endpoints REST consumidos (JSON Server):**
+
+* `/usuarios`
+* `/solicitacoes`
+* `/campanhas`
+* `/contribuicoes`
+* `/atualizacoes`
+* `/avisos`
+* `/contatos`
 
 # Referências
 
 As referências utilizadas no trabalho foram:
 
-* SOBRENOME, Nome do autor. Título da obra. 8. ed. Cidade: Editora, 2000. 287 p ⚠️ EXEMPLO ⚠️
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
->
-> **Orientações**:
->
-> - [Formato ABNT](https://www.normastecnicas.com/abnt/trabalhos-academicos/referencias/)
-> - [Referências Bibliográficas da ABNT](https://comunidade.rockcontent.com/referencia-bibliografica-abnt/)
+* BOOTSTRAP. Bootstrap 5.3 - The world’s most popular framework for building responsive, mobile-first sites. Disponível em: [https://getbootstrap.com/](https://getbootstrap.com/). Acesso em: 28 jun. 2026.
+* BOOTSTRAP ICONS. Official open source SVG icon library for Bootstrap. Disponível em: [https://icons.getbootstrap.com/](https://icons.getbootstrap.com/). Acesso em: 28 jun. 2026.
+* MDN WEB DOCS. Using the Fetch API. Disponível em: [https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch). Acesso em: 28 jun. 2026.
+* MDN WEB DOCS. Window: localStorage property. Disponível em: [https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage). Acesso em: 28 jun. 2026.
+* TYPICODE. JSON Server. Disponível em: [https://github.com/typicode/json-server](https://github.com/typicode/json-server). Acesso em: 28 jun. 2026.
+* W3SCHOOLS. JSON Introduction. Disponível em: [https://www.w3schools.com/js/js_json_intro.asp](https://www.w3schools.com/js/js_json_intro.asp). Acesso em: 28 jun. 2026.
