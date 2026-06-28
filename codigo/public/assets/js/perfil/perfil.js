@@ -1,7 +1,7 @@
 const perfilPadrao = {
     nome: "Usuario Solidariza",
     email: "usuario@email.com",
-    perfil: "doador",
+    perfil: "usuario",
     telefone: "Nao informado",
     documento: "",
     dataNascimento: "",
@@ -149,8 +149,7 @@ function renderizarPerfil(usuario) {
 
 function formatarPerfil(perfil) {
     const perfis = {
-        doador: "Doador",
-        beneficiario: "Beneficiario",
+        usuario: "Usuario",
         admin: "Administrador"
     };
 

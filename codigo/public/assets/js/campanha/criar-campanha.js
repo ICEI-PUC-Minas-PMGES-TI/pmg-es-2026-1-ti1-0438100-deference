@@ -1,4 +1,4 @@
-const mapaImagensCriar = {
+﻿const mapaImagensCriar = {
     alimentacao: '../../assets/images/alimentacao.jpg',
     saude: '../../assets/images/saude.jpg',
     educacao: '../../assets/images/educacao.jpg',
@@ -12,182 +12,228 @@ function acheImagemCriar(categoria) {
     return mapaImagensCriar[chave] || mapaImagensCriar.alimentacao;
 }
 
-// JavaScript da página criarNovaCampanha.html
-document.addEventListener('DOMContentLoaded', () => {
-	const form = document.getElementById('formCriarCampanha');
-	const btnCancelar = document.getElementById('btnCancelar');
+function obterUsuarioSessaoSegura() {
+    try {
+        return typeof obterSessao === 'function'
+            ? obterSessao()
+            : JSON.parse(localStorage.getItem('usuarioSessao'));
+    } catch (_) {
+        return null;
+    }
+}
 
-	const fields = {
-		titulo: document.getElementById('campanhaTitulo'),
-		categoria: document.getElementById('campanhaCategoria'),
-		descricao: document.getElementById('campanhaDescricao'),
-		meta: document.getElementById('campanhaMeta'),
-		beneficiarios: document.getElementById('campanhaBeneficiarios'),
-		local: document.getElementById('campanhaLocal'),
-		inicio: document.getElementById('campanhaInicio'),
-		fim: document.getElementById('campanhaFim'),
-		org: document.getElementById('campanhaOrg'),
-		email: document.getElementById('campanhaEmail'),
-		tel: document.getElementById('campanhaTel')
-	};
+function aplicarMascaraTelefone(valor) {
+    const digitos = String(valor || '').replace(/\D/g, '').slice(0, 11);
 
-	function createFeedback(el, msg) {
-		let fb = el.nextElementSibling;
-		if (!fb || !fb.classList || !fb.classList.contains('invalid-feedback')) {
-			fb = document.createElement('div');
-			fb.className = 'invalid-feedback';
-			el.insertAdjacentElement('afterend', fb);
-		}
-		fb.textContent = msg;
-	}
+    if (digitos.length <= 10) {
+        return digitos
+            .replace(/(\d{2})(\d)/, '($1) $2')
+            .replace(/(\d{4})(\d)/, '$1-$2');
+    }
 
-	function clearValidation() {
-		Object.values(fields).forEach(el => {
-			el.classList.remove('is-invalid');
-			el.classList.remove('is-valid');
-			const fb = el.nextElementSibling;
-			if (fb && fb.classList && fb.classList.contains('invalid-feedback')) fb.textContent = '';
-		});
-	}
+    return digitos
+        .replace(/(\d{2})(\d)/, '($1) $2')
+        .replace(/(\d{5})(\d)/, '$1-$2');
+}
 
-	function applyPhoneMask(value) {
-		const digits = value.replace(/\D/g, '');
-		if (digits.length === 0) return '';
-		if (digits.length <= 2) return `(${digits}`;
-		if (digits.length <= 7) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
-		return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7, 11)}`;
-	}
+function aplicarMascaraMoeda(valor) {
+    const digitos = String(valor || '').replace(/\D/g, '');
+    if (!digitos) return '';
 
-	function applyCurrencyMask(value) {
-		const digits = value.replace(/\D/g, '');
-		if (digits.length === 0) return '';
-		const numberValue = parseInt(digits, 10) / 100;
-		return numberValue.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-	}
+    const numero = Number(digitos) / 100;
+    return numero.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
 
-	// Apply phone mask on input
-	fields.tel.addEventListener('input', (ev) => {
-		const masked = applyPhoneMask(ev.target.value);
-		ev.target.value = masked;
-	});
+function obterParametroSolicitacaoId() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('solicitacaoId');
+}
 
-	// Apply currency mask on input
-	fields.meta.addEventListener('input', (ev) => {
-		const masked = applyCurrencyMask(ev.target.value);
-		ev.target.value = masked;
-	});
+document.addEventListener('DOMContentLoaded', async () => {
+    const form = document.getElementById('formCriarCampanha');
+    const btnCancelar = document.getElementById('btnCancelar');
 
-	function validate() {
-		clearValidation();
-		const errors = {};
+    const fields = {
+        titulo: document.getElementById('campanhaTitulo'),
+        categoria: document.getElementById('campanhaCategoria'),
+        descricao: document.getElementById('campanhaDescricao'),
+        meta: document.getElementById('campanhaMeta'),
+        beneficiarios: document.getElementById('campanhaBeneficiarios'),
+        local: document.getElementById('campanhaLocal'),
+        inicio: document.getElementById('campanhaInicio'),
+        fim: document.getElementById('campanhaFim'),
+        org: document.getElementById('campanhaOrg'),
+        email: document.getElementById('campanhaEmail'),
+        tel: document.getElementById('campanhaTel')
+    };
 
-		const titulo = fields.titulo.value.trim();
-		if (!titulo) errors.titulo = 'O título da campanha é obrigatório.';
-		else if (titulo.length < 5) errors.titulo = 'O título deve ter ao menos 5 caracteres.';
+    const solicitacaoId = obterParametroSolicitacaoId();
+    const usuario = obterUsuarioSessaoSegura();
 
-		const categoria = fields.categoria.value;
-		if (!categoria) errors.categoria = 'Selecione uma categoria.';
+    if (!usuario) {
+        alert('Voce precisa estar logado para criar campanha.');
+        window.location.href = '../login/login.html';
+        return;
+    }
 
-		const descricao = fields.descricao.value.trim();
-		if (!descricao) errors.descricao = 'A descrição é obrigatória.';
-		else if (descricao.length < 20) errors.descricao = 'A descrição deve ter ao menos 20 caracteres.';
+    if (!solicitacaoId) {
+        alert('Uma campanha precisa estar vinculada a uma solicitacao.');
+        window.location.href = '../solicitacao/solicitacoes.html';
+        return;
+    }
 
-		const meta = fields.meta.value.trim();
-		const metaNumber = Number(meta.replace(/\./g, '').replace(',', '.'));
-		if (!meta) errors.meta = 'Informe a meta de arrecadação.';
-		else if (isNaN(metaNumber) || metaNumber <= 0) errors.meta = 'A meta deve ser um valor numérico maior que zero.';
+    let solicitacao = null;
 
-		const beneficiarios = fields.beneficiarios.value.trim();
-		if (!beneficiarios) errors.beneficiarios = 'Informe o número de beneficiários.';
-		else if (!Number.isInteger(Number(beneficiarios)) || Number(beneficiarios) <= 0) errors.beneficiarios = 'Informe um número inteiro de beneficiários maior que zero.';
+    try {
+        solicitacao = await SolicitacaoService.buscarPorId(solicitacaoId);
+    } catch (erro) {
+        console.error(erro);
+        alert('Nao foi possivel carregar a solicitacao selecionada.');
+        window.location.href = '../solicitacao/solicitacoes.html';
+        return;
+    }
 
-		const local = fields.local.value.trim();
-		if (!local) errors.local = 'Informe o local ou região da campanha.';
+    if (solicitacao.status !== 'disponivel') {
+        alert('Somente solicitacoes com status Disponivel podem receber campanha.');
+        window.location.href = `../solicitacao/detalhe-solicitacao.html?id=${solicitacao.id}`;
+        return;
+    }
 
-		const inicio = fields.inicio.value;
-		const fim = fields.fim.value;
-		if (!inicio) errors.inicio = 'Data de início é obrigatória.';
-		if (!fim) errors.fim = 'Data de término é obrigatória.';
-		if (inicio && fim && new Date(inicio) > new Date(fim)) errors.fim = 'A data de término deve ser igual ou posterior à data de início.';
+    if (solicitacao.campanhaId) {
+        alert('Essa solicitacao ja possui campanha vinculada.');
+        window.location.href = `../solicitacao/detalhe-solicitacao.html?id=${solicitacao.id}`;
+        return;
+    }
 
-		const org = fields.org.value.trim();
-		if (!org) errors.org = 'Informe o nome da organização responsável.';
+    const podeCriar = solicitacao.tipoSolicitacao === 'chamado_ajuda' || Number(solicitacao.criadorId) === Number(usuario.id);
 
-		const email = fields.email.value.trim();
-		const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-		if (!email) errors.email = 'Informe um e-mail de contato.';
-		else if (!emailRe.test(email)) errors.email = 'E-mail inválido.';
+    if (!podeCriar) {
+        alert('Nesta solicitacao de Projeto Social apenas o usuario criador pode abrir campanha.');
+        window.location.href = `../solicitacao/detalhe-solicitacao.html?id=${solicitacao.id}`;
+        return;
+    }
 
-		const tel = fields.tel.value.trim();
-		const digits = tel.replace(/\D/g, '');
-		if (!tel) errors.tel = 'Informe um telefone para contato.';
-		else if (digits.length < 8) errors.tel = 'Telefone inválido. Informe ao menos 8 dígitos.';
+    fields.titulo.value = solicitacao.titulo || '';
+    fields.descricao.value = solicitacao.descricaoCompleta || solicitacao.descricaoResumo || '';
+    fields.local.value = solicitacao.local || '';
 
-		// apply visuals
-		if (errors.titulo) { fields.titulo.classList.add('is-invalid'); createFeedback(fields.titulo, errors.titulo); } else fields.titulo.classList.add('is-valid');
-		if (errors.categoria) { fields.categoria.classList.add('is-invalid'); createFeedback(fields.categoria, errors.categoria); } else fields.categoria.classList.add('is-valid');
-		if (errors.descricao) { fields.descricao.classList.add('is-invalid'); createFeedback(fields.descricao, errors.descricao); } else fields.descricao.classList.add('is-valid');
-		if (errors.meta) { fields.meta.classList.add('is-invalid'); createFeedback(fields.meta, errors.meta); } else fields.meta.classList.add('is-valid');
-		if (errors.beneficiarios) { fields.beneficiarios.classList.add('is-invalid'); createFeedback(fields.beneficiarios, errors.beneficiarios); } else fields.beneficiarios.classList.add('is-valid');
-		if (errors.local) { fields.local.classList.add('is-invalid'); createFeedback(fields.local, errors.local); } else fields.local.classList.add('is-valid');
-		if (errors.inicio) { fields.inicio.classList.add('is-invalid'); createFeedback(fields.inicio, errors.inicio); } else fields.inicio.classList.add('is-valid');
-		if (errors.fim) { fields.fim.classList.add('is-invalid'); createFeedback(fields.fim, errors.fim); } else fields.fim.classList.add('is-valid');
-		if (errors.org) { fields.org.classList.add('is-invalid'); createFeedback(fields.org, errors.org); } else fields.org.classList.add('is-valid');
-		if (errors.email) { fields.email.classList.add('is-invalid'); createFeedback(fields.email, errors.email); } else fields.email.classList.add('is-valid');
-		if (errors.tel) { fields.tel.classList.add('is-invalid'); createFeedback(fields.tel, errors.tel); } else fields.tel.classList.add('is-valid');
+    const categoriaMap = {
+        alimentacao: 'Alimentação',
+        saude: 'Saúde',
+        educacao: 'Educação',
+        moradia: 'Moradia',
+        vestuario: 'Vestuário',
+        meio_ambiente: 'Meio Ambiente'
+    };
 
-		return { valid: Object.keys(errors).length === 0, errors };
-	}
+    const categoriaCampanha = categoriaMap[solicitacao.categoriaAjuda] || '';
 
-	form.addEventListener('submit', async (ev) => {
-		ev.preventDefault();
-		const result = validate();
-		if (!result.valid) {
-			const firstInvalid = form.querySelector('.is-invalid');
-			if (firstInvalid) firstInvalid.focus();
-			alert('Por favor corrija os campos destacados antes de enviar.');
-			return;
-		}
+    if (!categoriaCampanha) {
+        alert('A categoria da solicitacao nao e compativel com as categorias de campanha.');
+        window.location.href = `../solicitacao/detalhe-solicitacao.html?id=${solicitacao.id}`;
+        return;
+    }
 
-		// build payload
-		const payload = {
-			titulo: fields.titulo.value.trim(),
-			categoria: fields.categoria.value,
-			descricao: fields.descricao.value.trim(),
-			meta: Number(fields.meta.value.replace(/\./g, '').replace(',', '.')),
-			beneficiarios: Number(fields.beneficiarios.value.trim()),
-			local: fields.local.value.trim(),
-			inicio: fields.inicio.value,
-			fim: fields.fim.value,
-			organizacao: fields.org.value.trim(),
-			email: fields.email.value.trim(),
-			telefone: fields.tel.value.replace(/\D/g, ''),
-			imagem: acheImagemCriar(fields.categoria.value),
-			criadoEm: new Date().toISOString()
-		};
+    fields.categoria.value = categoriaCampanha;
+    fields.categoria.setAttribute('disabled', 'disabled');
 
-		try {
-			const API = 'http://localhost:3000/campanhas';
-			const resp = await fetch(API, {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(payload)
-			});
-			if (!resp.ok) throw new Error(`Servidor retornou ${resp.status}`);
-			const data = await resp.json();
-			alert(`Campanha cadastrada com sucesso!`);
-			form.reset();
-			clearValidation();
-		} catch (err) {
-			console.error(err);
-			alert('Falha ao cadastrar a campanha. Verifique a conexão com o servidor e tente novamente.');
-		}
-	});
+    fields.tel.addEventListener('input', () => {
+        fields.tel.value = aplicarMascaraTelefone(fields.tel.value);
+    });
 
-	btnCancelar.addEventListener('click', () => {
-		if (confirm('Deseja cancelar o cadastro e limpar o formulário?')) {
-			form.reset();
-			clearValidation();
-		}
-	});
+    fields.meta.addEventListener('input', () => {
+        fields.meta.value = aplicarMascaraMoeda(fields.meta.value);
+    });
+
+    function validar() {
+        form.classList.remove('was-validated');
+
+        let valido = true;
+        const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (fields.titulo.value.trim().length < 5) valido = false;
+        if (!categoriaCampanha) valido = false;
+        if (fields.descricao.value.trim().length < 20) valido = false;
+
+        const meta = Number(fields.meta.value.replace(/\./g, '').replace(',', '.'));
+        if (isNaN(meta) || meta <= 0) valido = false;
+
+        const beneficiarios = Number(fields.beneficiarios.value);
+        if (!Number.isInteger(beneficiarios) || beneficiarios <= 0) valido = false;
+
+        if (!fields.local.value.trim()) valido = false;
+        if (!fields.inicio.value || !fields.fim.value) valido = false;
+        if (fields.inicio.value && fields.fim.value && new Date(fields.inicio.value) > new Date(fields.fim.value)) valido = false;
+        if (!fields.org.value.trim()) valido = false;
+        if (!emailRe.test(fields.email.value.trim())) valido = false;
+        if (String(fields.tel.value).replace(/\D/g, '').length < 10) valido = false;
+
+        form.classList.add('was-validated');
+        return valido;
+    }
+
+    form.addEventListener('submit', async (ev) => {
+        ev.preventDefault();
+
+        if (!validar()) {
+            alert('Corrija os campos obrigatorios para continuar.');
+            return;
+        }
+
+        const campanhaPayload = {
+            titulo: fields.titulo.value.trim(),
+            categoria: categoriaCampanha,
+            descricao: fields.descricao.value.trim(),
+            meta: Number(fields.meta.value.replace(/\./g, '').replace(',', '.')),
+            beneficiarios: Number(fields.beneficiarios.value),
+            local: fields.local.value.trim(),
+            inicio: fields.inicio.value,
+            fim: fields.fim.value,
+            organizacao: fields.org.value.trim(),
+            email: fields.email.value.trim(),
+            telefone: fields.tel.value.replace(/\D/g, ''),
+            imagem: acheImagemCriar(categoriaCampanha),
+            urgencia: solicitacao.urgencia || 'media',
+            arrecadado: 0,
+            doadores: 0,
+            criadorId: Number(usuario.id),
+            criadorNome: usuario.nome || 'Usuario',
+            solicitacaoId: Number(solicitacao.id),
+            criadoEm: new Date().toISOString()
+        };
+
+        try {
+            const campanhaCriada = await CampanhaService.criar(campanhaPayload);
+
+            const solicitacaoAtualizada = {
+                ...solicitacao,
+                status: 'em_desenvolvimento',
+                campanhaId: campanhaCriada.id,
+                atualizadoEm: new Date().toISOString()
+            };
+
+            await SolicitacaoService.atualizar(solicitacao.id, solicitacaoAtualizada);
+
+            if (typeof AvisoService !== 'undefined') {
+                await AvisoService.criar({
+                    tipo: 'criacao_campanha',
+                    titulo: 'Nova campanha criada',
+                    descricao: `${campanhaCriada.titulo} (${campanhaCriada.id})`,
+                    referenciaTipo: 'campanha',
+                    referenciaId: campanhaCriada.id,
+                    criadoEm: new Date().toISOString()
+                });
+            }
+
+            alert('Campanha criada com sucesso e vinculada a solicitacao.');
+            window.location.href = `./detalhe-campanha.html?id=${campanhaCriada.id}`;
+        } catch (erro) {
+            console.error(erro);
+            alert('Falha ao criar a campanha.');
+        }
+    });
+
+    btnCancelar.addEventListener('click', () => {
+        window.location.href = `../solicitacao/detalhe-solicitacao.html?id=${solicitacao.id}`;
+    });
 });

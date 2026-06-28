@@ -96,6 +96,7 @@
                                 </label>
                                 <input type="text" class="form-control campo-entrada" id="valorPersonalizado"
                                     placeholder="R$ 0,00">
+                                <div class="invalid-feedback">Informe um valor maior que R$ 0,00.</div>
                             </div>
 
                             <h2 class="titulo-painel-contribuicao">Informacoes de pagamento</h2>
@@ -133,11 +134,6 @@
                                 <i class="bi bi-shield-lock"></i>
                                 Pagamento simulado com registro seguro da contribuicao.
                             </p>
-
-                            <button class="btn botao-confirmar-doacao w-100 py-2" type="submit">
-                                Confirmar Doacao
-                                <i class="bi bi-heart-fill ms-2"></i>
-                            </button>
                         </form>
                     </div>
 
@@ -178,6 +174,12 @@
                                     <div class="preenchimento-progresso" id="barraCampanha"></div>
                                 </div>
                             </div>
+
+                            <button class="btn botao-confirmar-doacao w-100 py-2 mt-4" type="submit"
+                                form="formContribuicao" id="confirmarBtn">
+                                Confirmar Doacao
+                                <i class="bi bi-heart-fill ms-2"></i>
+                            </button>
 
                             <div class="caixa-impacto mt-4">
                                 <i class="bi bi-check-circle-fill"></i>
@@ -233,7 +235,9 @@
     <script src="../../assets/js/api/api-config.js"></script>
     <script src="../../assets/js/api/auth-service.js"></script>
     <script src="../../assets/js/api/campanha-service.js"></script>
+    <script src="../../assets/js/api/solicitacao-service.js"></script>
     <script src="../../assets/js/api/contribuicao-service.js"></script>
+    <script src="../../assets/js/api/aviso-service.js"></script>
     <script src="../../assets/js/contribuicao/realizar-contribuicao.js"></script>
 </body>
 

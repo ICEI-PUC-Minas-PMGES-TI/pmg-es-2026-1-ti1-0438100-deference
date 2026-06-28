@@ -17,5 +17,11 @@ async function registrarContribuicao(
             }
         );
 
+    if (!resposta.ok) {
+        throw new Error(
+            "Erro ao registrar contribuicao"
+        );
+    }
+
     return await resposta.json();
 }

@@ -1,208 +1,218 @@
-// Guarda em qual etapa o usuário está
-var etapaAtual = 1;
-
-// ── Avança para a próxima etapa ──
-function avancar(proximaEtapa) {
-
-  // Valida os campos da etapa atual antes de avançar
-  var valido = validar(etapaAtual);
-
-  if (valido == false) {
-    return; // Para aqui se tiver campo vazio
-  }
-
-  // Esconde a etapa atual
-  document.getElementById('etapa-' + etapaAtual).classList.add('escondido');
-
-  // Marca o passo atual como concluído
-  document.getElementById('passo-' + etapaAtual).classList.remove('ativo');
-  document.getElementById('passo-' + etapaAtual).classList.add('concluido');
-
-  // Pinta a linha entre os passos
-  document.getElementById('linha-' + etapaAtual).classList.add('ativa');
-
-  // Atualiza a variável
-  etapaAtual = proximaEtapa;
-
-  // Mostra a nova etapa
-  document.getElementById('etapa-' + etapaAtual).classList.remove('escondido');
-
-  // Marca o novo passo como ativo
-  document.getElementById('passo-' + etapaAtual).classList.add('ativo');
+﻿function obterUsuarioSessao() {
+    try {
+        return typeof obterSessao === 'function'
+            ? obterSessao()
+            : JSON.parse(localStorage.getItem('usuarioSessao'));
+    } catch (_) {
+        return null;
+    }
 }
 
-// ── Volta para a etapa anterior ──
-function voltar(etapaAnterior) {
-
-  // Esconde a etapa atual
-  document.getElementById('etapa-' + etapaAtual).classList.add('escondido');
-
-  // Remove o ativo do passo atual
-  document.getElementById('passo-' + etapaAtual).classList.remove('ativo');
-
-  // Remove a linha ativa da etapa anterior
-  document.getElementById('linha-' + etapaAnterior).classList.remove('ativa');
-
-  // Atualiza a variável
-  etapaAtual = etapaAnterior;
-
-  // Mostra a etapa anterior
-  document.getElementById('etapa-' + etapaAtual).classList.remove('escondido');
-
-  // Volta o passo para ativo (remove concluido)
-  document.getElementById('passo-' + etapaAtual).classList.remove('concluido');
-  document.getElementById('passo-' + etapaAtual).classList.add('ativo');
+function normalizarTelefone(telefone) {
+    return String(telefone || '').replace(/\D/g, '');
 }
 
-// ── Validação dos campos de cada etapa ──
-function validar(etapa) {
-  var valido = true;
+function aplicarMascaraTelefone(valor) {
+    const digitos = normalizarTelefone(valor).slice(0, 11);
 
-  if (etapa == 1) {
-    var campanha = document.getElementById('campanha');
-    var erroCampanha = document.getElementById('erro-campanha');
-
-    if (campanha.value == '') {
-      campanha.classList.add('campo-erro');
-      erroCampanha.textContent = 'Selecione uma campanha para continuar.';
-      valido = false;
-    } else {
-      campanha.classList.remove('campo-erro');
-      erroCampanha.textContent = '';
-    }
-  }
-
-  if (etapa == 2) {
-    var nome = document.getElementById('nome');
-    var erroNome = document.getElementById('erro-nome');
-
-    if (nome.value.trim() == '') {
-      nome.classList.add('campo-erro');
-      erroNome.textContent = 'Digite seu nome completo.';
-      valido = false;
-    } else {
-      nome.classList.remove('campo-erro');
-      erroNome.textContent = '';
+    if (digitos.length <= 10) {
+        return digitos
+            .replace(/(\d{2})(\d)/, '($1) $2')
+            .replace(/(\d{4})(\d)/, '$1-$2');
     }
 
-    var telefone = document.getElementById('telefone');
-    var erroTelefone = document.getElementById('erro-telefone');
-
-    if (telefone.value.trim() == '') {
-      telefone.classList.add('campo-erro');
-      erroTelefone.textContent = 'Digite seu telefone para contato.';
-      valido = false;
-    } else {
-      telefone.classList.remove('campo-erro');
-      erroTelefone.textContent = '';
-    }
-
-    var endereco = document.getElementById('endereco');
-    var erroEndereco = document.getElementById('erro-endereco');
-
-    if (endereco.value.trim() == '') {
-      endereco.classList.add('campo-erro');
-      erroEndereco.textContent = 'Digite seu endereço completo.';
-      valido = false;
-    } else {
-      endereco.classList.remove('campo-erro');
-      erroEndereco.textContent = '';
-    }
-  }
-
-  return valido;
+    return digitos
+        .replace(/(\d{2})(\d)/, '($1) $2')
+        .replace(/(\d{5})(\d)/, '$1-$2');
 }
 
-// ── Máscara de telefone ──
-document.getElementById('telefone').addEventListener('input', function() {
-  var v = this.value.replace(/\D/g, '');
+function validarTelefone(telefone) {
+    const qtd = normalizarTelefone(telefone).length;
+    return qtd === 10 || qtd === 11;
+}
 
-  if (v.length > 11) {
-    v = v.slice(0, 11);
-  }
+function exibirAlerta(id, mensagem) {
+    const alerta = document.getElementById(id);
+    alerta.textContent = mensagem;
+    alerta.classList.remove('d-none');
+}
 
-  if (v.length >= 7) {
-    v = '(' + v.slice(0, 2) + ') ' + v.slice(2, 7) + '-' + v.slice(7);
-  } else if (v.length >= 3) {
-    v = '(' + v.slice(0, 2) + ') ' + v.slice(2);
-  } else if (v.length > 0) {
-    v = '(' + v;
-  }
+function ocultarAlertas() {
+    document.getElementById('alertaSolicitacao').classList.add('d-none');
+    document.getElementById('sucessoSolicitacao').classList.add('d-none');
+}
 
-  this.value = v;
+function marcarInvalido(elemento, mensagem) {
+    elemento.classList.add('is-invalid');
+
+    const feedback = elemento.parentElement.querySelector('.invalid-feedback') || elemento.nextElementSibling;
+    if (feedback && feedback.classList.contains('invalid-feedback')) {
+        feedback.textContent = mensagem;
+    }
+}
+
+function limparValidacoes(form) {
+    Array.from(form.querySelectorAll('.is-invalid')).forEach((campo) => {
+        campo.classList.remove('is-invalid');
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('formCriarSolicitacao');
+    const telefone = document.getElementById('contatoTelefone');
+    const usuarioSessao = obterUsuarioSessao();
+
+    if (!usuarioSessao) {
+        window.location.href = '../cadastro/cadastro.html';
+        return;
+    }
+
+    telefone.addEventListener('input', () => {
+        telefone.value = aplicarMascaraTelefone(telefone.value);
+        telefone.classList.remove('is-invalid');
+    });
+
+    form.addEventListener('submit', async (evento) => {
+        evento.preventDefault();
+        ocultarAlertas();
+        limparValidacoes(form);
+
+        const usuario = obterUsuarioSessao();
+
+        if (!usuario) {
+            exibirAlerta('alertaSolicitacao', 'Voce precisa estar logado para criar uma solicitacao.');
+            return;
+        }
+
+        const campos = {
+            tipoSolicitacao: document.getElementById('tipoSolicitacao'),
+            categoriaAjuda: document.getElementById('categoriaAjuda'),
+            titulo: document.getElementById('tituloSolicitacao'),
+            descricaoResumo: document.getElementById('descricaoResumo'),
+            descricaoCompleta: document.getElementById('descricaoCompleta'),
+            local: document.getElementById('localSolicitacao'),
+            urgencia: document.getElementById('urgenciaSolicitacao'),
+            linkFoto: document.getElementById('linkFoto'),
+            linkDocumento: document.getElementById('linkDocumento'),
+            contatoNome: document.getElementById('contatoNome'),
+            contatoTelefone: document.getElementById('contatoTelefone'),
+            contatoEmail: document.getElementById('contatoEmail')
+        };
+
+        let valido = true;
+
+        if (!campos.tipoSolicitacao.value) {
+            marcarInvalido(campos.tipoSolicitacao, 'Selecione o tipo da solicitacao.');
+            valido = false;
+        }
+
+        if (!campos.categoriaAjuda.value) {
+            marcarInvalido(campos.categoriaAjuda, 'Selecione a categoria.');
+            valido = false;
+        }
+
+        if (campos.titulo.value.trim().length < 6) {
+            marcarInvalido(campos.titulo, 'Informe um titulo com pelo menos 6 caracteres.');
+            valido = false;
+        }
+
+        if (campos.descricaoResumo.value.trim().length < 15) {
+            marcarInvalido(campos.descricaoResumo, 'Informe um resumo com pelo menos 15 caracteres.');
+            valido = false;
+        }
+
+        if (campos.descricaoCompleta.value.trim().length < 40) {
+            marcarInvalido(campos.descricaoCompleta, 'Informe uma descricao completa com pelo menos 40 caracteres.');
+            valido = false;
+        }
+
+        if (!campos.local.value.trim()) {
+            marcarInvalido(campos.local, 'Informe o local da solicitacao.');
+            valido = false;
+        }
+
+        if (!campos.urgencia.value) {
+            marcarInvalido(campos.urgencia, 'Selecione a urgencia.');
+            valido = false;
+        }
+
+        if (!campos.contatoNome.value.trim()) {
+            marcarInvalido(campos.contatoNome, 'Informe o nome de contato.');
+            valido = false;
+        }
+
+        if (!validarTelefone(campos.contatoTelefone.value)) {
+            marcarInvalido(campos.contatoTelefone, 'Informe um telefone valido.');
+            valido = false;
+        }
+
+        if (!campos.contatoEmail.checkValidity()) {
+            marcarInvalido(campos.contatoEmail, 'Informe um e-mail valido.');
+            valido = false;
+        }
+
+        if (campos.linkFoto.value && !campos.linkFoto.checkValidity()) {
+            marcarInvalido(campos.linkFoto, 'Informe uma URL valida para foto.');
+            valido = false;
+        }
+
+        if (campos.linkDocumento.value && !campos.linkDocumento.checkValidity()) {
+            marcarInvalido(campos.linkDocumento, 'Informe uma URL valida para documento.');
+            valido = false;
+        }
+
+        if (!valido) {
+            exibirAlerta('alertaSolicitacao', 'Corrija os campos destacados antes de enviar.');
+            return;
+        }
+
+        const now = new Date().toISOString();
+
+        const payload = {
+            titulo: campos.titulo.value.trim(),
+            tipoSolicitacao: campos.tipoSolicitacao.value,
+            status: 'em_analise',
+            descricaoResumo: campos.descricaoResumo.value.trim(),
+            descricaoCompleta: campos.descricaoCompleta.value.trim(),
+            local: campos.local.value.trim(),
+            categoriaAjuda: campos.categoriaAjuda.value,
+            urgencia: campos.urgencia.value,
+            documentos: campos.linkDocumento.value ? [campos.linkDocumento.value.trim()] : [],
+            fotos: campos.linkFoto.value ? [campos.linkFoto.value.trim()] : [],
+            contatoNome: campos.contatoNome.value.trim(),
+            contatoTelefone: campos.contatoTelefone.value.trim(),
+            contatoEmail: campos.contatoEmail.value.trim().toLowerCase(),
+            criadorId: usuario.id,
+            criadorNome: usuario.nome,
+            criadoEm: now,
+            atualizadoEm: now,
+            campanhaId: null
+        };
+
+        try {
+            const solicitacaoCriada = await SolicitacaoService.criar(payload);
+
+            if (typeof AvisoService !== 'undefined') {
+                await AvisoService.criar({
+                    tipo: 'criacao_solicitacao',
+                    titulo: 'Nova solicitacao criada',
+                    descricao: `${solicitacaoCriada.titulo} (${solicitacaoCriada.id})`,
+                    referenciaTipo: 'solicitacao',
+                    referenciaId: solicitacaoCriada.id,
+                    criadoEm: new Date().toISOString()
+                });
+            }
+
+            document.getElementById('sucessoSolicitacao').textContent = 'Solicitacao enviada com sucesso! Status inicial: Em Analise.';
+            document.getElementById('sucessoSolicitacao').classList.remove('d-none');
+            form.reset();
+
+            setTimeout(() => {
+                window.location.href = './solicitacoes.html';
+            }, 900);
+        } catch (erro) {
+            console.error(erro);
+            exibirAlerta('alertaSolicitacao', 'Nao foi possivel enviar a solicitacao agora.');
+        }
+    });
 });
-
-// ── Enviar o formulário ──
-function enviar() {
-  var familia = document.getElementById('familia');
-  var erroFamilia = document.getElementById('erro-familia');
-  var motivo = document.getElementById('motivo');
-  var erroMotivo = document.getElementById('erro-motivo');
-  var valido = true;
-
-  if (familia.value.trim() == '') {
-    familia.classList.add('campo-erro');
-    erroFamilia.textContent = 'Informe o número de pessoas na família.';
-    valido = false;
-  } else {
-    familia.classList.remove('campo-erro');
-    erroFamilia.textContent = '';
-  }
-
-  if (motivo.value.trim() == '') {
-    motivo.classList.add('campo-erro');
-    erroMotivo.textContent = 'Conte-nos o motivo da sua solicitação.';
-    valido = false;
-  } else {
-    motivo.classList.remove('campo-erro');
-    erroMotivo.textContent = '';
-  }
-
-  if (valido == false) {
-    return;
-  }
-
-  // Mostra o toast de sucesso
-  var toast = document.getElementById('toast');
-  toast.classList.add('show');
-
-  setTimeout(function() {
-    toast.classList.remove('show');
-  }, 3500);
-
-  // Limpa o formulário e volta para etapa 1
-  setTimeout(function() {
-    limpar();
-  }, 500);
-}
-
-// ── Limpar tudo e voltar ao início ──
-function limpar() {
-  // Limpa os valores
-  document.getElementById('campanha').value = '';
-  document.getElementById('nome').value = '';
-  document.getElementById('telefone').value = '';
-  document.getElementById('endereco').value = '';
-  document.getElementById('familia').value = '';
-  document.getElementById('motivo').value = '';
-
-  // Remove bordas de erro
-  var campos = ['campanha', 'nome', 'telefone', 'endereco', 'familia', 'motivo'];
-  for (var i = 0; i < campos.length; i++) {
-    document.getElementById(campos[i]).classList.remove('campo-erro');
-  }
-
-  // Esconde etapa atual e mostra etapa 1
-  document.getElementById('etapa-' + etapaAtual).classList.add('escondido');
-  document.getElementById('etapa-1').classList.remove('escondido');
-
-  // Reseta a barra de progresso
-  document.getElementById('passo-1').classList.remove('concluido');
-  document.getElementById('passo-1').classList.add('ativo');
-  document.getElementById('passo-2').classList.remove('ativo', 'concluido');
-  document.getElementById('passo-3').classList.remove('ativo', 'concluido');
-  document.getElementById('linha-1').classList.remove('ativa');
-  document.getElementById('linha-2').classList.remove('ativa');
-
-  etapaAtual = 1;
-}

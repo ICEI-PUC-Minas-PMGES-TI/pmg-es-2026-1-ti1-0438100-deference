@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/index.css" />
+    <link rel="stylesheet" href="../../assets/css/campanha/detalhe-atualizacao.css" />
+    <title>Solidariza - Detalhe da Atualização</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html">
+                    <span class="icone-marca"><i class="bi bi-heart-fill text-white"></i></span>
+                    <span class="nome-marca fw-semibold">Solidariza</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-4">
+        <a id="linkVoltarAtualizacao" href="./campanhas.html" class="link-voltar"><i class="bi bi-arrow-left"></i> Voltar</a>
+
+        <article class="card-detalhe-atualizacao">
+            <header class="cabecalho-atualizacao">
+                <span id="tagTipoAtualizacao" class="tag-tipo">Atualização</span>
+                <h1 id="tituloAtualizacaoDetalhe">Carregando...</h1>
+                <p id="metaAtualizacaoDetalhe" class="meta-atualizacao">--</p>
+            </header>
+
+            <section>
+                <h2>Resumo</h2>
+                <p id="resumoAtualizacaoDetalhe"></p>
+            </section>
+
+            <section>
+                <h2>Descrição completa</h2>
+                <p id="descricaoAtualizacaoDetalhe"></p>
+            </section>
+
+            <section class="grid-info-adicional" id="gridInfoAtualizacao"></section>
+        </article>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/api/api-config.js"></script>
+    <script src="../../assets/js/api/auth-service.js"></script>
+    <script src="../../assets/js/api/campanha-service.js"></script>
+    <script src="../../assets/js/api/atualizacao-service.js"></script>
+    <script src="../../assets/js/campanha/detalhe-atualizacao.js"></script>
+</body>
+
+</html>

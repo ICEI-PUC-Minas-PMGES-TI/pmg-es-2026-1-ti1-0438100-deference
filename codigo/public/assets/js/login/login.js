@@ -2,6 +2,19 @@ document.addEventListener(
     "DOMContentLoaded",
     () => {
 
+        const usuarioSessao =
+            typeof obterSessao === "function"
+                ? obterSessao()
+                : null;
+
+        if (usuarioSessao) {
+            window.location.href =
+                usuarioSessao.perfil === "admin"
+                    ? "../administrador/dashboard-admin.html"
+                    : "../index.html";
+            return;
+        }
+
         const form =
             document.getElementById(
                 "formLogin"
@@ -54,5 +67,7 @@ async function realizarLogin(evento) {
     );
 
     window.location.href =
-        "../index.html";
+        usuario.perfil === "admin"
+            ? "../administrador/dashboard-admin.html"
+            : "../index.html";
 }

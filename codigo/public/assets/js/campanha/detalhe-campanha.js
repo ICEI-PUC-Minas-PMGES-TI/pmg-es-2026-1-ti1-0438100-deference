@@ -19,6 +19,59 @@ function formatarData(dataISO) {
     return data.toLocaleDateString('pt-BR');
 }
 
+function formatarDataHora(dataISO) {
+    if (!dataISO) return 'Sem data';
+    const data = new Date(dataISO);
+    if (isNaN(data.getTime())) return dataISO;
+
+    return data.toLocaleString('pt-BR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+}
+
+async function renderizarAtualizacoes(campanhaId) {
+    const lista = document.getElementById('listaAtualizacoesCampanha');
+    if (!lista) return;
+
+    try {
+        const atualizacoes = await AtualizacaoService.listarPorCampanha(campanhaId);
+        lista.innerHTML = '';
+
+        if (!atualizacoes.length) {
+            lista.innerHTML = '<p class="texto-vazio-atualizacao">Sem atualizações registradas até o momento.</p>';
+            return;
+        }
+
+        atualizacoes
+            .sort((a, b) => new Date(b.criadoEm || b.dataOcorrencia || 0) - new Date(a.criadoEm || a.dataOcorrencia || 0))
+            .forEach((atualizacao) => {
+                const item = document.createElement('button');
+                item.type = 'button';
+                item.className = 'item-linha-tempo item-linha-tempo-acao';
+                item.innerHTML = `
+                    <div class="status-icone verde">✓</div>
+                    <div class="conteudo-linha-tempo">
+                        <span class="data-linha-tempo">${formatarDataHora(atualizacao.criadoEm || atualizacao.dataOcorrencia)}</span>
+                        <p><strong>${atualizacao.titulo || 'Atualização'}</strong> - ${(atualizacao.resumo || '').slice(0, 120)}</p>
+                    </div>
+                `;
+
+                item.addEventListener('click', () => {
+                    window.location.href = `./detalhe-atualizacao.html?id=${atualizacao.id}`;
+                });
+
+                lista.appendChild(item);
+            });
+    } catch (erro) {
+        console.error('Erro ao carregar atualizacoes:', erro);
+        lista.innerHTML = '<p class="texto-vazio-atualizacao text-danger">Nao foi possivel carregar as atualizacoes desta campanha.</p>';
+    }
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     const params = new URLSearchParams(window.location.search);
     const campanhaId = params.get('id');
@@ -71,9 +124,28 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('detalhe-painel-pessoas-doaram').innerText = 
             '\ud83d\udc64 ' + doadores + ' pessoas j\u00e1 doaram';
 
-        // Botao Doar agora - redireciona para realizar-contribuicao.html
+        await renderizarAtualizacoes(campanhaId);
+
+        // Botao Doar agora - redireciona conforme sessao
         const btnDoar = document.getElementById('btnFazerDoacao');
-        btnDoar.href = '../contribuicao/realizar-contribuicao.html?id=' + campanhaId;
+        btnDoar.addEventListener('click', function (evento) {
+            evento.preventDefault();
+
+            let usuarioSessao = null;
+
+            try {
+                usuarioSessao = JSON.parse(localStorage.getItem('usuarioSessao'));
+            } catch (_) {
+                usuarioSessao = null;
+            }
+
+            if (usuarioSessao) {
+                window.location.href = '../contribuicao/realizar-contribuicao.html?id=' + campanhaId;
+                return;
+            }
+
+            window.location.href = '../cadastro/cadastro.html';
+        });
 
         // Botao Compartilhar
         const btnCompartilhar = document.getElementById('btnCompartilharLink');

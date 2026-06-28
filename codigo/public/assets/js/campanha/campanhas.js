@@ -13,6 +13,40 @@ function acheImagem(categoria) {
 }
 
 const gradeCampanhas = document.getElementById('grade-campanhas');
+
+function obterUsuarioSessaoLista() {
+    try {
+        return typeof obterSessao === 'function'
+            ? obterSessao()
+            : JSON.parse(localStorage.getItem('usuarioSessao'));
+    } catch (_) {
+        return null;
+    }
+}
+
+function campanhaPertenceAoUsuario(campanha, usuario) {
+    if (!campanha || !usuario) return false;
+
+    if (Number(campanha.criadorId) === Number(usuario.id)) return true;
+    if (campanha.email && usuario.email && String(campanha.email).toLowerCase() === String(usuario.email).toLowerCase()) return true;
+
+    return false;
+}
+
+function configurarBotaoMinhasCampanhas(campanhas) {
+    const btnMinhasCampanhas = document.getElementById('btnMinhasCampanhas');
+    if (!btnMinhasCampanhas) return;
+
+    const usuario = obterUsuarioSessaoLista();
+    if (!usuario) {
+        btnMinhasCampanhas.classList.add('d-none');
+        return;
+    }
+
+    const possuiCampanha = campanhas.some(campanha => campanhaPertenceAoUsuario(campanha, usuario));
+    btnMinhasCampanhas.classList.toggle('d-none', !possuiCampanha);
+}
+
 function iniciarApp() {
     function obterCartoes() {
         return document.querySelectorAll('.cartao');
@@ -311,6 +345,8 @@ window.addEventListener('DOMContentLoaded', async () => {
     try {
 
         const campanhas = await CampanhaService.listar();
+
+        configurarBotaoMinhasCampanhas(campanhas);
 
         campanhas.forEach(campanha => {
             adicionarCampanhaNaTela(campanha);

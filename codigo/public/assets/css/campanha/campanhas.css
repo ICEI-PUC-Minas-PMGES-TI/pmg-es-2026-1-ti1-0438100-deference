@@ -130,6 +130,21 @@ body {
     background-color: #1b5e20;
 }
 
+.grupo-acoes-campanha {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+#btnMinhasCampanhas {
+    background: #e8652a;
+}
+
+#btnMinhasCampanhas:hover {
+    background: #d85b22;
+}
+
 #painel-estatisticas {
     display: flex;
     gap: 20px;

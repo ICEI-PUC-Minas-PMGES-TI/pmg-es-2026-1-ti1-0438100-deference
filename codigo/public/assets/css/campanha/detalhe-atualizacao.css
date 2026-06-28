@@ -1,0 +1,84 @@
+.link-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #2e7d32;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.link-voltar:hover {
+    color: #1b5e20;
+    text-decoration: underline;
+}
+
+.card-detalhe-atualizacao {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.cabecalho-atualizacao h1 {
+    margin: 8px 0 0;
+    font-size: 32px;
+    color: #111827;
+}
+
+.meta-atualizacao {
+    margin: 8px 0 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.tag-tipo {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 4px 10px;
+    color: #1d4ed8;
+    background: #dbeafe;
+}
+
+.card-detalhe-atualizacao h2 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    color: #111827;
+}
+
+.card-detalhe-atualizacao p {
+    margin: 0;
+    color: #374151;
+    line-height: 1.65;
+}
+
+.grid-info-adicional {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+.card-info {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: #f9fafb;
+    padding: 12px;
+}
+
+.card-info h3 {
+    margin: 0 0 6px;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.card-info p {
+    margin: 0;
+    font-size: 15px;
+    color: #111827;
+    font-weight: 600;
+}

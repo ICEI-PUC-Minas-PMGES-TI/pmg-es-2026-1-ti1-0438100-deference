@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios Admin | Solidariza</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/index.css" />
+    <link rel="stylesheet" href="../../assets/css/administrador/admin.css" />
+</head>
+<body>
+    <header><nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2 admin-topbar"><div class="container-fluid"><a class="navbar-brand d-flex align-items-center gap-2" href="../index.html"><span class="icone-marca"><i class="bi bi-heart-fill text-white"></i></span><span class="nome-marca fw-semibold">Solidariza</span></a><button class="navbar-toggler border-0 d-lg-none" type="button" id="btnToggleSidebar"><i class="bi bi-list"></i></button><div class="collapse navbar-collapse"><ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3 mt-3 mt-lg-0"><li class="nav-item"><a class="nav-link texto-nav" id="linkPerfilAdmin" href="../perfil/perfil.html"><i class="bi bi-person-circle me-1"></i><span id="nomeAdminNav">Admin</span></a></li><li class="nav-item"><a class="btn botao-sair px-3 py-2" href="#" id="btnSairAdmin"><i class="bi bi-box-arrow-right me-1"></i>Sair</a></li></ul></div></div></nav></header>
+
+    <div class="admin-layout">
+        <div class="admin-sidebar-wrapper" id="sidebarWrapper"><aside class="admin-sidebar" id="sidebar"><button class="btn btn-sm d-lg-none mb-2" id="btnCloseSidebar" type="button"><i class="bi bi-x-lg"></i></button><nav><a class="sidebar-link" data-menu="dashboard" href="./dashboard-admin.html"><i class="bi bi-graph-up"></i>Dashboard</a><a class="sidebar-link" data-menu="solicitacoes" href="./solicitacoes-admin.html"><i class="bi bi-inboxes"></i>Solicitacoes</a><a class="sidebar-link" data-menu="campanhas" href="./campanhas-admin.html"><i class="bi bi-megaphone"></i>Campanhas</a><a class="sidebar-link active" data-menu="usuarios" href="./usuarios-admin.html"><i class="bi bi-people"></i>Usuarios</a><a class="sidebar-link" data-menu="avisos" href="./avisos-admin.html"><i class="bi bi-bell"></i>Avisos</a></nav></aside></div>
+        <div class="admin-sidebar-overlay" id="sidebarOverlay"></div>
+
+        <main class="admin-main">
+            <section class="admin-page-header mb-3"><h1>Usuarios</h1><p>Supervisione usuarios cadastrados e registre novos administradores.</p></section>
+            <section class="row g-3">
+                <div class="col-12 col-xl-7">
+                    <div class="admin-card"><div class="card-body"><div class="admin-toolbar mb-2"><input id="buscaUsuariosAdmin" class="form-control form-control-sm" placeholder="Buscar por nome ou e-mail" /></div><div id="listaUsuariosAdmin" class="admin-table-wrap"></div></div></div>
+                </div>
+                <div class="col-12 col-xl-5">
+                    <div class="admin-card"><div class="card-body">
+                        <h2 class="h6">Cadastro de administrador</h2>
+                        <p class="mb-3 text-muted">Use a pagina dedicada para cadastrar novos administradores com o mesmo formulario do cadastro comum.</p>
+                        <a class="btn btn-success w-100" href="./cadastrar-admin.html">Ir para Cadastro de Admin</a>
+                    </div></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="modal fade" id="modalUsuarioAdmin" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Detalhes do usuario</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body" id="detalheUsuarioAdmin"></div><div class="modal-footer"><button class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button></div></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/api/api-config.js"></script>
+    <script src="../../assets/js/api/auth-service.js"></script>
+    <script src="../../assets/js/api/usuario-service.js"></script>
+    <script src="../../assets/js/api/aviso-service.js"></script>
+    <script src="../../assets/js/administrador/admin-common.js"></script>
+    <script src="../../assets/js/administrador/usuarios-admin.js"></script>
+</body>
+</html>

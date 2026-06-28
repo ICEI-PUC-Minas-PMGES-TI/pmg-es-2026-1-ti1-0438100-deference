@@ -1,0 +1,87 @@
+.link-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #2e7d32;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.link-voltar:hover {
+    text-decoration: underline;
+    color: #1b5e20;
+}
+
+.painel-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.painel-titulo h1 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 32px;
+}
+
+.painel-titulo p {
+    margin: 8px 0 0;
+    color: #6b7280;
+}
+
+.grid-minhas-campanhas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.card-minha-campanha {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #fff;
+    padding: 16px;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card-minha-campanha:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.tag-categoria {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #0f766e;
+    background: #ccfbf1;
+    border-radius: 999px;
+    padding: 4px 10px;
+}
+
+.titulo-campanha {
+    margin: 0 0 8px;
+    font-size: 18px;
+    color: #111827;
+}
+
+.resumo-campanha {
+    margin: 0;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.meta-campanha {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #374151;
+}
+
+.texto-vazio {
+    margin: 0;
+    color: #6b7280;
+    font-size: 14px;
+}

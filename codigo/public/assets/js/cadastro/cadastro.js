@@ -53,10 +53,7 @@ async function cadastrarUsuario(evento) {
     const confirmarSenha =
         document.getElementById("confirmarSenha").value;
 
-    const perfil =
-        document.querySelector(
-            'input[name="perfil"]:checked'
-        ).value;
+    const perfil = "usuario";
 
     if (!validarCPF(documento)) {
         exibirErro("Informe um CPF valido.");
@@ -135,6 +132,17 @@ async function cadastrarUsuario(evento) {
             await criarUsuario(
                 usuario
             );
+
+        if (typeof AvisoService !== "undefined") {
+            await AvisoService.criar({
+                tipo: "cadastro_usuario",
+                titulo: "Novo usuario cadastrado",
+                descricao: `${usuarioCriado.nome} (${usuarioCriado.email})`,
+                referenciaTipo: "usuario",
+                referenciaId: usuarioCriado.id,
+                criadoEm: new Date().toISOString()
+            });
+        }
 
         salvarSessao(
             usuarioCriado

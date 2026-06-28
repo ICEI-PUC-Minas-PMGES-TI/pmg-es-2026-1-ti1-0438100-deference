@@ -162,6 +162,19 @@
     display: flex;
     gap: 14px;
 }
+.item-linha-tempo-acao {
+    width: 100%;
+    border: 1px solid #edf2f7;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 12px;
+    text-align: left;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.item-linha-tempo-acao:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
 .status-icone {
     width: 28px;
     height: 28px;
@@ -185,6 +198,11 @@
     color: #555;
     margin: 0;
     line-height: 1.5;
+}
+.texto-vazio-atualizacao {
+    color: #6c757d;
+    font-size: 14px;
+    margin: 0;
 }
 .coluna-direita {
     position: sticky;
