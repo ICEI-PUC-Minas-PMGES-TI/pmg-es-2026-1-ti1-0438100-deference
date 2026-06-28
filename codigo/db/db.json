@@ -84,8 +84,8 @@
       "solicitacaoId": 9,
       "criadorId": 5,
       "criadorNome": "Roberta Lima",
-      "arrecadado": 300,
-      "doadores": 2,
+      "arrecadado": 800,
+      "doadores": 3,
       "criadoEm": "2026-06-11T11:40:00.000Z"
     },
     {
@@ -323,6 +323,18 @@
         "nomeTitular": "Carla Mendes"
       },
       "id": 18
+    },
+    {
+      "campanhaId": 4,
+      "usuarioId": 2,
+      "valor": 500,
+      "criadoEm": "2026-06-28T21:18:57.799Z",
+      "pagamento": {
+        "cartaoFinal": "2950",
+        "validade": "06/28",
+        "nomeTitular": "Frederico Marcos de Paula Marques"
+      },
+      "id": 19
     }
   ],
   "usuarios": [
@@ -947,11 +959,20 @@
     {
       "tipo": "contribuicao_realizada",
       "titulo": "Nova contribuicao registrada",
-      "descricao": "R$�50,00 para campanha Reforço Escolar no Bairro Rosário",
+      "descricao": "R$ 50,00 para campanha Reforço Escolar no Bairro Rosário",
       "referenciaTipo": "campanha",
       "referenciaId": 1,
       "criadoEm": "2026-06-28T20:40:07.160Z",
       "id": 11
+    },
+    {
+      "tipo": "contribuicao_realizada",
+      "titulo": "Nova contribuicao registrada",
+      "descricao": "R$ 500,00 para campanha Reforma Emergencial de Moradias",
+      "referenciaTipo": "campanha",
+      "referenciaId": 4,
+      "criadoEm": "2026-06-28T21:18:57.883Z",
+      "id": 12
     }
   ]
 }

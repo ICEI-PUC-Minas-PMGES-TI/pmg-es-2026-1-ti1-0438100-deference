@@ -57,7 +57,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('tituloCampanhaAdmin').textContent = campanha.titulo || 'Campanha';
         document.getElementById('subtituloCampanhaAdmin').textContent = `Categoria ${campanha.categoria || 'Não informada'} | Urgencia ${campanha.urgencia || 'media'}`;
 
-        document.getElementById('btnNovaAtualização').href = `./criar-atualizacao.html?campanhaId=${campanha.id}`;
+        const btnNovaAtualizacao = document.getElementById('btnNovaAtualizacao');
+        if (btnNovaAtualizacao) {
+            btnNovaAtualizacao.href = `./criar-atualizacao.html?campanhaId=${campanha.id}`;
+        }
 
         const painelInfos = document.getElementById('painelInfosCampanha');
         painelInfos.innerHTML = `

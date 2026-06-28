@@ -36,9 +36,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const campanhaId = params.get('campanhaId');
     const usuario = obterUsuarioSessaoAtualização();
 
-    const form = document.getElementById('formAtualização');
+    const form = document.getElementById('formAtualizacao');
     const valorAplicado = document.getElementById('valorAplicado');
-    const btnCancelar = document.getElementById('btnCancelarAtualização');
+    const btnCancelar = document.getElementById('btnCancelarAtualizacao');
     const linkVoltar = document.getElementById('linkVoltarAdmin');
 
     if (!usuario) {
@@ -88,11 +88,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const payload = {
             campanhaId: Number(campanha.id),
-            titulo: document.getElementById('tituloAtualização').value.trim(),
-            tipo: document.getElementById('tipoAtualização').value,
+            titulo: document.getElementById('tituloAtualizacao').value.trim(),
+            tipo: document.getElementById('tipoAtualizacao').value,
             dataOcorrencia: document.getElementById('dataOcorrencia').value,
-            resumo: document.getElementById('resumoAtualização').value.trim(),
-            detalhes: document.getElementById('detalhesAtualização').value.trim(),
+            resumo: document.getElementById('resumoAtualizacao').value.trim(),
+            detalhes: document.getElementById('detalhesAtualizacao').value.trim(),
             percentualConcluido: document.getElementById('percentualConcluido').value ? Number(document.getElementById('percentualConcluido').value) : null,
             valorAplicado: valorAplicado.value ? moedaParaNumero(valorAplicado.value) : null,
             destinoRecurso: document.getElementById('destinoRecurso').value.trim() || null,
