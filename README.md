@@ -12,9 +12,9 @@ Além disso, o projeto pretende garantir maior confiabilidade no processo, permi
 
 ## Professore(s) responsável(is)
 
-* Diego
-* Lucca
-* Henrique
+* Diego Augusto de Faria Barros
+* Lucca Soares de Paiva Lacerda
+* Henrique Almeida Louzada
 
 ## Contexto
 
